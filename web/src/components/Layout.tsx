@@ -5,8 +5,8 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col">
       <header className="border-b border-[var(--color-border)] bg-[var(--color-bg)] sticky top-0 z-10">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
-          <Link to="/" className="font-extrabold text-lg tracking-tight">
-            Trade<span className="text-[var(--color-primary)]">Pals</span>
+          <Link to="/" className="flex items-center">
+            <img src="/tradepals-logo.png" alt="TradePals" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
           </Link>
           <nav className="flex items-center gap-5 text-sm">
             <NavLink to="/splicepal" className={({ isActive }) => isActive ? 'text-white' : 'text-[var(--color-muted-fg)] hover:text-white'}>
