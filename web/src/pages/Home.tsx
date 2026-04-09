@@ -66,7 +66,7 @@ export default function Home() {
         <ComingSoonCard
           name="PoolPal"
           tagline="AI field companion for pool & spa service techs"
-          accent="#06B6D4"
+          accent="#14B8A6"
           bullets={[
             'Water chemistry & algae photo analysis',
             'Pump, heater & equipment troubleshooting',
