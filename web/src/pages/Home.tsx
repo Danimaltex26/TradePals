@@ -31,7 +31,67 @@ export default function Home() {
             'AWS / API / ASME cert prep',
           ]}
         />
+        <ComingSoonCard
+          name="WindPal"
+          tagline="AI field companion for wind turbine technicians"
+          accent="#22D3EE"
+          bullets={[
+            'Blade damage photo analysis',
+            'Gearbox & generator troubleshooting',
+            'GWO / BZEE cert prep',
+          ]}
+        />
+        <ComingSoonCard
+          name="LiftPal"
+          tagline="AI field companion for elevator & lift technicians"
+          accent="#A855F7"
+          bullets={[
+            'Control board fault diagnosis',
+            'Hoistway inspection checklists',
+            'NAEC / QEI cert prep',
+          ]}
+        />
       </section>
+    </div>
+  )
+}
+
+function ComingSoonCard({
+  name,
+  tagline,
+  bullets,
+  accent,
+}: {
+  name: string
+  tagline: string
+  bullets: string[]
+  accent: string
+}) {
+  return (
+    <div
+      className="block rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 relative opacity-80"
+      aria-disabled="true"
+    >
+      <span
+        className="absolute top-4 right-4 text-[11px] font-bold uppercase tracking-wider px-2 py-1 rounded"
+        style={{ backgroundColor: accent, color: '#0D0D0F' }}
+      >
+        Coming Soon
+      </span>
+      <div className="mb-3 flex items-center" style={{ height: 96, width: 240 }}>
+        <span className="text-3xl font-extrabold" style={{ color: accent }}>
+          {name}
+        </span>
+      </div>
+      <p className="text-[var(--color-muted-fg)] mb-4">{tagline}</p>
+      <ul className="space-y-1 text-sm">
+        {bullets.map((b) => (
+          <li key={b}>• {b}</li>
+        ))}
+      </ul>
+      <div className="mt-5 text-sm font-semibold text-[var(--color-muted)]">
+        In development
+      </div>
     </div>
   )
 }
