@@ -1,10 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
-import { Outlet, NavLink, Link } from 'react-router-dom'
+import { Outlet, NavLink, Link, useLocation } from 'react-router-dom'
 
 export default function Layout() {
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false)
+  }, [location.pathname])
+
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b border-[var(--color-border)] bg-[var(--color-bg)] sticky top-0 z-10">
+      <header className="border-b border-[var(--color-border)] bg-[var(--color-bg)] sticky top-0 z-20">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
           <Link to="/" className="flex items-center">
             <img
@@ -13,13 +21,53 @@ export default function Layout() {
               style={{ height: 43, width: 'auto', objectFit: 'contain' }}
             />
           </Link>
-          <nav className="flex items-center gap-5 text-sm">
+
+          {/* Desktop nav */}
+          <nav className="hidden md:flex items-center gap-5 text-sm">
             <NavItem to="/about">About</NavItem>
             <PalAppsDropdown />
             <NavItem to="/training">Training</NavItem>
             <NavItem to="/signin">Sign In</NavItem>
           </nav>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            className="md:hidden p-2 -mr-2 text-white"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {mobileOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
+
+        {/* Mobile menu panel */}
+        {mobileOpen && (
+          <div className="md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+            <nav className="flex flex-col px-4 py-3 gap-1 text-base">
+              <MobileLink to="/about">About</MobileLink>
+              <div className="px-3 py-2 text-xs uppercase tracking-wider text-[var(--color-muted)]">Pal Apps</div>
+              <MobileLink to="/splicepal" indent>SplicePal</MobileLink>
+              <MobileLink to="/weldpal" indent>WeldPal</MobileLink>
+              <MobileLink to="/training">Training</MobileLink>
+              <MobileLink to="/signin">Sign In</MobileLink>
+            </nav>
+          </div>
+        )}
       </header>
 
       <main className="flex-1">
@@ -85,6 +133,29 @@ function NavItem({ to, children }: { to: string; children: React.ReactNode }) {
       to={to}
       className={({ isActive }) =>
         isActive ? 'text-white' : 'text-[var(--color-muted-fg)] hover:text-white'
+      }
+    >
+      {children}
+    </NavLink>
+  )
+}
+
+function MobileLink({
+  to,
+  indent,
+  children,
+}: {
+  to: string
+  indent?: boolean
+  children: React.ReactNode
+}) {
+  return (
+    <NavLink
+      to={to}
+      className={({ isActive }) =>
+        `${indent ? 'pl-6' : 'px-3'} py-3 rounded-md ${
+          isActive ? 'text-white bg-[var(--color-card)]' : 'text-[var(--color-muted-fg)]'
+        }`
       }
     >
       {children}
