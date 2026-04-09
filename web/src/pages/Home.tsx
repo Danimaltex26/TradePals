@@ -33,6 +33,7 @@ export default function Home() {
         />
         <ComingSoonCard
           name="WindPal"
+          logo="/windpal-logo.png"
           tagline="AI field companion for wind turbine technicians"
           accent="#22D3EE"
           bullets={[
@@ -58,11 +59,13 @@ export default function Home() {
 
 function ComingSoonCard({
   name,
+  logo,
   tagline,
   bullets,
   accent,
 }: {
   name: string
+  logo?: string
   tagline: string
   bullets: string[]
   accent: string
@@ -79,9 +82,13 @@ function ComingSoonCard({
         Coming Soon
       </span>
       <div className="mb-3 flex items-center" style={{ height: 96, width: 240 }}>
-        <span className="text-3xl font-extrabold" style={{ color: accent }}>
-          {name}
-        </span>
+        {logo ? (
+          <img src={logo} alt={name} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+        ) : (
+          <span className="text-3xl font-extrabold" style={{ color: accent }}>
+            {name}
+          </span>
+        )}
       </div>
       <p className="text-[var(--color-muted-fg)] mb-4">{tagline}</p>
       <ul className="space-y-1 text-sm">
