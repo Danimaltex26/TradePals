@@ -29,10 +29,10 @@ export default function SplicePalPrivacy() {
       <h2 className="text-xl font-bold text-white mt-6">Your rights</h2>
       <p>
         You can request deletion of your account and all associated data by emailing{' '}
-        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.com">support@tradepals.com</a>.
+        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>.
       </p>
       <h2 className="text-xl font-bold text-white mt-6">Contact</h2>
-      <p>Questions? Email <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.com">support@tradepals.com</a>.</p>
+      <p>Questions? Email <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>.</p>
     </LegalPage>
   )
 }

@@ -8,7 +8,7 @@ export default function SplicePalSupport() {
       </p>
       <h2 className="text-xl font-bold text-white mt-6">Contact</h2>
       <p>
-        Email: <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.com">support@tradepals.com</a>
+        Email: <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>
       </p>
       <p>We aim to respond within one business day.</p>
       <h2 className="text-xl font-bold text-white mt-6">Frequently asked</h2>

@@ -12,8 +12,8 @@ export default function About() {
       </p>
       <p className="text-[var(--color-muted-fg)] text-lg">
         Questions? Email{' '}
-        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.com">
-          support@tradepals.com
+        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">
+          support@tradepals.net
         </a>
         .
       </p>
