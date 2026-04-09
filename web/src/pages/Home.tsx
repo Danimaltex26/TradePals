@@ -53,6 +53,26 @@ export default function Home() {
             'NAEC / QEI cert prep',
           ]}
         />
+        <ComingSoonCard
+          name="VoltPal"
+          tagline="AI field companion for industrial electricians"
+          accent="#FACC15"
+          bullets={[
+            'Panel & fault photo diagnosis',
+            'NEC code reference & lookups',
+            'Apprentice / journeyman exam prep',
+          ]}
+        />
+        <ComingSoonCard
+          name="PoolPal"
+          tagline="AI field companion for pool & spa service techs"
+          accent="#06B6D4"
+          bullets={[
+            'Water chemistry & algae photo analysis',
+            'Pump, heater & equipment troubleshooting',
+            'CPO (PHTA) cert prep',
+          ]}
+        />
       </section>
     </div>
   )

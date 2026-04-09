@@ -89,7 +89,7 @@ export default function Layout() {
             <div className="text-xs uppercase tracking-wider text-[var(--color-muted)] mb-3">
               Pal Apps
             </div>
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
+            <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
               <div>
                 <div className="font-semibold text-white mb-2">SplicePal</div>
                 <ul className="space-y-1">
@@ -114,6 +114,14 @@ export default function Layout() {
               </div>
               <div>
                 <div className="font-semibold text-white mb-2">LiftPal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">VoltPal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">PoolPal</div>
                 <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
               </div>
             </div>
