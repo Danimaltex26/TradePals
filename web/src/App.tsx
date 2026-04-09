@@ -1,6 +1,8 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
+import About from './pages/About'
+import Training from './pages/Training'
 import SignIn from './pages/SignIn'
 import Account from './pages/Account'
 import NotFound from './pages/NotFound'
@@ -20,6 +22,8 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="training" element={<Training />} />
         <Route path="signin" element={<SignIn />} />
         <Route path="account" element={<Account />} />
 
