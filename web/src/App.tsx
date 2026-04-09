@@ -8,6 +8,7 @@ import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 import SplicePalProduct from './pages/splicepal/Product'
 import SplicePalPrivacy from './pages/splicepal/Privacy'
+import SplicePalTerms from './pages/splicepal/Terms'
 import SplicePalSupport from './pages/splicepal/Support'
 import SplicePalTraining from './pages/splicepal/TrainingIndex'
 import SplicePalArticle from './pages/splicepal/TrainingArticle'
@@ -29,6 +30,7 @@ export default function App() {
 
         <Route path="splicepal" element={<SplicePalProduct />} />
         <Route path="splicepal/privacy" element={<SplicePalPrivacy />} />
+        <Route path="splicepal/terms" element={<SplicePalTerms />} />
         <Route path="splicepal/support" element={<SplicePalSupport />} />
         <Route path="splicepal/training" element={<SplicePalTraining />} />
         <Route path="splicepal/training/:slug" element={<SplicePalArticle />} />
