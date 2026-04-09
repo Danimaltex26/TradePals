@@ -1,0 +1,55 @@
+import type { AppKey } from '../lib/supabase'
+
+export type Article = {
+  slug: string
+  title: string
+  description: string
+  body: string
+}
+
+const splicepalArticles: Article[] = [
+  {
+    slug: 'reading-otdr-traces',
+    title: 'Reading OTDR Traces',
+    description: 'How to interpret events, attenuation, and reflectance on a typical OTDR trace.',
+    body: `An OTDR trace is the fingerprint of a fiber link. The horizontal axis is distance, the vertical axis is signal level in dB. The launch end is at the left, the far end at the right.
+
+Key features to read first:
+- The dead zone immediately after the launch — ignore data inside it.
+- Connector events appear as small reflective spikes followed by a small loss step.
+- Splice events appear as small non-reflective drops.
+- The end-of-fiber event is the final reflective spike (or noise floor).
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
+const weldpalArticles: Article[] = [
+  {
+    slug: 'visual-defects-cheat-sheet',
+    title: 'Visual Defects Cheat Sheet',
+    description: 'Quick reference for the most common surface defects on fillet and groove welds.',
+    body: `Visual inspection catches the majority of weldment problems before NDT is even ordered. The defects you should be able to identify on sight:
+
+- **Undercut** — groove melted into base metal at the toe, not filled.
+- **Overlap** — weld metal flowing past the toe without fusing.
+- **Porosity** — gas pockets in the weld face.
+- **Convexity** — fillet weld face bulging above the leg-to-leg line.
+- **Crater cracks** — star-shaped cracks at the end of a weld pass. Never acceptable per AWS D1.1.
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
+const ARTICLES: Record<AppKey, Article[]> = {
+  splicepal: splicepalArticles,
+  weldpal: weldpalArticles,
+}
+
+export function listArticles(app: AppKey): Article[] {
+  return ARTICLES[app]
+}
+
+export function getArticle(app: AppKey, slug: string): Article | undefined {
+  return ARTICLES[app].find((a) => a.slug === slug)
+}
