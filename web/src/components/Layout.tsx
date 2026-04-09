@@ -27,10 +27,15 @@ export default function Layout() {
       </main>
 
       <footer className="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted-fg)]">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-3">
+        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-5">
           <div>
             <div className="font-bold text-white mb-2">TradePals</div>
             <p>AI field companions for skilled trades.</p>
+            <ul className="space-y-1 mt-3">
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/training">Training</Link></li>
+              <li><Link to="/signin">Sign In</Link></li>
+            </ul>
           </div>
           <div>
             <div className="font-semibold text-white mb-2">SplicePal</div>
@@ -49,6 +54,14 @@ export default function Layout() {
               <li><Link to="/weldpal/support">Support</Link></li>
               <li><Link to="/weldpal/privacy">Privacy</Link></li>
             </ul>
+          </div>
+          <div>
+            <div className="font-semibold text-white mb-2">WindPal</div>
+            <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+          </div>
+          <div>
+            <div className="font-semibold text-white mb-2">LiftPal</div>
+            <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-4 mt-6 text-xs text-[var(--color-muted)]">
