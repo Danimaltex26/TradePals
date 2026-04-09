@@ -55,6 +55,7 @@ export default function Home() {
         />
         <ComingSoonCard
           name="VoltPal"
+          logo="/voltpal-logo.png"
           tagline="AI field companion for industrial electricians"
           accent="#FACC15"
           bullets={[
@@ -65,6 +66,7 @@ export default function Home() {
         />
         <ComingSoonCard
           name="PoolPal"
+          logo="/poolpal-logo.png"
           tagline="AI field companion for pool & spa service techs"
           accent="#14B8A6"
           bullets={[
