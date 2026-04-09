@@ -13,11 +13,13 @@ export default function ProductPage({ app, description, features, appStoreUrl }:
   const cfg = APPS[app]
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <img
-        src={cfg.logo}
-        alt={cfg.name}
-        style={{ height: 96, width: 'auto', objectFit: 'contain', marginBottom: '1rem' }}
-      />
+      <div style={{ height: 120, width: 320, marginBottom: '1rem' }} className="flex items-center">
+        <img
+          src={cfg.logo}
+          alt={cfg.name}
+          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+        />
+      </div>
       <p className="text-xl font-semibold mb-6" style={{ color: cfg.primary }}>
         {cfg.tagline}
       </p>

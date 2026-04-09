@@ -46,11 +46,14 @@ function ProductCard({ appKey, bullets }: { appKey: AppKey; bullets: string[] })
       onMouseEnter={(e) => (e.currentTarget.style.borderColor = app.primary)}
       onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border)')}
     >
-      <div className="h-20 flex items-center mb-3">
+      <div
+        className="mb-3 flex items-center justify-start"
+        style={{ height: 96, width: 240 }}
+      >
         <img
           src={app.logo}
           alt={app.name}
-          style={{ height: 80, width: 'auto', objectFit: 'contain' }}
+          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
         />
       </div>
       <p className="text-[var(--color-muted-fg)] mb-4">{app.tagline}</p>
