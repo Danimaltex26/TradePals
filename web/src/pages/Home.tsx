@@ -44,6 +44,7 @@ export default function Home() {
         />
         <ComingSoonCard
           name="LiftPal"
+          logo="/liftpal-logo.png"
           tagline="AI field companion for elevator & lift technicians"
           accent="#A855F7"
           bullets={[
