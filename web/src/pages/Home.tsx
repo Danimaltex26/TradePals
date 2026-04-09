@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { APPS } from '../content/apps'
+import type { AppKey } from '../lib/supabase'
 
 export default function Home() {
   return (
@@ -14,54 +16,52 @@ export default function Home() {
 
       <section className="grid gap-6 md:grid-cols-2">
         <ProductCard
-          name="SplicePal"
-          tagline="AI assistant for fiber splicers"
+          appKey="splicepal"
           bullets={[
             'OTDR trace analysis',
             'Splice troubleshooting',
             'Reference library + cert prep',
           ]}
-          href="/splicepal"
         />
         <ProductCard
-          name="WeldPal"
-          tagline="AI field companion for welders & CWIs"
+          appKey="weldpal"
           bullets={[
             'Visual weld defect analysis',
             'Troubleshooting guides',
             'AWS / API / ASME cert prep',
           ]}
-          href="/weldpal"
         />
       </section>
     </div>
   )
 }
 
-function ProductCard({
-  name,
-  tagline,
-  bullets,
-  href,
-}: {
-  name: string
-  tagline: string
-  bullets: string[]
-  href: string
-}) {
+function ProductCard({ appKey, bullets }: { appKey: AppKey; bullets: string[] }) {
+  const app = APPS[appKey]
   return (
     <Link
-      to={href}
-      className="block rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 hover:border-[var(--color-primary)] transition-colors"
+      to={`/${appKey}`}
+      className="block rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 transition-colors"
+      style={{ borderColor: 'var(--color-border)' }}
+      onMouseEnter={(e) => (e.currentTarget.style.borderColor = app.primary)}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border)')}
     >
-      <div className="text-2xl font-bold mb-1">{name}</div>
-      <p className="text-[var(--color-muted-fg)] mb-4">{tagline}</p>
+      <div className="h-20 flex items-center mb-3">
+        <img
+          src={app.logo}
+          alt={app.name}
+          style={{ height: 80, width: 'auto', objectFit: 'contain' }}
+        />
+      </div>
+      <p className="text-[var(--color-muted-fg)] mb-4">{app.tagline}</p>
       <ul className="space-y-1 text-sm">
         {bullets.map((b) => (
           <li key={b}>• {b}</li>
         ))}
       </ul>
-      <div className="mt-5 text-sm text-[var(--color-primary)] font-semibold">Learn more →</div>
+      <div className="mt-5 text-sm font-semibold" style={{ color: app.primary }}>
+        Learn more →
+      </div>
     </Link>
   )
 }

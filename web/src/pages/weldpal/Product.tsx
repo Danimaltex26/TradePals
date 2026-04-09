@@ -4,8 +4,6 @@ export default function WeldPalProduct() {
   return (
     <ProductPage
       app="weldpal"
-      name="WeldPal"
-      tagline="AI field companion for welders & CWIs"
       description="Photo-based weld defect analysis, structured troubleshooting, a growing reference library, and certification prep for AWS, API, and ASME welding codes."
       features={[
         'Visual weld defect analysis with Claude vision',

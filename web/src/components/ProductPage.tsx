@@ -1,27 +1,34 @@
 import { Link } from 'react-router-dom'
 import type { AppKey } from '../lib/supabase'
+import { APPS } from '../content/apps'
 
 type ProductPageProps = {
   app: AppKey
-  name: string
-  tagline: string
   description: string
   features: string[]
   appStoreUrl?: string
 }
 
-export default function ProductPage({ app, name, tagline, description, features, appStoreUrl }: ProductPageProps) {
+export default function ProductPage({ app, description, features, appStoreUrl }: ProductPageProps) {
+  const cfg = APPS[app]
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-3">{name}</h1>
-      <p className="text-xl text-[var(--color-primary)] font-semibold mb-6">{tagline}</p>
+      <img
+        src={cfg.logo}
+        alt={cfg.name}
+        style={{ height: 96, width: 'auto', objectFit: 'contain', marginBottom: '1rem' }}
+      />
+      <p className="text-xl font-semibold mb-6" style={{ color: cfg.primary }}>
+        {cfg.tagline}
+      </p>
       <p className="text-[var(--color-muted-fg)] text-lg mb-10 max-w-2xl">{description}</p>
 
       <div className="flex flex-wrap gap-3 mb-12">
         {appStoreUrl && (
           <a
             href={appStoreUrl}
-            className="px-5 py-3 rounded-md bg-[var(--color-primary)] text-white font-semibold"
+            className="px-5 py-3 rounded-md text-white font-semibold"
+            style={{ backgroundColor: cfg.primary }}
           >
             Download on App Store
           </a>
@@ -43,9 +50,9 @@ export default function ProductPage({ app, name, tagline, description, features,
         ))}
       </ul>
 
-      <div className="flex gap-6 text-sm text-[var(--color-muted-fg)]">
-        <Link to={`/${app}/support`}>Support</Link>
-        <Link to={`/${app}/privacy`}>Privacy Policy</Link>
+      <div className="flex gap-6 text-sm">
+        <Link to={`/${app}/support`} style={{ color: cfg.primary }}>Support</Link>
+        <Link to={`/${app}/privacy`} style={{ color: cfg.primary }}>Privacy Policy</Link>
       </div>
     </div>
   )
