@@ -27,7 +27,7 @@ export default function Layout() {
       </main>
 
       <footer className="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted-fg)]">
-        <div className="mx-auto max-w-6xl px-4 grid gap-6 md:grid-cols-5">
+        <div className="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1fr_2fr]">
           <div>
             <div className="font-bold text-white mb-2">TradePals</div>
             <p>AI field companions for skilled trades.</p>
@@ -38,30 +38,37 @@ export default function Layout() {
             </ul>
           </div>
           <div>
-            <div className="font-semibold text-white mb-2">SplicePal</div>
-            <ul className="space-y-1">
-              <li><Link to="/splicepal">Overview</Link></li>
-              <li><Link to="/splicepal/training">Training</Link></li>
-              <li><Link to="/splicepal/support">Support</Link></li>
-              <li><Link to="/splicepal/privacy">Privacy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-semibold text-white mb-2">WeldPal</div>
-            <ul className="space-y-1">
-              <li><Link to="/weldpal">Overview</Link></li>
-              <li><Link to="/weldpal/training">Training</Link></li>
-              <li><Link to="/weldpal/support">Support</Link></li>
-              <li><Link to="/weldpal/privacy">Privacy</Link></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-semibold text-white mb-2">WindPal</div>
-            <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
-          </div>
-          <div>
-            <div className="font-semibold text-white mb-2">LiftPal</div>
-            <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+            <div className="text-xs uppercase tracking-wider text-[var(--color-muted)] mb-3">
+              Pal Apps
+            </div>
+            <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
+              <div>
+                <div className="font-semibold text-white mb-2">SplicePal</div>
+                <ul className="space-y-1">
+                  <li><Link to="/splicepal">Overview</Link></li>
+                  <li><Link to="/splicepal/training">Training</Link></li>
+                  <li><Link to="/splicepal/support">Support</Link></li>
+                  <li><Link to="/splicepal/privacy">Privacy</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">WeldPal</div>
+                <ul className="space-y-1">
+                  <li><Link to="/weldpal">Overview</Link></li>
+                  <li><Link to="/weldpal/training">Training</Link></li>
+                  <li><Link to="/weldpal/support">Support</Link></li>
+                  <li><Link to="/weldpal/privacy">Privacy</Link></li>
+                </ul>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">WindPal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">LiftPal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+            </div>
           </div>
         </div>
         <div className="mx-auto max-w-6xl px-4 mt-6 text-xs text-[var(--color-muted)]">
