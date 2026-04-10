@@ -28,6 +28,12 @@ import VoltPalTerms from './pages/voltpal/Terms'
 import VoltPalSupport from './pages/voltpal/Support'
 import VoltPalTraining from './pages/voltpal/TrainingIndex'
 import VoltPalArticle from './pages/voltpal/TrainingArticle'
+import PipePalProduct from './pages/pipepal/Product'
+import PipePalPrivacy from './pages/pipepal/Privacy'
+import PipePalTerms from './pages/pipepal/Terms'
+import PipePalSupport from './pages/pipepal/Support'
+import PipePalTraining from './pages/pipepal/TrainingIndex'
+import PipePalArticle from './pages/pipepal/TrainingArticle'
 
 export default function App() {
   return (
@@ -64,6 +70,13 @@ export default function App() {
         <Route path="voltpal/support" element={<VoltPalSupport />} />
         <Route path="voltpal/training" element={<VoltPalTraining />} />
         <Route path="voltpal/training/:slug" element={<VoltPalArticle />} />
+
+        <Route path="pipepal" element={<PipePalProduct />} />
+        <Route path="pipepal/privacy" element={<PipePalPrivacy />} />
+        <Route path="pipepal/terms" element={<PipePalTerms />} />
+        <Route path="pipepal/support" element={<PipePalSupport />} />
+        <Route path="pipepal/training" element={<PipePalTraining />} />
+        <Route path="pipepal/training/:slug" element={<PipePalArticle />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

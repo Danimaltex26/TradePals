@@ -73,11 +73,29 @@ This is placeholder content. Full training will be added here.`,
   },
 ]
 
+const pipepalArticles: Article[] = [
+  {
+    slug: 'plumbing-code-basics',
+    title: 'Plumbing Code Basics',
+    description: 'An introduction to the IPC and UPC plumbing codes and how they apply on the jobsite.',
+    body: `Plumbing codes exist to protect public health and safety. The two major model codes in the United States are the International Plumbing Code (IPC) and the Uniform Plumbing Code (UPC). Your jurisdiction adopts one of these (sometimes with local amendments).
+
+Key concepts:
+- **Drain, Waste, and Vent (DWV)** — every fixture needs a trap, a drain line sized for its fixture unit load, and a vent to prevent siphoning.
+- **Fixture units** — a standard measure of flow demand used to size supply and drain piping.
+- **Trap arm length** — the distance from the trap weir to the vent fitting is limited by pipe size to prevent siphoning.
+- **Cleanouts** — required at changes of direction and at regular intervals for maintenance access.
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
 const ARTICLES: Record<AppKey, Article[]> = {
   splicepal: splicepalArticles,
   weldpal: weldpalArticles,
   poolpal: poolpalArticles,
   voltpal: voltpalArticles,
+  pipepal: pipepalArticles,
 }
 
 export function listArticles(app: AppKey): Article[] {

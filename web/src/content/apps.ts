@@ -44,4 +44,12 @@ export const APPS: Record<AppKey, AppConfig> = {
     primary: '#FACC15',
     appUrl: 'https://voltpal.tradepals.net',
   },
+  pipepal: {
+    key: 'pipepal',
+    name: 'PipePal',
+    tagline: 'AI field companion for plumbers, pipefitters & steamfitters',
+    logo: '/pipepal-logo.png',
+    primary: '#3B82F6',
+    appUrl: 'https://pipepal.tradepals.net',
+  },
 }

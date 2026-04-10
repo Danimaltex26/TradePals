@@ -69,15 +69,12 @@ export default function Home() {
             'GWO / BZEE cert prep',
           ]}
         />
-        <ComingSoonCard
-          name="PipePal"
-          logo="/pipepal-logo.png"
-          tagline="AI field companion for plumbers, pipefitters & steamfitters"
-          accent="#3B82F6"
+        <ProductCard
+          appKey="pipepal"
           bullets={[
-            'Pipe sizing & pressure drop calculations',
-            'Code violation photo analysis',
-            'Journeyman / master plumber exam prep',
+            'Leak & code violation photo diagnosis',
+            'Water heater & drain troubleshooting',
+            'Pipe sizing & code reference',
           ]}
         />
         <ComingSoonCard
