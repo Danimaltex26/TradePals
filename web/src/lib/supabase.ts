@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-export type AppKey = 'splicepal' | 'weldpal' | 'poolpal'
+export type AppKey = 'splicepal' | 'weldpal' | 'poolpal' | 'voltpal'
 
 const splicepalUrl = import.meta.env.VITE_SPLICEPAL_SUPABASE_URL
 const splicepalKey = import.meta.env.VITE_SPLICEPAL_SUPABASE_ANON_KEY
@@ -8,6 +8,8 @@ const weldpalUrl = import.meta.env.VITE_WELDPAL_SUPABASE_URL
 const weldpalKey = import.meta.env.VITE_WELDPAL_SUPABASE_ANON_KEY
 const poolpalUrl = import.meta.env.VITE_POOLPAL_SUPABASE_URL || splicepalUrl
 const poolpalKey = import.meta.env.VITE_POOLPAL_SUPABASE_ANON_KEY || splicepalKey
+const voltpalUrl = import.meta.env.VITE_VOLTPAL_SUPABASE_URL || splicepalUrl
+const voltpalKey = import.meta.env.VITE_VOLTPAL_SUPABASE_ANON_KEY || splicepalKey
 
 if (!splicepalUrl || !splicepalKey || !weldpalUrl || !weldpalKey) {
   console.warn(
@@ -53,8 +55,21 @@ export const poolpalClient: SupabaseClient = createClient(
   }
 )
 
+export const voltpalClient: SupabaseClient = createClient(
+  voltpalUrl ?? 'https://placeholder.supabase.co',
+  voltpalKey ?? 'placeholder',
+  {
+    auth: {
+      storageKey: 'tradepals-voltpal-auth',
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  }
+)
+
 export function getClient(app: AppKey): SupabaseClient {
   if (app === 'splicepal') return splicepalClient
   if (app === 'poolpal') return poolpalClient
+  if (app === 'voltpal') return voltpalClient
   return weldpalClient
 }

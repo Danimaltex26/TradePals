@@ -36,4 +36,12 @@ export const APPS: Record<AppKey, AppConfig> = {
     primary: '#14B8A6',
     appUrl: 'https://poolpal.tradepals.net',
   },
+  voltpal: {
+    key: 'voltpal',
+    name: 'VoltPal',
+    tagline: 'AI field companion for industrial electricians',
+    logo: '/voltpal-logo.png',
+    primary: '#FACC15',
+    appUrl: 'https://voltpal.tradepals.net',
+  },
 }

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
-import { splicepalClient, weldpalClient, poolpalClient, type AppKey } from '../lib/supabase'
+import { splicepalClient, weldpalClient, poolpalClient, voltpalClient, type AppKey } from '../lib/supabase'
 
 type AppAuthState = {
   user: User | null
@@ -12,6 +12,7 @@ type AuthContextValue = {
   splicepal: AppAuthState
   weldpal: AppAuthState
   poolpal: AppAuthState
+  voltpal: AppAuthState
   signIn: (app: AppKey, email: string, password: string) => Promise<void>
   signInWithMagicLink: (app: AppKey, email: string) => Promise<void>
   signOut: (app: AppKey) => Promise<void>
@@ -48,10 +49,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const splicepal = useAppAuth(splicepalClient)
   const weldpal = useAppAuth(weldpalClient)
   const poolpal = useAppAuth(poolpalClient)
+  const voltpal = useAppAuth(voltpalClient)
 
   function getAppClient(app: AppKey) {
     if (app === 'splicepal') return splicepalClient
     if (app === 'poolpal') return poolpalClient
+    if (app === 'voltpal') return voltpalClient
     return weldpalClient
   }
 
@@ -74,7 +77,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ splicepal, weldpal, poolpal, signIn, signInWithMagicLink, signOut }}>
+    <AuthContext.Provider value={{ splicepal, weldpal, poolpal, voltpal, signIn, signInWithMagicLink, signOut }}>
       {children}
     </AuthContext.Provider>
   )

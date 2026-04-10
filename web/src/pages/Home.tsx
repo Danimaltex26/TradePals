@@ -61,11 +61,8 @@ export default function Home() {
             'NAEC / QEI cert prep',
           ]}
         />
-        <ComingSoonCard
-          name="VoltPal"
-          logo="/voltpal-logo.png"
-          tagline="AI field companion for industrial electricians"
-          accent="#FACC15"
+        <ProductCard
+          appKey="voltpal"
           bullets={[
             'Panel & fault photo diagnosis',
             'NEC code reference & lookups',

@@ -12,6 +12,8 @@ export default function Account() {
       <AppSection app="weldpal" label="WeldPal" />
       <div className="h-6" />
       <AppSection app="poolpal" label="PoolPal" />
+      <div className="h-6" />
+      <AppSection app="voltpal" label="VoltPal" />
     </div>
   )
 }

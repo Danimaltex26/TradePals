@@ -8,6 +8,7 @@ const APP_LABEL: Record<AppKey, string> = {
   splicepal: 'SplicePal',
   weldpal: 'WeldPal',
   poolpal: 'PoolPal',
+  voltpal: 'VoltPal',
 }
 
 export default function TrainingGate({

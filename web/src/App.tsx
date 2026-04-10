@@ -22,6 +22,12 @@ import PoolPalProduct from './pages/poolpal/Product'
 import PoolPalPrivacy from './pages/poolpal/Privacy'
 import PoolPalTerms from './pages/poolpal/Terms'
 import PoolPalSupport from './pages/poolpal/Support'
+import VoltPalProduct from './pages/voltpal/Product'
+import VoltPalPrivacy from './pages/voltpal/Privacy'
+import VoltPalTerms from './pages/voltpal/Terms'
+import VoltPalSupport from './pages/voltpal/Support'
+import VoltPalTraining from './pages/voltpal/TrainingIndex'
+import VoltPalArticle from './pages/voltpal/TrainingArticle'
 
 export default function App() {
   return (
@@ -51,6 +57,13 @@ export default function App() {
         <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
         <Route path="poolpal/terms" element={<PoolPalTerms />} />
         <Route path="poolpal/support" element={<PoolPalSupport />} />
+
+        <Route path="voltpal" element={<VoltPalProduct />} />
+        <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
+        <Route path="voltpal/terms" element={<VoltPalTerms />} />
+        <Route path="voltpal/support" element={<VoltPalSupport />} />
+        <Route path="voltpal/training" element={<VoltPalTraining />} />
+        <Route path="voltpal/training/:slug" element={<VoltPalArticle />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

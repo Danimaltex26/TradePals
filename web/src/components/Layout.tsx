@@ -64,6 +64,7 @@ export default function Layout() {
               <MobileLink to="/splicepal" indent>SplicePal</MobileLink>
               <MobileLink to="/weldpal" indent>WeldPal</MobileLink>
               <MobileLink to="/poolpal" indent>PoolPal</MobileLink>
+              <MobileLink to="/voltpal" indent>VoltPal</MobileLink>
               <MobileLink to="/training">Training</MobileLink>
               <MobileLink to="/signin">Sign In</MobileLink>
             </nav>
@@ -119,7 +120,12 @@ export default function Layout() {
               </div>
               <div>
                 <div className="font-semibold text-white mb-2">VoltPal</div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+                <ul className="space-y-1">
+                  <li><Link to="/voltpal">Overview</Link></li>
+                  <li><Link to="/voltpal/training">Training</Link></li>
+                  <li><Link to="/voltpal/support">Support</Link></li>
+                  <li><Link to="/voltpal/privacy">Privacy</Link></li>
+                </ul>
               </div>
               <div>
                 <div className="font-semibold text-white mb-2">PoolPal</div>
@@ -208,6 +214,7 @@ function PalAppsDropdown() {
           <DropdownLink to="/splicepal" onClick={() => setOpen(false)}>SplicePal</DropdownLink>
           <DropdownLink to="/weldpal" onClick={() => setOpen(false)}>WeldPal</DropdownLink>
           <DropdownLink to="/poolpal" onClick={() => setOpen(false)}>PoolPal</DropdownLink>
+          <DropdownLink to="/voltpal" onClick={() => setOpen(false)}>VoltPal</DropdownLink>
         </div>
       )}
     </div>

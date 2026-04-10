@@ -56,10 +56,28 @@ This is placeholder content. Full training will be added here.`,
   },
 ]
 
+const voltpalArticles: Article[] = [
+  {
+    slug: 'electrical-safety-basics',
+    title: 'Electrical Safety Basics',
+    description: 'Fundamental safety practices every industrial electrician should follow before working on energized or de-energized equipment.',
+    body: `Electrical safety starts before you pick up a tool. The hierarchy of risk control — eliminate, substitute, engineering controls, administrative controls, PPE — applies to every task.
+
+Key principles:
+- **Lockout/Tagout (LOTO)** — always verify zero energy before hands-on work. Use your own lock and tag.
+- **Live-dead-live** — test your meter on a known live source, test the circuit, then retest on the known live source.
+- **Arc flash boundaries** — know the limited, restricted, and prohibited approach boundaries per NFPA 70E.
+- **PPE selection** — match your PPE to the incident energy (cal/cm²) identified on the arc flash label.
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
 const ARTICLES: Record<AppKey, Article[]> = {
   splicepal: splicepalArticles,
   weldpal: weldpalArticles,
   poolpal: poolpalArticles,
+  voltpal: voltpalArticles,
 }
 
 export function listArticles(app: AppKey): Article[] {
