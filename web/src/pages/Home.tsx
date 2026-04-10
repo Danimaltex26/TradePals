@@ -39,6 +39,14 @@ export default function Home() {
             'Chemical dosing & code reference',
           ]}
         />
+        <ProductCard
+          appKey="voltpal"
+          bullets={[
+            'Panel & fault photo diagnosis',
+            'NEC code reference & lookups',
+            'Apprentice / journeyman exam prep',
+          ]}
+        />
         <ComingSoonCard
           name="WindPal"
           logo="/windpal-logo.png"
@@ -59,14 +67,6 @@ export default function Home() {
             'Control board fault diagnosis',
             'Hoistway inspection checklists',
             'NAEC / QEI cert prep',
-          ]}
-        />
-        <ProductCard
-          appKey="voltpal"
-          bullets={[
-            'Panel & fault photo diagnosis',
-            'NEC code reference & lookups',
-            'Apprentice / journeyman exam prep',
           ]}
         />
       </section>
