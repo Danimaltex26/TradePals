@@ -6,6 +6,8 @@ const splicepalUrl = import.meta.env.VITE_SPLICEPAL_SUPABASE_URL
 const splicepalKey = import.meta.env.VITE_SPLICEPAL_SUPABASE_ANON_KEY
 const weldpalUrl = import.meta.env.VITE_WELDPAL_SUPABASE_URL
 const weldpalKey = import.meta.env.VITE_WELDPAL_SUPABASE_ANON_KEY
+const poolpalUrl = import.meta.env.VITE_POOLPAL_SUPABASE_URL || splicepalUrl
+const poolpalKey = import.meta.env.VITE_POOLPAL_SUPABASE_ANON_KEY || splicepalKey
 
 if (!splicepalUrl || !splicepalKey || !weldpalUrl || !weldpalKey) {
   console.warn(
@@ -39,6 +41,20 @@ export const weldpalClient: SupabaseClient = createClient(
   }
 )
 
+export const poolpalClient: SupabaseClient = createClient(
+  poolpalUrl ?? 'https://placeholder.supabase.co',
+  poolpalKey ?? 'placeholder',
+  {
+    auth: {
+      storageKey: 'tradepals-poolpal-auth',
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  }
+)
+
 export function getClient(app: AppKey): SupabaseClient {
-  return app === 'splicepal' ? splicepalClient : weldpalClient
+  if (app === 'splicepal') return splicepalClient
+  if (app === 'poolpal') return poolpalClient
+  return weldpalClient
 }

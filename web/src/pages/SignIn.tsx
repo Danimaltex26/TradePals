@@ -41,6 +41,7 @@ export default function SignIn() {
       <div className="flex gap-2 mb-6 p-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
         <AppToggle current={app} value="splicepal" onClick={setApp} label="SplicePal" />
         <AppToggle current={app} value="weldpal" onClick={setApp} label="WeldPal" />
+        <AppToggle current={app} value="poolpal" onClick={setApp} label="PoolPal" />
       </div>
 
       {error && (

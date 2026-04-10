@@ -10,13 +10,15 @@ export default function Account() {
       <AppSection app="splicepal" label="SplicePal" />
       <div className="h-6" />
       <AppSection app="weldpal" label="WeldPal" />
+      <div className="h-6" />
+      <AppSection app="poolpal" label="PoolPal" />
     </div>
   )
 }
 
 function AppSection({ app, label }: { app: AppKey; label: string }) {
   const auth = useAuth()
-  const appAuth = app === 'splicepal' ? auth.splicepal : auth.weldpal
+  const appAuth = auth[app]
   const ent = useEntitlement(app)
 
   return (

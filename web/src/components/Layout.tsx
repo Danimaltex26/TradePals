@@ -63,6 +63,7 @@ export default function Layout() {
               <div className="px-3 py-2 text-xs uppercase tracking-wider text-[var(--color-muted)]">Pal Apps</div>
               <MobileLink to="/splicepal" indent>SplicePal</MobileLink>
               <MobileLink to="/weldpal" indent>WeldPal</MobileLink>
+              <MobileLink to="/poolpal" indent>PoolPal</MobileLink>
               <MobileLink to="/training">Training</MobileLink>
               <MobileLink to="/signin">Sign In</MobileLink>
             </nav>
@@ -206,6 +207,7 @@ function PalAppsDropdown() {
         <div className="absolute right-0 mt-2 w-44 rounded-md border border-[var(--color-border)] bg-[var(--color-card)] shadow-lg overflow-hidden">
           <DropdownLink to="/splicepal" onClick={() => setOpen(false)}>SplicePal</DropdownLink>
           <DropdownLink to="/weldpal" onClick={() => setOpen(false)}>WeldPal</DropdownLink>
+          <DropdownLink to="/poolpal" onClick={() => setOpen(false)}>PoolPal</DropdownLink>
         </div>
       )}
     </div>

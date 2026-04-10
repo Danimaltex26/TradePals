@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
-import { splicepalClient, weldpalClient, type AppKey } from '../lib/supabase'
+import { splicepalClient, weldpalClient, poolpalClient, type AppKey } from '../lib/supabase'
 
 type AppAuthState = {
   user: User | null
@@ -11,6 +11,7 @@ type AppAuthState = {
 type AuthContextValue = {
   splicepal: AppAuthState
   weldpal: AppAuthState
+  poolpal: AppAuthState
   signIn: (app: AppKey, email: string, password: string) => Promise<void>
   signInWithMagicLink: (app: AppKey, email: string) => Promise<void>
   signOut: (app: AppKey) => Promise<void>
@@ -46,27 +47,34 @@ function useAppAuth(client: typeof splicepalClient): AppAuthState {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const splicepal = useAppAuth(splicepalClient)
   const weldpal = useAppAuth(weldpalClient)
+  const poolpal = useAppAuth(poolpalClient)
+
+  function getAppClient(app: AppKey) {
+    if (app === 'splicepal') return splicepalClient
+    if (app === 'poolpal') return poolpalClient
+    return weldpalClient
+  }
 
   async function signIn(app: AppKey, email: string, password: string) {
-    const client = app === 'splicepal' ? splicepalClient : weldpalClient
+    const client = getAppClient(app)
     const { error } = await client.auth.signInWithPassword({ email, password })
     if (error) throw error
   }
 
   async function signInWithMagicLink(app: AppKey, email: string) {
-    const client = app === 'splicepal' ? splicepalClient : weldpalClient
+    const client = getAppClient(app)
     const { error } = await client.auth.signInWithOtp({ email })
     if (error) throw error
   }
 
   async function signOut(app: AppKey) {
-    const client = app === 'splicepal' ? splicepalClient : weldpalClient
+    const client = getAppClient(app)
     const { error } = await client.auth.signOut()
     if (error) throw error
   }
 
   return (
-    <AuthContext.Provider value={{ splicepal, weldpal, signIn, signInWithMagicLink, signOut }}>
+    <AuthContext.Provider value={{ splicepal, weldpal, poolpal, signIn, signInWithMagicLink, signOut }}>
       {children}
     </AuthContext.Provider>
   )

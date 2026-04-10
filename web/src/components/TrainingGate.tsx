@@ -18,7 +18,7 @@ export default function TrainingGate({
   children: ReactNode
 }) {
   const auth = useAuth()
-  const appAuth = app === 'splicepal' ? auth.splicepal : auth.weldpal
+  const appAuth = auth[app]
   const ent = useEntitlement(app)
 
   if (appAuth.loading || ent.loading) {

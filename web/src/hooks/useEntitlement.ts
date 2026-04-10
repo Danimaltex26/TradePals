@@ -17,7 +17,7 @@ export type EntitlementState = {
  */
 export function useEntitlement(app: AppKey): EntitlementState {
   const auth = useAuth()
-  const appAuth = app === 'splicepal' ? auth.splicepal : auth.weldpal
+  const appAuth = auth[app]
   const [state, setState] = useState<EntitlementState>({
     loading: true,
     active: false,
