@@ -7,6 +7,7 @@ import type { AppKey } from '../lib/supabase'
 const APP_LABEL: Record<AppKey, string> = {
   splicepal: 'SplicePal',
   weldpal: 'WeldPal',
+  poolpal: 'PoolPal',
 }
 
 export default function TrainingGate({

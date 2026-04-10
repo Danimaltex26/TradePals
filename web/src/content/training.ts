@@ -41,9 +41,25 @@ This is placeholder content. Full training will be added here.`,
   },
 ]
 
+const poolpalArticles: Article[] = [
+  {
+    slug: 'water-chemistry-basics',
+    title: 'Water Chemistry Basics',
+    description: 'Understanding pH, alkalinity, calcium hardness, and how they interact.',
+    body: `Balanced water chemistry is the foundation of pool maintenance. The three core parameters — pH, total alkalinity (TA), and calcium hardness (CH) — interact constantly, and adjusting one affects the others.
+
+- **pH** (7.2–7.8) controls sanitizer effectiveness and bather comfort.
+- **Total Alkalinity** (80–120 ppm) buffers pH from bouncing.
+- **Calcium Hardness** (250–350 ppm plaster, 150–250 vinyl) prevents etching or scaling.
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
 const ARTICLES: Record<AppKey, Article[]> = {
   splicepal: splicepalArticles,
   weldpal: weldpalArticles,
+  poolpal: poolpalArticles,
 }
 
 export function listArticles(app: AppKey): Article[] {
