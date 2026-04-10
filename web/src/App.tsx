@@ -18,6 +18,10 @@ import WeldPalTerms from './pages/weldpal/Terms'
 import WeldPalSupport from './pages/weldpal/Support'
 import WeldPalTraining from './pages/weldpal/TrainingIndex'
 import WeldPalArticle from './pages/weldpal/TrainingArticle'
+import PoolPalProduct from './pages/poolpal/Product'
+import PoolPalPrivacy from './pages/poolpal/Privacy'
+import PoolPalTerms from './pages/poolpal/Terms'
+import PoolPalSupport from './pages/poolpal/Support'
 
 export default function App() {
   return (
@@ -42,6 +46,11 @@ export default function App() {
         <Route path="weldpal/support" element={<WeldPalSupport />} />
         <Route path="weldpal/training" element={<WeldPalTraining />} />
         <Route path="weldpal/training/:slug" element={<WeldPalArticle />} />
+
+        <Route path="poolpal" element={<PoolPalProduct />} />
+        <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
+        <Route path="poolpal/terms" element={<PoolPalTerms />} />
+        <Route path="poolpal/support" element={<PoolPalSupport />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

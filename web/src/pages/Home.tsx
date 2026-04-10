@@ -31,6 +31,14 @@ export default function Home() {
             'AWS / API / ASME cert prep',
           ]}
         />
+        <ProductCard
+          appKey="poolpal"
+          bullets={[
+            'Water chemistry & algae photo analysis',
+            'Pump, heater & equipment troubleshooting',
+            'Chemical dosing & code reference',
+          ]}
+        />
         <ComingSoonCard
           name="WindPal"
           logo="/windpal-logo.png"
@@ -62,17 +70,6 @@ export default function Home() {
             'Panel & fault photo diagnosis',
             'NEC code reference & lookups',
             'Apprentice / journeyman exam prep',
-          ]}
-        />
-        <ComingSoonCard
-          name="PoolPal"
-          logo="/poolpal-logo.png"
-          tagline="AI field companion for pool & spa service techs"
-          accent="#14B8A6"
-          bullets={[
-            'Water chemistry & algae photo analysis',
-            'Pump, heater & equipment troubleshooting',
-            'CPO (PHTA) cert prep',
           ]}
         />
       </section>

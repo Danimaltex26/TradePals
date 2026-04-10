@@ -28,4 +28,12 @@ export const APPS: Record<AppKey, AppConfig> = {
     primary: '#F97316',
     appUrl: 'https://weldpal.tradepals.net',
   },
+  poolpal: {
+    key: 'poolpal',
+    name: 'PoolPal',
+    tagline: 'AI field companion for pool & spa service techs',
+    logo: '/poolpal-logo.png',
+    primary: '#14B8A6',
+    appUrl: 'https://poolpal.tradepals.net',
+  },
 }

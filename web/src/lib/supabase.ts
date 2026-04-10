@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-export type AppKey = 'splicepal' | 'weldpal'
+export type AppKey = 'splicepal' | 'weldpal' | 'poolpal'
 
 const splicepalUrl = import.meta.env.VITE_SPLICEPAL_SUPABASE_URL
 const splicepalKey = import.meta.env.VITE_SPLICEPAL_SUPABASE_ANON_KEY
