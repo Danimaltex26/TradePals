@@ -48,17 +48,6 @@ export default function Home() {
           ]}
         />
         <ComingSoonCard
-          name="WindPal"
-          logo="/windpal-logo.png"
-          tagline="AI field companion for wind turbine technicians"
-          accent="#22D3EE"
-          bullets={[
-            'Blade damage photo analysis',
-            'Gearbox & generator troubleshooting',
-            'GWO / BZEE cert prep',
-          ]}
-        />
-        <ComingSoonCard
           name="LiftPal"
           logo="/liftpal-logo.png"
           tagline="AI field companion for elevator & lift technicians"
@@ -67,6 +56,17 @@ export default function Home() {
             'Control board fault diagnosis',
             'Hoistway inspection checklists',
             'NAEC / QEI cert prep',
+          ]}
+        />
+        <ComingSoonCard
+          name="WindPal"
+          logo="/windpal-logo.png"
+          tagline="AI field companion for wind turbine technicians"
+          accent="#22D3EE"
+          bullets={[
+            'Blade damage photo analysis',
+            'Gearbox & generator troubleshooting',
+            'GWO / BZEE cert prep',
           ]}
         />
         <ComingSoonCard
