@@ -122,7 +122,12 @@ export default function Layout() {
               </div>
               <div>
                 <div className="font-semibold text-white mb-2">PoolPal</div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+                <ul className="space-y-1">
+                  <li><Link to="/poolpal">Overview</Link></li>
+                  <li><Link to="/poolpal/training">Training</Link></li>
+                  <li><Link to="/poolpal/support">Support</Link></li>
+                  <li><Link to="/poolpal/privacy">Privacy</Link></li>
+                </ul>
               </div>
             </div>
           </div>
