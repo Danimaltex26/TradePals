@@ -69,6 +69,28 @@ export default function Home() {
             'NAEC / QEI cert prep',
           ]}
         />
+        <ComingSoonCard
+          name="PipePal"
+          logo="/pipepal-logo.png"
+          tagline="AI field companion for plumbers, pipefitters & steamfitters"
+          accent="#3B82F6"
+          bullets={[
+            'Pipe sizing & pressure drop calculations',
+            'Code violation photo analysis',
+            'Journeyman / master plumber exam prep',
+          ]}
+        />
+        <ComingSoonCard
+          name="MillPal"
+          logo="/millpal-logo.png"
+          tagline="AI field companion for millwrights & machinery mechanics"
+          accent="#EF4444"
+          bullets={[
+            'Vibration & alignment photo diagnosis',
+            'Bearing, gear & coupling troubleshooting',
+            'Millwright / IMM cert prep',
+          ]}
+        />
       </section>
     </div>
   )

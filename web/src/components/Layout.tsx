@@ -119,6 +119,14 @@ export default function Layout() {
                 <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
               </div>
               <div>
+                <div className="font-semibold text-white mb-2">PipePal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+              <div>
+                <div className="font-semibold text-white mb-2">MillPal</div>
+                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
+              </div>
+              <div>
                 <div className="font-semibold text-white mb-2">VoltPal</div>
                 <ul className="space-y-1">
                   <li><Link to="/voltpal">Overview</Link></li>
