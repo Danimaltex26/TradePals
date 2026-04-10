@@ -14,6 +14,7 @@ import SplicePalTraining from './pages/splicepal/TrainingIndex'
 import SplicePalArticle from './pages/splicepal/TrainingArticle'
 import WeldPalProduct from './pages/weldpal/Product'
 import WeldPalPrivacy from './pages/weldpal/Privacy'
+import WeldPalTerms from './pages/weldpal/Terms'
 import WeldPalSupport from './pages/weldpal/Support'
 import WeldPalTraining from './pages/weldpal/TrainingIndex'
 import WeldPalArticle from './pages/weldpal/TrainingArticle'
@@ -37,6 +38,7 @@ export default function App() {
 
         <Route path="weldpal" element={<WeldPalProduct />} />
         <Route path="weldpal/privacy" element={<WeldPalPrivacy />} />
+        <Route path="weldpal/terms" element={<WeldPalTerms />} />
         <Route path="weldpal/support" element={<WeldPalSupport />} />
         <Route path="weldpal/training" element={<WeldPalTraining />} />
         <Route path="weldpal/training/:slug" element={<WeldPalArticle />} />

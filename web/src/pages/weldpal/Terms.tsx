@@ -1,0 +1,180 @@
+import LegalPage from '../../components/LegalPage'
+
+const EFFECTIVE_DATE = 'April 9, 2026'
+
+export default function WeldPalTerms() {
+  return (
+    <LegalPage title="WeldPal Terms of Service">
+      <p><strong>Effective date:</strong> {EFFECTIVE_DATE}</p>
+      <p>
+        These Terms of Service ("Terms") are a binding agreement between you and{' '}
+        <strong>TradePals, LLC</strong> ("TradePals," "we," "our," or "us"), a Texas limited liability
+        company located in Bexar County, Texas. They govern your use of the WeldPal mobile application
+        and the WeldPal sections of tradepals.net (together, the "Service"). By creating an account or
+        using WeldPal you agree to these Terms. If you do not agree, do not use the Service.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">1. Eligibility</h2>
+      <p>
+        You must be at least 18 years old (or the age of majority in your jurisdiction) to use WeldPal.
+        By using the Service you represent that you meet this requirement and have the legal capacity to
+        enter into these Terms.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">2. Your account</h2>
+      <p>
+        You are responsible for maintaining the confidentiality of your login credentials and for all
+        activity that occurs under your account. Notify us immediately at{' '}
+        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>
+        {' '}if you suspect unauthorized access. We may suspend or terminate accounts that violate these
+        Terms.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">3. Subscriptions and billing</h2>
+      <p>
+        WeldPal offers paid subscriptions purchased through Apple's App Store. The following terms apply
+        to all subscriptions:
+      </p>
+      <ul className="list-disc pl-6 space-y-1">
+        <li>Payment is charged to your Apple ID at confirmation of purchase.</li>
+        <li>Subscriptions automatically renew unless auto-renew is turned off at least 24 hours before the end of the current period.</li>
+        <li>Your account will be charged for renewal within 24 hours prior to the end of the current period at the price of the selected plan.</li>
+        <li>You can manage and cancel subscriptions in your Apple ID account settings (Settings → your name → Subscriptions → WeldPal). Cancellation takes effect at the end of the current billing period.</li>
+        <li>No refunds are provided for partial subscription periods, except where required by law or by Apple's refund policy.</li>
+        <li>Prices may change with reasonable notice; continued use after a price change constitutes acceptance.</li>
+      </ul>
+      <p>
+        TradePals does not directly process or store payment card details. All billing is handled by Apple.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">4. Acceptable use</h2>
+      <p>You agree not to:</p>
+      <ul className="list-disc pl-6 space-y-1">
+        <li>Use the Service for any unlawful purpose or in violation of any applicable law or regulation.</li>
+        <li>Reverse engineer, decompile, or attempt to extract source code from the Service.</li>
+        <li>Scrape, harvest, or mass-download content from the Service.</li>
+        <li>Resell, sublicense, or commercially exploit the Service without our written permission.</li>
+        <li>Interfere with or disrupt the Service, its security, or other users' use of it.</li>
+        <li>Upload content that is illegal, infringes intellectual property rights, or contains malware.</li>
+        <li>Misrepresent yourself or impersonate others.</li>
+      </ul>
+
+      <h2 className="text-xl font-bold text-white mt-6">5. AI features and important disclaimer</h2>
+      <p>
+        WeldPal uses third-party artificial intelligence (Anthropic Claude) to analyze weld photos,
+        suggest troubleshooting steps, and provide reference information. <strong>AI output is provided
+        for informational purposes only and is not a substitute for professional judgment.</strong>
+      </p>
+      <p>
+        Specifically, you understand and agree that:
+      </p>
+      <ul className="list-disc pl-6 space-y-1">
+        <li>WeldPal analyzes <strong>visual surface conditions only</strong>. It is <strong>not</strong> a substitute for non-destructive testing methods such as ultrasonic (UT), radiographic (RT), magnetic particle (MT), liquid penetrant (PT), or eddy current testing, and it cannot detect subsurface defects, internal porosity, lack of fusion below the surface, or other discontinuities that require certified NDT methods.</li>
+        <li>WeldPal is a productivity and reference tool for trained welders, fitters, and inspectors. It is <strong>not</strong> a certified inspection instrument and does not replace the judgment of a qualified Certified Welding Inspector (CWI), engineer, or other code-qualified professional.</li>
+        <li>AI analysis can be incomplete, inaccurate, or wrong. You are solely responsible for verifying any AI-suggested assessment, code reference, or remediation step against the actual physical weld, the applicable welding code (such as AWS D1.1, AWS D1.2, AWS D1.6, API 1104, ASME Section IX), the project specifications, the qualified WPS, and your contract's acceptance criteria.</li>
+        <li>Certification prep content is intended as study material only and does not guarantee passing any certification exam or qualify you for any certification (CW, CAWI, CWI, CWS, CRAW, or otherwise).</li>
+        <li>You must not rely on WeldPal as the sole basis for accepting, rejecting, or repairing any weld, for any safety-critical decision, for any contractual deliverable, or for any work that requires sign-off by a qualified inspector or engineer. Final accept/reject decisions on code-governed welds remain the responsibility of the qualified inspector of record.</li>
+      </ul>
+
+      <h2 className="text-xl font-bold text-white mt-6">6. Intellectual property</h2>
+      <p>
+        TradePals owns the WeldPal application, its content (other than user-submitted content), trademarks,
+        logos, and the underlying technology. We grant you a personal, non-exclusive, non-transferable,
+        revocable license to use the Service in accordance with these Terms.
+      </p>
+      <p>
+        You retain ownership of content you upload (such as weld photos). By uploading content, you
+        grant TradePals a worldwide, royalty-free license to host, process, transmit, and display that
+        content solely to provide the Service to you.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">7. Disclaimer of warranties</h2>
+      <p>
+        THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+        PARTICULAR PURPOSE, ACCURACY, RELIABILITY, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE
+        WILL BE UNINTERRUPTED, ERROR-FREE, SECURE, OR THAT AI OUTPUTS WILL BE ACCURATE OR COMPLETE.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">8. Limitation of liability</h2>
+      <p>
+        TO THE FULLEST EXTENT PERMITTED BY LAW, TRADEPALS, LLC AND ITS OFFICERS, MEMBERS, EMPLOYEES, AND
+        AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE
+        DAMAGES, OR FOR ANY LOST PROFITS, LOST DATA, BUSINESS INTERRUPTION, REWORK COSTS, FAILED WELD
+        REPAIRS, REJECTED INSPECTIONS, OR OTHER LOSSES ARISING OUT OF OR RELATED TO YOUR USE OF OR
+        INABILITY TO USE THE SERVICE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+      </p>
+      <p>
+        OUR TOTAL CUMULATIVE LIABILITY TO YOU FOR ANY CLAIM ARISING OUT OF OR RELATING TO THESE TERMS OR
+        THE SERVICE SHALL NOT EXCEED THE GREATER OF (A) THE AMOUNT YOU PAID US IN THE TWELVE MONTHS
+        PRECEDING THE CLAIM, OR (B) ONE HUNDRED U.S. DOLLARS ($100).
+      </p>
+      <p>
+        Some jurisdictions do not allow the exclusion or limitation of certain damages; in such
+        jurisdictions our liability is limited to the greatest extent permitted by law.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">9. Indemnification</h2>
+      <p>
+        You agree to indemnify, defend, and hold harmless TradePals, LLC and its officers, members,
+        employees, and agents from and against any claims, liabilities, damages, losses, and expenses
+        (including reasonable attorneys' fees) arising out of or related to (a) your use of the Service,
+        (b) your violation of these Terms, (c) your violation of any law or third-party right, or (d) any
+        decision or work product you produced in reliance on the Service.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">10. Termination</h2>
+      <p>
+        You may stop using the Service at any time and may delete your account by emailing{' '}
+        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>.
+        We may suspend or terminate your access to the Service at any time, with or without notice, for
+        conduct that we believe violates these Terms or is harmful to other users, to us, or to third
+        parties. Sections 5 through 12 survive termination.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">11. Governing law and venue</h2>
+      <p>
+        These Terms are governed by the laws of the State of Texas, without regard to its conflict-of-laws
+        principles. Any dispute arising out of or relating to these Terms or the Service that is not
+        subject to arbitration shall be brought exclusively in the state or federal courts located in
+        Bexar County, Texas, and you consent to the personal jurisdiction of those courts.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">12. Dispute resolution and arbitration</h2>
+      <p>
+        Any dispute, claim, or controversy arising out of or relating to these Terms or the Service shall
+        first be addressed by good-faith informal negotiation by emailing{' '}
+        <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>.
+        If not resolved within 60 days, the dispute shall be settled by binding arbitration administered
+        by the American Arbitration Association under its Consumer Arbitration Rules, with the seat of
+        arbitration in Bexar County, Texas. <strong>You and TradePals each waive the right to a jury
+        trial and the right to participate in a class action.</strong> Notwithstanding the foregoing,
+        either party may seek injunctive relief in a court of competent jurisdiction to protect
+        intellectual property rights.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">13. Apple-specific terms</h2>
+      <p>
+        If you downloaded WeldPal from Apple's App Store, you acknowledge that these Terms are between
+        you and TradePals only, not Apple, and that Apple has no obligation to provide maintenance or
+        support for WeldPal. Apple is a third-party beneficiary of these Terms and may enforce them
+        against you. You also represent that you are not located in a country subject to a U.S. Government
+        embargo and are not on any U.S. Government list of prohibited or restricted parties.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">14. Changes to these Terms</h2>
+      <p>
+        We may revise these Terms from time to time. If we make material changes we will notify you in the
+        app and/or by email and update the "Effective date" above. Continued use after changes take effect
+        constitutes acceptance.
+      </p>
+
+      <h2 className="text-xl font-bold text-white mt-6">15. Contact</h2>
+      <p>
+        TradePals, LLC<br />
+        Bexar County, Texas, USA<br />
+        Email: <a className="text-[var(--color-primary)]" href="mailto:support@tradepals.net">support@tradepals.net</a>
+      </p>
+    </LegalPage>
+  )
+}

@@ -26,6 +26,15 @@ export default function ProductPage({ app, description, features, appStoreUrl }:
       <p className="text-[var(--color-muted-fg)] text-lg mb-10 max-w-2xl">{description}</p>
 
       <div className="flex flex-wrap gap-3 mb-12">
+        {cfg.appUrl && (
+          <a
+            href={cfg.appUrl}
+            className="px-5 py-3 rounded-md font-semibold"
+            style={{ backgroundColor: cfg.primary, color: '#0D0D0F' }}
+          >
+            Launch {cfg.name}
+          </a>
+        )}
         {appStoreUrl && (
           <a
             href={appStoreUrl}
@@ -55,6 +64,7 @@ export default function ProductPage({ app, description, features, appStoreUrl }:
       <div className="flex gap-6 text-sm">
         <Link to={`/${app}/support`} style={{ color: cfg.primary }}>Support</Link>
         <Link to={`/${app}/privacy`} style={{ color: cfg.primary }}>Privacy Policy</Link>
+        <Link to={`/${app}/terms`} style={{ color: cfg.primary }}>Terms of Service</Link>
       </div>
     </div>
   )

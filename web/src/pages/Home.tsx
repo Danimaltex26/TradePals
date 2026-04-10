@@ -152,8 +152,20 @@ function ProductCard({ appKey, bullets }: { appKey: AppKey; bullets: string[] })
           <li key={b}>• {b}</li>
         ))}
       </ul>
-      <div className="mt-5 text-sm font-semibold" style={{ color: app.primary }}>
-        Learn more →
+      <div className="mt-5 flex items-center gap-4">
+        <span className="text-sm font-semibold" style={{ color: app.primary }}>
+          Learn more →
+        </span>
+        {app.appUrl && (
+          <a
+            href={app.appUrl}
+            className="text-sm font-semibold px-4 py-2 rounded-md"
+            style={{ backgroundColor: app.primary, color: '#0D0D0F' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            Launch
+          </a>
+        )}
       </div>
     </Link>
   )

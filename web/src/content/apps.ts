@@ -7,6 +7,8 @@ export type AppConfig = {
   logo: string
   /** Hex color used for headings, links, and CTA buttons on this app's pages. */
   primary: string
+  /** Live app URL (subdomain). Undefined = not yet deployed. */
+  appUrl?: string
 }
 
 export const APPS: Record<AppKey, AppConfig> = {
@@ -16,6 +18,7 @@ export const APPS: Record<AppKey, AppConfig> = {
     tagline: 'AI assistant for fiber splicers',
     logo: '/splicepal-logo.png',
     primary: '#33cc33',
+    appUrl: 'https://splicepal.tradepals.net',
   },
   weldpal: {
     key: 'weldpal',
@@ -23,5 +26,6 @@ export const APPS: Record<AppKey, AppConfig> = {
     tagline: 'AI field companion for welders & CWIs',
     logo: '/weldpal-logo.png',
     primary: '#F97316',
+    appUrl: 'https://weldpal.tradepals.net',
   },
 }
