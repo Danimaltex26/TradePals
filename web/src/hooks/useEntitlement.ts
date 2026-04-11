@@ -11,9 +11,8 @@ export type EntitlementState = {
 }
 
 /**
- * Reads `subscription_tier` and `subscription_expires_at` from the user's
- * profile row in the app's Supabase project. RLS on the server is the
- * real gate — this hook is for UX only.
+ * Reads from public.subscriptions for the given (user, app) pair.
+ * RLS on the server is the real gate — this hook is for UX only.
  */
 export function useEntitlement(app: AppKey): EntitlementState {
   const auth = useAuth()
@@ -36,18 +35,19 @@ export function useEntitlement(app: AppKey): EntitlementState {
     let cancelled = false
     const client = getClient(app)
     client
-      .from('profiles')
-      .select('subscription_tier, subscription_expires_at')
-      .eq('id', appAuth.user.id)
-      .single()
+      .from('subscriptions')
+      .select('tier, expires_at')
+      .eq('user_id', appAuth.user.id)
+      .eq('app', app)
+      .maybeSingle()
       .then(({ data, error }) => {
         if (cancelled) return
         if (error) {
           setState({ loading: false, active: false, tier: null, expiresAt: null, error: error.message })
           return
         }
-        const tier = (data?.subscription_tier ?? 'free') as string
-        const expiresAt = (data?.subscription_expires_at ?? null) as string | null
+        const tier = (data?.tier ?? 'free') as string
+        const expiresAt = (data?.expires_at ?? null) as string | null
         const isActiveTier = tier.toLowerCase() !== 'free'
         const notExpired = !expiresAt || new Date(expiresAt) > new Date()
         setState({
