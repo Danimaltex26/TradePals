@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { APPS } from '../content/apps'
 import type { AppKey } from '../lib/supabase'
@@ -254,61 +255,7 @@ export default function Home() {
       </section>
 
       {/* ── Pricing ───────────────────────────────────────────────── */}
-      <section id="pricing" className="bg-[#111114] border-y border-[var(--color-border)]">
-        <div className="mx-auto max-w-5xl px-4 py-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Simple <span className="text-[var(--color-primary)]">pricing</span>.
-            </h2>
-            <p className="text-[var(--color-muted-fg)] text-lg">
-              Start free. Upgrade when you're ready. Cancel anytime.
-            </p>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
-            {/* Free Tier */}
-            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-8">
-              <h3 className="text-xl font-bold text-white mb-1">Free</h3>
-              <p className="text-3xl font-extrabold text-white mb-4">$0<span className="text-base font-normal text-[var(--color-muted-fg)]"> /month</span></p>
-              <ul className="space-y-3 text-sm text-[var(--color-muted-fg)] mb-6">
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 2 photo analyses per month</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 2 troubleshoot sessions per month</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 5 AI reference lookups per month</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> All calculators and charts (unlimited)</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Offline photo queue</li>
-              </ul>
-              <Link
-                to="/signin"
-                className="block text-center py-3 rounded-lg border border-[var(--color-border)] font-semibold text-sm hover:border-[var(--color-primary)] transition"
-              >
-                Get Started
-              </Link>
-            </div>
-            {/* Pro Tier */}
-            <div className="rounded-xl border-2 border-[var(--color-primary)] bg-[var(--color-card)] p-8 relative">
-              <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-primary)] text-[#0D0D0F] text-xs font-bold uppercase px-3 py-1 rounded-full">
-                Most Popular
-              </span>
-              <h3 className="text-xl font-bold text-white mb-1">Pro</h3>
-              <p className="text-3xl font-extrabold text-white mb-1">$12.99<span className="text-base font-normal text-[var(--color-muted-fg)]"> /month</span></p>
-              <p className="text-xs text-[var(--color-muted)] mb-4">per app — or bundle all apps for less</p>
-              <ul className="space-y-3 text-sm text-[var(--color-muted-fg)] mb-6">
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Unlimited photo analyses</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Unlimited troubleshoot sessions</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Unlimited AI reference lookups</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Full training content + cert prep</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Priority processing + email notifications</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Full history (100+ entries)</li>
-              </ul>
-              <Link
-                to="/signin"
-                className="block text-center py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
-              >
-                Start Free Trial
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       {/* ── For Employers ─────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-20">
@@ -438,6 +385,121 @@ export default function Home() {
 }
 
 /* ── Shared Components ────────────────────────────────────────────── */
+
+function PricingSection() {
+  const [annual, setAnnual] = useState(false)
+  const monthlyPrice = 12.99
+  const annualPrice = 9.99
+  const price = annual ? annualPrice : monthlyPrice
+  const period = annual ? '/mo' : '/mo'
+  const savings = Math.round((1 - annualPrice / monthlyPrice) * 100)
+
+  return (
+    <section id="pricing" className="bg-[#111114] border-y border-[var(--color-border)]">
+      <div className="mx-auto max-w-6xl px-4 py-20">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+            Simple <span className="text-[var(--color-primary)]">pricing</span>.
+          </h2>
+          <p className="text-[var(--color-muted-fg)] text-lg mb-6">
+            Start free. Upgrade when you're ready. Cancel anytime.
+          </p>
+
+          {/* Billing toggle */}
+          <div className="inline-flex items-center gap-3 bg-[var(--color-card)] border border-[var(--color-border)] rounded-full p-1">
+            <button
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition ${!annual ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-muted-fg)]'}`}
+              onClick={() => setAnnual(false)}
+            >
+              Monthly
+            </button>
+            <button
+              className={`px-4 py-2 rounded-full text-sm font-semibold transition ${annual ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-muted-fg)]'}`}
+              onClick={() => setAnnual(true)}
+            >
+              Annual <span className="text-[10px] ml-1 opacity-80">Save {savings}%</span>
+            </button>
+          </div>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3 max-w-5xl mx-auto">
+          {/* Free */}
+          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-7">
+            <h3 className="text-lg font-bold text-white mb-1">Free</h3>
+            <p className="text-3xl font-extrabold text-white mb-1">$0<span className="text-sm font-normal text-[var(--color-muted-fg)]"> /month</span></p>
+            <p className="text-xs text-[var(--color-muted)] mb-5">Try it on a few jobs</p>
+            <ul className="space-y-2.5 text-sm text-[var(--color-muted-fg)] mb-6">
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 2 photo analyses / month</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 2 troubleshoot sessions / month</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> 5 AI reference lookups / month</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> All calculators & charts</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Offline photo queue</li>
+            </ul>
+            <Link
+              to="/signin"
+              className="block text-center py-3 rounded-lg border border-[var(--color-border)] font-semibold text-sm hover:border-[var(--color-primary)] transition"
+            >
+              Get Started
+            </Link>
+          </div>
+
+          {/* Pro */}
+          <div className="rounded-xl border-2 border-[var(--color-primary)] bg-[var(--color-card)] p-7 relative">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-primary)] text-[#0D0D0F] text-[10px] font-bold uppercase px-3 py-1 rounded-full whitespace-nowrap">
+              Most Popular
+            </span>
+            <h3 className="text-lg font-bold text-white mb-1">Pro</h3>
+            <p className="text-3xl font-extrabold text-white mb-1">
+              ${price.toFixed(2)}<span className="text-sm font-normal text-[var(--color-muted-fg)]"> {period}</span>
+            </p>
+            <p className="text-xs text-[var(--color-muted)] mb-5">
+              {annual ? `$${(annualPrice * 12).toFixed(2)} billed annually` : 'per app, billed monthly'}
+            </p>
+            <ul className="space-y-2.5 text-sm text-[var(--color-muted-fg)] mb-6">
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Unlimited</strong> photo analyses</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Unlimited</strong> troubleshoot sessions</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Unlimited</strong> AI reference lookups</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Full training content + cert prep</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Priority processing + email alerts</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Full history (100+ entries)</li>
+            </ul>
+            <Link
+              to="/signin"
+              className="block text-center py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
+            >
+              Start Free Trial
+            </Link>
+          </div>
+
+          {/* Crew / Enterprise */}
+          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-7">
+            <h3 className="text-lg font-bold text-white mb-1">Crew</h3>
+            <p className="text-3xl font-extrabold text-white mb-1">Custom</p>
+            <p className="text-xs text-[var(--color-muted)] mb-5">For teams of 5+</p>
+            <ul className="space-y-2.5 text-sm text-[var(--color-muted-fg)] mb-6">
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Everything in Pro</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Volume discounts per seat</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Multi-app bundles for your trade mix</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Team admin dashboard</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Onboarding + priority support</li>
+              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Invoice billing (net 30)</li>
+            </ul>
+            <a
+              href="mailto:teams@tradepals.net"
+              className="block text-center py-3 rounded-lg border border-[var(--color-border)] font-semibold text-sm hover:border-[var(--color-primary)] transition"
+            >
+              Contact Sales
+            </a>
+          </div>
+        </div>
+
+        <p className="text-center text-[var(--color-muted)] text-xs mt-6">
+          All plans include a 7-day free trial. No credit card required to start. Prices are per app.
+        </p>
+      </div>
+    </section>
+  )
+}
 
 function FeatureCard({ emoji, title, desc }: { emoji: string; title: string; desc: string }) {
   return (
