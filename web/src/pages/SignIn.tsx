@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
 import type { AppKey } from '../lib/supabase'
+import { APPS } from '../content/apps'
 
 type LocationState = { app?: AppKey; redirect?: string } | null
 
@@ -33,9 +34,12 @@ export default function SignIn() {
 
   return (
     <div className="mx-auto max-w-md px-4 py-16">
-      <h1 className="text-3xl font-extrabold text-center mb-2">Sign In</h1>
-      <p className="text-center text-[var(--color-muted-fg)] mb-8">
-        Use the same email and password from your app.
+      <h1 className="text-3xl font-extrabold text-center mb-2">Training Sign In</h1>
+      <p className="text-center text-[var(--color-muted-fg)] mb-2">
+        Access training content and certification prep on the web.
+      </p>
+      <p className="text-center text-xs text-[var(--color-muted)] mb-8">
+        Use the same email and password from your Pal app.
       </p>
 
       <div className="flex gap-2 mb-6 p-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
@@ -82,16 +86,16 @@ export default function SignIn() {
           className="w-full h-11 rounded-md bg-[var(--color-primary)] text-white font-semibold disabled:opacity-60"
           disabled={loading}
         >
-          {loading ? 'Signing in…' : 'Sign In'}
+          {loading ? 'Signing in…' : 'Sign In to Training'}
         </button>
       </form>
 
       <p className="text-center text-sm text-[var(--color-muted-fg)] mt-6">
-        Don't have an account?{' '}
+        Don't have an account? Sign up in the{' '}
         <Link to={`/${app}`} className="text-[var(--color-primary)] font-semibold">
-          Download the app
+          {APPS[app]?.name || 'Pal'} app
         </Link>{' '}
-        to get started.
+        first — then sign in here to access training.
       </p>
     </div>
   )
