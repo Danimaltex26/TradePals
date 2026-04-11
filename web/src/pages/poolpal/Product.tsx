@@ -13,6 +13,10 @@ export default function PoolPalProduct() {
         'History of every analysis you run',
         'Works on iOS and any modern browser',
       ]}
+      screenshots={[
+        { label: 'Pool Photo Analysis', beforeTitle: 'Photo the pool or equipment', afterTitle: 'Water chemistry + treatment plan' },
+        { label: 'Equipment Troubleshoot', beforeTitle: 'Select heater, pump, or salt cell', afterTitle: 'Ranked causes + parts to check' },
+      ]}
     />
   )
 }

@@ -13,6 +13,10 @@ export default function WeldPalProduct() {
         'History of every analysis you run',
         'Works on iOS and any modern browser',
       ]}
+      screenshots={[
+        { label: 'Weld Defect Analysis', beforeTitle: 'Photo your weld', afterTitle: 'Defect ID + accept/reject verdict' },
+        { label: 'Weld Troubleshooting', beforeTitle: 'Describe the defect & process', afterTitle: 'Root cause + parameter fix' },
+      ]}
     />
   )
 }

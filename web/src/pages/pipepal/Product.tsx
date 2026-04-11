@@ -13,6 +13,10 @@ export default function PipePalProduct() {
         'History of every analysis you run',
         'Works on iOS and any modern browser',
       ]}
+      screenshots={[
+        { label: 'Leak / Code Violation Analysis', beforeTitle: 'Photo the pipe or fitting', afterTitle: 'IPC violation + repair method' },
+        { label: 'Water Heater Troubleshoot', beforeTitle: 'Select unit type & symptom', afterTitle: 'Diagnosis + T&P / venting checks' },
+      ]}
     />
   )
 }

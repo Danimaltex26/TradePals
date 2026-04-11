@@ -13,6 +13,10 @@ export default function SplicePalProduct() {
         'History of every analysis you run',
         'Works on iOS and any modern browser',
       ]}
+      screenshots={[
+        { label: 'OTDR Trace Analysis', beforeTitle: 'Photo your OTDR screen', afterTitle: 'Get splice-by-splice diagnosis' },
+        { label: 'Splice Troubleshooting', beforeTitle: 'Enter loss & error code', afterTitle: 'Ranked causes + step-by-step fix' },
+      ]}
     />
   )
 }

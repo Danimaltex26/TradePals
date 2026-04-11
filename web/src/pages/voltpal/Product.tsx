@@ -13,6 +13,10 @@ export default function VoltPalProduct() {
         'History of every analysis you run',
         'Works on iOS and any modern browser',
       ]}
+      screenshots={[
+        { label: 'Panel / Fault Analysis', beforeTitle: 'Photo the panel or fault', afterTitle: 'Code violations + severity ranking' },
+        { label: 'VFD / Motor Troubleshoot', beforeTitle: 'Enter fault code & equipment', afterTitle: 'Root cause + wiring fix steps' },
+      ]}
     />
   )
 }
