@@ -11,6 +11,7 @@ type ScreenshotPair = {
 type ProductPageProps = {
   app: AppKey
   description: string
+  longDescription?: string
   features: string[]
   appStoreUrl?: string
   screenshots?: ScreenshotPair[]
@@ -42,7 +43,7 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, features, appStoreUrl, screenshots }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots }: ProductPageProps) {
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -53,45 +54,56 @@ export default function ProductPage({ app, description, features, appStoreUrl, s
   const shots = screenshots || defaultScreenshots
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-16">
-      <div style={{ height: 120, width: 320, marginBottom: '1rem' }} className="flex items-center">
-        <img
-          src={cfg.logo}
-          alt={cfg.name}
-          style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
-        />
+    <div className="mx-auto max-w-5xl px-4 py-16">
+      {/* ── Hero: Logo left, CTA right ──────────────────────── */}
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
+        <div className="flex items-center" style={{ height: 120, width: 320 }}>
+          <img
+            src={cfg.logo}
+            alt={cfg.name}
+            style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }}
+          />
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {cfg.appUrl && (
+            <a
+              href={cfg.appUrl}
+              className="px-5 py-3 rounded-md font-semibold"
+              style={{ backgroundColor: cfg.primary, color: '#0D0D0F' }}
+            >
+              Launch {cfg.name}
+            </a>
+          )}
+          {appStoreUrl && (
+            <a
+              href={appStoreUrl}
+              className="px-5 py-3 rounded-md text-white font-semibold"
+              style={{ backgroundColor: cfg.primary }}
+            >
+              Download on App Store
+            </a>
+          )}
+          <Link
+            to={`/${app}/training`}
+            className="px-5 py-3 rounded-md border border-[var(--color-border)] text-white font-semibold"
+          >
+            View Training
+          </Link>
+        </div>
       </div>
-      <p className="text-xl font-semibold mb-6" style={{ color: cfg.primary }}>
+
+      {/* ── Tagline + Description ────────────────────────────── */}
+      <p className="text-xl font-semibold mb-4" style={{ color: cfg.primary }}>
         {cfg.tagline}
       </p>
-      <p className="text-[var(--color-muted-fg)] text-lg mb-10 max-w-2xl">{description}</p>
-
-      <div className="flex flex-wrap gap-3 mb-12">
-        {cfg.appUrl && (
-          <a
-            href={cfg.appUrl}
-            className="px-5 py-3 rounded-md font-semibold"
-            style={{ backgroundColor: cfg.primary, color: '#0D0D0F' }}
-          >
-            Launch {cfg.name}
-          </a>
-        )}
-        {appStoreUrl && (
-          <a
-            href={appStoreUrl}
-            className="px-5 py-3 rounded-md text-white font-semibold"
-            style={{ backgroundColor: cfg.primary }}
-          >
-            Download on App Store
-          </a>
-        )}
-        <Link
-          to={`/${app}/training`}
-          className="px-5 py-3 rounded-md border border-[var(--color-border)] text-white font-semibold"
-        >
-          View Training
-        </Link>
-      </div>
+      <p className="text-[var(--color-muted-fg)] text-lg mb-6 max-w-3xl">{description}</p>
+      {longDescription && (
+        <div className="text-[var(--color-muted-fg)] text-base leading-relaxed mb-12 max-w-3xl space-y-4">
+          {longDescription.split('\n\n').map((para, i) => (
+            <p key={i}>{para}</p>
+          ))}
+        </div>
+      )}
 
       {/* ── Screenshots: Before → After ──────────────────────── */}
       <h2 className="text-2xl font-bold mb-6">See it in action</h2>
