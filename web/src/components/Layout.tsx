@@ -77,84 +77,59 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <footer className="border-t border-[var(--color-border)] py-8 text-sm text-[var(--color-muted-fg)]">
-        <div className="mx-auto max-w-6xl px-4 grid gap-10 md:grid-cols-[1fr_2fr]">
+      <footer className="border-t border-[var(--color-border)] bg-[#0a0a0c] text-sm text-[var(--color-muted-fg)]">
+        <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-4">
+          {/* Brand */}
           <div>
-            <div className="font-bold text-white mb-2">TradePals</div>
-            <p>AI field companions for skilled trades.</p>
-            <ul className="space-y-1 mt-3">
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/training">Training</Link></li>
-              <li><Link to="/signin">Sign In</Link></li>
+            <div className="font-bold text-white text-base mb-2">TradePals</div>
+            <p className="text-xs text-[var(--color-muted)] mb-3">AI field companions for skilled trades.</p>
+            <ul className="space-y-1.5 text-xs">
+              <li><Link to="/about" className="hover:text-white transition">About</Link></li>
+              <li><Link to="/training" className="hover:text-white transition">Training</Link></li>
+              <li><Link to="/signin" className="hover:text-white transition">Sign In</Link></li>
+              <li><a href="mailto:support@tradepals.net" className="hover:text-white transition">Contact</a></li>
             </ul>
           </div>
+
+          {/* Live Apps */}
           <div>
-            <div className="text-xs uppercase tracking-wider text-[var(--color-muted)] mb-3">
-              Pal Apps
-            </div>
-            <div className="grid gap-6 grid-cols-2 md:grid-cols-3">
-              <div>
-                <div className="font-semibold text-white mb-2">SplicePal</div>
-                <ul className="space-y-1">
-                  <li><Link to="/splicepal">Overview</Link></li>
-                  <li><Link to="/splicepal/training">Training</Link></li>
-                  <li><Link to="/splicepal/support">Support</Link></li>
-                  <li><Link to="/splicepal/privacy">Privacy</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">WeldPal</div>
-                <ul className="space-y-1">
-                  <li><Link to="/weldpal">Overview</Link></li>
-                  <li><Link to="/weldpal/training">Training</Link></li>
-                  <li><Link to="/weldpal/support">Support</Link></li>
-                  <li><Link to="/weldpal/privacy">Privacy</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">WindPal</div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">LiftPal</div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">PipePal</div>
-                <ul className="space-y-1">
-                  <li><Link to="/pipepal">Overview</Link></li>
-                  <li><Link to="/pipepal/training">Training</Link></li>
-                  <li><Link to="/pipepal/support">Support</Link></li>
-                  <li><Link to="/pipepal/privacy">Privacy</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">MillPal</div>
-                <p className="text-xs uppercase tracking-wider text-[var(--color-muted)]">Coming soon</p>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">VoltPal</div>
-                <ul className="space-y-1">
-                  <li><Link to="/voltpal">Overview</Link></li>
-                  <li><Link to="/voltpal/training">Training</Link></li>
-                  <li><Link to="/voltpal/support">Support</Link></li>
-                  <li><Link to="/voltpal/privacy">Privacy</Link></li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-semibold text-white mb-2">PoolPal</div>
-                <ul className="space-y-1">
-                  <li><Link to="/poolpal">Overview</Link></li>
-                  <li><Link to="/poolpal/training">Training</Link></li>
-                  <li><Link to="/poolpal/support">Support</Link></li>
-                  <li><Link to="/poolpal/privacy">Privacy</Link></li>
-                </ul>
-              </div>
-            </div>
+            <div className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] mb-3">Live Apps</div>
+            <ul className="space-y-1.5 text-xs">
+              <li><Link to="/splicepal" className="hover:text-white transition">SplicePal</Link> <span className="text-[var(--color-muted)]">— Fiber</span></li>
+              <li><Link to="/weldpal" className="hover:text-white transition">WeldPal</Link> <span className="text-[var(--color-muted)]">— Welding</span></li>
+              <li><Link to="/poolpal" className="hover:text-white transition">PoolPal</Link> <span className="text-[var(--color-muted)]">— Pool & Spa</span></li>
+              <li><Link to="/voltpal" className="hover:text-white transition">VoltPal</Link> <span className="text-[var(--color-muted)]">— Electrical</span></li>
+              <li><Link to="/pipepal" className="hover:text-white transition">PipePal</Link> <span className="text-[var(--color-muted)]">— Plumbing</span></li>
+            </ul>
+          </div>
+
+          {/* Coming Soon */}
+          <div>
+            <div className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] mb-3">Coming Soon</div>
+            <ul className="space-y-1.5 text-xs text-[var(--color-muted)]">
+              <li>LiftPal — Elevators</li>
+              <li>WindPal — Wind Turbines</li>
+              <li>MillPal — Millwrights</li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <div className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] mb-3">Legal</div>
+            <ul className="space-y-1.5 text-xs">
+              <li><Link to="/splicepal/privacy" className="hover:text-white transition">Privacy Policy</Link></li>
+              <li><Link to="/splicepal/terms" className="hover:text-white transition">Terms of Service</Link></li>
+              <li><Link to="/splicepal/support" className="hover:text-white transition">Support</Link></li>
+            </ul>
           </div>
         </div>
-        <div className="mx-auto max-w-6xl px-4 mt-6 text-xs text-[var(--color-muted)]">
-          © {new Date().getFullYear()} TradePals. All rights reserved.
+
+        {/* Bottom bar */}
+        <div className="border-t border-[var(--color-border)]">
+          <div className="mx-auto max-w-6xl px-4 py-4 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-[var(--color-muted)]">
+            <p>&copy; {new Date().getFullYear()} TradePals, LLC. All rights reserved.</p>
+            <p>Built for tradespeople, by tradespeople.</p>
+          </div>
         </div>
       </footer>
     </div>
