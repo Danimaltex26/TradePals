@@ -99,7 +99,7 @@ function SectionCard({ section, accent, onMarkRead }: {
 
 /* ── Practice test ── */
 
-function PracticeTest({ app, moduleId, accent }: { app: AppKey; moduleId: string; accent: string }) {
+function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; moduleId: string; certLevel: string; accent: string }) {
   const auth = useAuth()
   const appAuth = auth[app]
   const client = getClient(app)
@@ -110,6 +110,7 @@ function PracticeTest({ app, moduleId, accent }: { app: AppKey; moduleId: string
   const [loading, setLoading] = useState(true)
   const [finished, setFinished] = useState(false)
   const [showMissed, setShowMissed] = useState(false)
+  const [startTime] = useState(Date.now())
 
   useEffect(() => {
     if (!appAuth.user) return
@@ -133,6 +134,79 @@ function PracticeTest({ app, moduleId, accent }: { app: AppKey; moduleId: string
     if (revealed[idx]) return
     setAnswers((prev) => ({ ...prev, [idx]: choice }))
     setRevealed((prev) => ({ ...prev, [idx]: true }))
+  }
+
+  async function finishTest() {
+    setFinished(true)
+    if (!appAuth.user) return
+
+    const correctCount = questions.reduce((n, q, i) => n + (answers[i] === q.correct_answer ? 1 : 0), 0)
+    const percent = Math.round((correctCount / questions.length) * 100)
+    const elapsed = Math.round((Date.now() - startTime) / 1000)
+
+    try {
+      // Update module progress
+      await (client as any)
+        .schema('splicepal')
+        .from('training_progress')
+        .upsert({
+          user_id: appAuth.user.id,
+          module_id: moduleId,
+          cert_level: certLevel,
+          questions_attempted: questions.length,
+          questions_correct: correctCount,
+          last_practice_score_percent: percent,
+          status: percent >= 70 ? 'passed' : 'needs_review',
+          last_session_at: new Date().toISOString(),
+        }, { onConflict: 'user_id,module_id' })
+
+      // Record test session
+      await (client as any)
+        .schema('splicepal')
+        .from('training_test_sessions')
+        .insert({
+          user_id: appAuth.user.id,
+          module_id: moduleId,
+          cert_level: certLevel,
+          session_type: 'practice',
+          total_questions: questions.length,
+          correct_count: correctCount,
+          score_percent: percent,
+          time_taken_seconds: elapsed,
+          started_at: new Date(startTime).toISOString(),
+          completed_at: new Date().toISOString(),
+        })
+
+      // Recompute readiness for this cert level
+      const { data: allProgress } = await (client as any)
+        .schema('splicepal')
+        .from('training_progress')
+        .select('last_practice_score_percent')
+        .eq('user_id', appAuth.user.id)
+        .eq('cert_level', certLevel)
+        .not('last_practice_score_percent', 'is', null)
+
+      if (allProgress && allProgress.length > 0) {
+        const avgReadiness = Math.round(
+          allProgress.reduce((sum: number, p: any) => sum + Number(p.last_practice_score_percent), 0) / allProgress.length
+        )
+
+        await (client as any)
+          .schema('splicepal')
+          .from('training_readiness')
+          .upsert({
+            user_id: appAuth.user.id,
+            cert_level: certLevel,
+            overall_readiness_percent: avgReadiness,
+            questions_attempted: (allProgress.length * questions.length),
+            sessions_count: allProgress.length,
+            estimated_pass: avgReadiness >= 70,
+            last_updated_at: new Date().toISOString(),
+          }, { onConflict: 'user_id,cert_level' })
+      }
+    } catch (err) {
+      console.error('Failed to save progress:', err)
+    }
   }
 
   function reset() {
@@ -296,7 +370,7 @@ function PracticeTest({ app, moduleId, accent }: { app: AppKey; moduleId: string
             Next &rarr;
           </button>
         ) : allAnswered ? (
-          <button className="text-sm font-semibold" style={{ color: accent }} onClick={() => setFinished(true)}>
+          <button className="text-sm font-semibold" style={{ color: accent }} onClick={() => finishTest()}>
             See Score
           </button>
         ) : (
@@ -486,7 +560,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
             )}
 
             {activeTab === 'test' && (
-              <PracticeTest app={app} moduleId={moduleId!} accent={cfg.primary} />
+              <PracticeTest app={app} moduleId={moduleId!} certLevel={certLevel!} accent={cfg.primary} />
             )}
           </>
         )}
