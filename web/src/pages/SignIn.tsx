@@ -24,7 +24,7 @@ export default function SignIn() {
     setLoading(true)
     try {
       await auth.signIn(app, email.trim(), password)
-      nav(state?.redirect ?? '/account', { replace: true })
+      nav(state?.redirect ?? `/${app}/training`, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign in failed.')
     } finally {
