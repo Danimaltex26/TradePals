@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
 import { getClient, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
@@ -97,8 +98,13 @@ function Connector() {
 
 /* ── Cert card ── */
 
-function CertCard({ cert, accent }: { cert: CertLevel; accent: string }) {
+function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app: AppKey }) {
+  const navigate = useNavigate()
   const examReady = !cert.locked && cert.readiness >= cert.passPercent
+
+  function go() {
+    navigate(`/${app}/training/${cert.key}`)
+  }
 
   return (
     <div
@@ -136,6 +142,7 @@ function CertCard({ cert, accent }: { cert: CertLevel; accent: string }) {
             <button
               className="w-full h-11 rounded-lg font-semibold text-white"
               style={{ backgroundColor: accent }}
+              onClick={go}
             >
               Start
             </button>
@@ -143,6 +150,7 @@ function CertCard({ cert, accent }: { cert: CertLevel; accent: string }) {
             <button
               className="w-full h-11 rounded-lg font-semibold text-white"
               style={{ backgroundColor: accent }}
+              onClick={go}
             >
               Continue &mdash; {cert.readiness}% ready
             </button>
@@ -150,6 +158,7 @@ function CertCard({ cert, accent }: { cert: CertLevel; accent: string }) {
             <button
               className="w-full h-11 rounded-lg font-semibold border"
               style={{ borderColor: 'var(--color-border)', color: 'var(--color-muted-fg)' }}
+              onClick={go}
             >
               View Modules
             </button>
@@ -288,12 +297,12 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {fot && <CertCard cert={fot} accent={cfg.primary} />}
+            {fot && <CertCard cert={fot} accent={cfg.primary} app={app} />}
 
             {cfot && (
               <>
                 <Connector />
-                <CertCard cert={cfot} accent={cfg.primary} />
+                <CertCard cert={cfot} accent={cfg.primary} app={app} />
               </>
             )}
 
@@ -305,7 +314,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   {cfosSpecialties.map((cert) => (
-                    <CertCard key={cert.key} cert={cert} accent={cfg.primary} />
+                    <CertCard key={cert.key} cert={cert} accent={cfg.primary} app={app} />
                   ))}
                 </div>
               </>
@@ -314,7 +323,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
             {rcdd && (
               <>
                 <Connector />
-                <CertCard cert={rcdd} accent={cfg.primary} />
+                <CertCard cert={rcdd} accent={cfg.primary} app={app} />
               </>
             )}
           </div>
