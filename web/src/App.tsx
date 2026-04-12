@@ -15,6 +15,8 @@ import SplicePalTraining from './pages/splicepal/TrainingIndex'
 import SplicePalModules from './pages/splicepal/TrainingModules'
 import SplicePalModule from './pages/splicepal/TrainingModule'
 import SplicePalArticle from './pages/splicepal/TrainingArticle'
+import SplicePalExam from './pages/splicepal/TrainingExam'
+import SplicePalExamRun from './pages/splicepal/TrainingExamRun'
 import WeldPalProduct from './pages/weldpal/Product'
 import WeldPalPrivacy from './pages/weldpal/Privacy'
 import WeldPalTerms from './pages/weldpal/Terms'
@@ -62,6 +64,8 @@ export default function App() {
         <Route path="splicepal/support" element={<SplicePalSupport />} />
         <Route path="splicepal/training" element={<SplicePalTraining />} />
         <Route path="splicepal/training/:certLevel" element={<SplicePalModules />} />
+        <Route path="splicepal/training/:certLevel/exam" element={<SplicePalExam />} />
+        <Route path="splicepal/training/:certLevel/exam/run" element={<SplicePalExamRun />} />
         <Route path="splicepal/training/:certLevel/:moduleId" element={<SplicePalModule />} />
 
         <Route path="weldpal" element={<WeldPalProduct />} />

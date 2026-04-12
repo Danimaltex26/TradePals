@@ -188,6 +188,16 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
             ))}
           </div>
         )}
+
+        {!loading && !error && modules.length > 0 && (
+          <button
+            className="w-full h-11 rounded-lg font-semibold border mt-4"
+            style={{ borderColor: 'var(--color-border)', color: 'var(--color-muted-fg)' }}
+            onClick={() => navigate(`/${app}/training/${certLevel}/exam`)}
+          >
+            Exams & Practice
+          </button>
+        )}
       </TrainingGate>
     </div>
   )
