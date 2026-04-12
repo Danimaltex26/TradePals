@@ -1,5 +1,5 @@
-import TrainingIndex from '../../components/TrainingIndex'
+import CertPathTraining from '../../components/CertPathTraining'
 
 export default function SplicePalTraining() {
-  return <TrainingIndex app="splicepal" />
+  return <CertPathTraining app="splicepal" />
 }
