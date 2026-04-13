@@ -39,7 +39,7 @@ type Question = {
 
 /* ── Timer ── */
 
-function Timer({ totalSeconds, onExpire, accent }: { totalSeconds: number; onExpire: () => void; accent: string }) {
+function Timer({ totalSeconds, onExpire }: { totalSeconds: number; onExpire: () => void }) {
   const [remaining, setRemaining] = useState(totalSeconds)
   const pct = totalSeconds > 0 ? remaining / totalSeconds : 1
   const color = pct <= 0.1 ? '#EF4444' : pct <= 0.25 ? '#F59E0B' : '#F5F5F5'
@@ -507,7 +507,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
               {Object.values(answers).filter((a, i) => a === questions[i]?.correct_answer).length}/{Object.keys(revealed).length}
             </span>
           )}
-          {isTimed && <Timer totalSeconds={(config?.minutes || 90) * 60} onExpire={handleExpire} accent={accent} />}
+          {isTimed && <Timer totalSeconds={(config?.minutes || 90) * 60} onExpire={handleExpire} />}
         </div>
       </div>
 

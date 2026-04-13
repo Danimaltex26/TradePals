@@ -17,20 +17,11 @@ type Module = {
   lastScore: number | null
 }
 
-function StatusBadge({ status, score }: { status: string; score: number | null }) {
+function StatusBadge({ status }: { status: string }) {
   if (status === 'passed') return <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-green-500/15 text-green-400">Passed</span>
   if (status === 'needs_review') return <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-red-500/15 text-red-400">Needs Review</span>
   if (status === 'in_progress') return <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-amber-500/15 text-amber-400">In Progress</span>
   return <span className="inline-block px-2 py-0.5 rounded text-xs font-bold bg-zinc-500/15 text-zinc-400">Not Started</span>
-}
-
-function LockIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-muted)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  )
 }
 
 const CERT_NAMES: Record<string, string> = {
@@ -181,7 +172,7 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
                   <span className="text-xs font-semibold" style={{ color: 'var(--color-muted)' }}>
                     Module {i + 1}
                   </span>
-                  <StatusBadge status={mod.status} score={mod.lastScore} />
+                  <StatusBadge status={mod.status} />
                 </div>
                 <h3 className="font-bold mb-2">{mod.title}</h3>
                 <div className="flex gap-4 flex-wrap text-xs" style={{ color: 'var(--color-muted)' }}>
