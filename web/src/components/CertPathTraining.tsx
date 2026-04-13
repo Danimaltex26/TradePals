@@ -119,7 +119,9 @@ function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app:
         borderColor: 'var(--color-border)',
         backgroundColor: 'var(--color-card)',
         opacity: cert.locked ? 0.55 : 1,
+        cursor: cert.locked ? 'default' : 'pointer',
       }}
+      onClick={() => { if (!cert.locked) go() }}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">
@@ -146,24 +148,27 @@ function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app:
         <div className="mt-3">
           {cert.readiness === 0 && !cert.inProgress ? (
             <button
-              className="w-full h-11 rounded-lg font-semibold text-white"
-              style={{ backgroundColor: accent }}
+              type="button"
+              className="w-full h-11 rounded-lg font-semibold text-white cursor-pointer"
+              style={{ backgroundColor: accent, border: 'none' }}
               onClick={go}
             >
               Start
             </button>
           ) : cert.inProgress ? (
             <button
-              className="w-full h-11 rounded-lg font-semibold text-white"
-              style={{ backgroundColor: accent }}
+              type="button"
+              className="w-full h-11 rounded-lg font-semibold text-white cursor-pointer"
+              style={{ backgroundColor: accent, border: 'none' }}
               onClick={go}
             >
               Continue &mdash; {cert.readiness}% ready
             </button>
           ) : (
             <button
-              className="w-full h-11 rounded-lg font-semibold border"
-              style={{ borderColor: 'var(--color-border)', color: 'var(--color-muted-fg)' }}
+              type="button"
+              className="w-full h-11 rounded-lg font-semibold cursor-pointer"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-muted-fg)', backgroundColor: 'transparent' }}
               onClick={go}
             >
               View Modules
