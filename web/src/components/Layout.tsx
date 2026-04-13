@@ -66,6 +66,7 @@ export default function Layout() {
               <MobileLink to="/voltpal" indent>VoltPal</MobileLink>
               <MobileLink to="/pipepal" indent>PipePal</MobileLink>
               <MobileLink to="/windpal" indent>WindPal</MobileLink>
+              <MobileLink to="/liftpal" indent>LiftPal</MobileLink>
               <MobileLink to="/training">Training</MobileLink>
             </nav>
           </div>
@@ -99,6 +100,7 @@ export default function Layout() {
               <li><Link to="/voltpal" className="hover:text-white transition">VoltPal</Link> <span className="text-[var(--color-muted)]">— Electrical</span></li>
               <li><Link to="/pipepal" className="hover:text-white transition">PipePal</Link> <span className="text-[var(--color-muted)]">— Plumbing</span></li>
               <li><Link to="/windpal" className="hover:text-white transition">WindPal</Link> <span className="text-[var(--color-muted)]">— Wind Turbines</span></li>
+              <li><Link to="/liftpal" className="hover:text-white transition">LiftPal</Link> <span className="text-[var(--color-muted)]">— Elevators & Lifts</span></li>
             </ul>
           </div>
 
@@ -204,6 +206,7 @@ function PalAppsDropdown() {
           <DropdownLink to="/voltpal" onClick={() => setOpen(false)}>VoltPal</DropdownLink>
           <DropdownLink to="/pipepal" onClick={() => setOpen(false)}>PipePal</DropdownLink>
           <DropdownLink to="/windpal" onClick={() => setOpen(false)}>WindPal</DropdownLink>
+          <DropdownLink to="/liftpal" onClick={() => setOpen(false)}>LiftPal</DropdownLink>
         </div>
       )}
     </div>

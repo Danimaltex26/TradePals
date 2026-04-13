@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { Session, User } from '@supabase/supabase-js'
-import { splicepalClient, weldpalClient, poolpalClient, voltpalClient, pipepalClient, windpalClient, type AppKey } from '../lib/supabase'
+import { splicepalClient, weldpalClient, poolpalClient, voltpalClient, pipepalClient, windpalClient, liftpalClient, type AppKey } from '../lib/supabase'
 
 type AppAuthState = {
   user: User | null
@@ -15,6 +15,7 @@ type AuthContextValue = {
   voltpal: AppAuthState
   pipepal: AppAuthState
   windpal: AppAuthState
+  liftpal: AppAuthState
   signIn: (app: AppKey, email: string, password: string) => Promise<void>
   signInWithMagicLink: (app: AppKey, email: string) => Promise<void>
   signOut: (app: AppKey) => Promise<void>
@@ -54,6 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const voltpal = useAppAuth(voltpalClient)
   const pipepal = useAppAuth(pipepalClient)
   const windpal = useAppAuth(windpalClient)
+  const liftpal = useAppAuth(liftpalClient)
 
   function getAppClient(app: AppKey) {
     if (app === 'splicepal') return splicepalClient
@@ -61,6 +63,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (app === 'voltpal') return voltpalClient
     if (app === 'pipepal') return pipepalClient
     if (app === 'windpal') return windpalClient
+    if (app === 'liftpal') return liftpalClient
     return weldpalClient
   }
 
@@ -83,7 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <AuthContext.Provider value={{ splicepal, weldpal, poolpal, voltpal, pipepal, windpal, signIn, signInWithMagicLink, signOut }}>
+    <AuthContext.Provider value={{ splicepal, weldpal, poolpal, voltpal, pipepal, windpal, liftpal, signIn, signInWithMagicLink, signOut }}>
       {children}
     </AuthContext.Provider>
   )

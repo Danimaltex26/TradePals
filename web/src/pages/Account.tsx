@@ -15,6 +15,7 @@ export default function Account() {
         <AppSection app="voltpal" />
         <AppSection app="pipepal" />
         <AppSection app="windpal" />
+        <AppSection app="liftpal" />
       </div>
     </div>
   )

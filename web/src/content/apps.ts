@@ -60,4 +60,12 @@ export const APPS: Record<AppKey, AppConfig> = {
     primary: '#22D3EE',
     appUrl: 'https://windpal.tradepals.net',
   },
+  liftpal: {
+    key: 'liftpal',
+    name: 'LiftPal',
+    tagline: 'AI field companion for elevator & lift technicians',
+    logo: '/liftpal-logo.png',
+    primary: '#A855F7',
+    appUrl: 'https://liftpal.tradepals.net',
+  },
 }

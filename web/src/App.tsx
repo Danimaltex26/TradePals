@@ -62,6 +62,10 @@ import WindPalExam from './pages/windpal/TrainingExam'
 import WindPalExamRun from './pages/windpal/TrainingExamRun'
 import WindPalReadiness from './pages/windpal/TrainingReadiness'
 import WindPalSR from './pages/windpal/TrainingSR'
+import LiftPalProduct from './pages/liftpal/Product'
+import LiftPalPrivacy from './pages/liftpal/Privacy'
+import LiftPalTerms from './pages/liftpal/Terms'
+import LiftPalSupport from './pages/liftpal/Support'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -163,6 +167,11 @@ export default function App() {
         <Route path="windpal/training/:certLevel/exam/run" element={<WindPalExamRun />} />
         <Route path="windpal/training/:certLevel" element={<WindPalModules />} />
         <Route path="windpal/training/:certLevel/:moduleId" element={<WindPalModule />} />
+
+        <Route path="liftpal" element={<LiftPalProduct />} />
+        <Route path="liftpal/privacy" element={<LiftPalPrivacy />} />
+        <Route path="liftpal/terms" element={<LiftPalTerms />} />
+        <Route path="liftpal/support" element={<LiftPalSupport />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>
