@@ -9,6 +9,7 @@ const CERT_NAMES: Record<string, string> = {
   FOT: 'FOT', CFOT: 'CFOT', CFOS_S: 'CFOS/S', CFOS_T: 'CFOS/T',
   CFOS_D: 'CFOS/D', CFOS_I: 'CFOS/I', RCDD: 'RCDD',
   CW: 'CW', CAWI: 'CAWI', CWI: 'CWI', CWS: 'CWS', CRAW: 'CRAW',
+  APPRENTICE: 'Apprentice', JOURNEYMAN: 'Journeyman', MASTER: 'Master', NFPA_70E: 'NFPA 70E',
 }
 
 /* ── Large readiness gauge ── */

@@ -21,6 +21,11 @@ const EXAM_CONFIG: Record<string, { name: string; questions: number; minutes: nu
   CWI:    { name: 'CWI',    questions: 100, minutes: 150, pass: 72 },
   CWS:    { name: 'CWS',    questions: 75,  minutes: 120, pass: 72 },
   CRAW:   { name: 'CRAW',   questions: 75,  minutes: 120, pass: 72 },
+  // VoltPal
+  APPRENTICE: { name: 'Apprentice',  questions: 50,  minutes: 75,  pass: 70 },
+  JOURNEYMAN: { name: 'Journeyman',  questions: 80,  minutes: 120, pass: 70 },
+  MASTER:     { name: 'Master',       questions: 100, minutes: 150, pass: 75 },
+  NFPA_70E:   { name: 'NFPA 70E',    questions: 60,  minutes: 90,  pass: 70 },
 }
 
 type Question = {

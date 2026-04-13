@@ -33,10 +33,18 @@ const WELDPAL_CERTS: CertDef[] = [
   { key: 'CRAW', name: 'CRAW', fullTitle: 'Certified Robotic Arc Welding',         questionCount: 75,  timeMinutes: 120, passPercent: 72 },
 ]
 
+const VOLTPAL_CERTS: CertDef[] = [
+  { key: 'APPRENTICE',  name: 'Apprentice',       fullTitle: 'Electrical Apprentice',          questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'JOURNEYMAN',  name: 'Journeyman',       fullTitle: 'Journeyman Electrician',         questionCount: 80,  timeMinutes: 120, passPercent: 70 },
+  { key: 'MASTER',       name: 'Master',            fullTitle: 'Master Electrician',             questionCount: 100, timeMinutes: 150, passPercent: 75 },
+  { key: 'NFPA_70E',    name: 'NFPA 70E',         fullTitle: 'NFPA 70E Electrical Safety',     questionCount: 60,  timeMinutes: 90,  passPercent: 70 },
+]
+
 // Per-app cert definitions and schema name
 const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   splicepal: SPLICEPAL_CERTS,
   weldpal: WELDPAL_CERTS,
+  voltpal: VOLTPAL_CERTS,
 }
 
 /* ── Types ── */
@@ -242,6 +250,13 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
             if (key === 'CWI') return cawiReady >= 80
             if (key === 'CWS') return cwiReady >= 80
             if (key === 'CRAW') return cwReady >= 80
+          } else if (app === 'voltpal') {
+            const appReady = readinessMap['APPRENTICE'] || 0
+            const jourReady = readinessMap['JOURNEYMAN'] || 0
+            if (key === 'APPRENTICE') return true
+            if (key === 'JOURNEYMAN') return appReady >= 80
+            if (key === 'MASTER') return jourReady >= 80
+            if (key === 'NFPA_70E') return true // standalone safety track, always available
           }
           // Default: first cert unlocked, rest locked
           if (certDefs && certDefs[0]?.key === key) return true
@@ -276,6 +291,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
   const APP_SUBTITLE: Partial<Record<AppKey, string>> = {
     splicepal: 'Fiber optic certification paths',
     weldpal: 'AWS welding certification paths',
+    voltpal: 'Electrical licensing certification paths',
   }
 
   // App-specific cert path layouts
@@ -328,6 +344,29 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
                 {cws && <CertCard cert={cws} accent={cfg.primary} app={app} />}
                 {craw && <CertCard cert={craw} accent={cfg.primary} app={app} />}
               </div>
+            </>
+          )}
+        </>
+      )
+    }
+
+    if (app === 'voltpal') {
+      const apprentice = levels.find((c) => c.key === 'APPRENTICE')
+      const journeyman = levels.find((c) => c.key === 'JOURNEYMAN')
+      const master = levels.find((c) => c.key === 'MASTER')
+      const nfpa = levels.find((c) => c.key === 'NFPA_70E')
+      return (
+        <>
+          {apprentice && <CertCard cert={apprentice} accent={cfg.primary} app={app} />}
+          {journeyman && <><Connector /><CertCard cert={journeyman} accent={cfg.primary} app={app} /></>}
+          {master && <><Connector /><CertCard cert={master} accent={cfg.primary} app={app} /></>}
+          {nfpa && (
+            <>
+              <Connector />
+              <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+                Safety Certification
+              </p>
+              <CertCard cert={nfpa} accent={cfg.primary} app={app} />
             </>
           )}
         </>

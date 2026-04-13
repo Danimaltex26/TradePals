@@ -38,7 +38,12 @@ import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
 import VoltPalSupport from './pages/voltpal/Support'
 import VoltPalTraining from './pages/voltpal/TrainingIndex'
-import VoltPalArticle from './pages/voltpal/TrainingArticle'
+import VoltPalModules from './pages/voltpal/TrainingModules'
+import VoltPalModule from './pages/voltpal/TrainingModule'
+import VoltPalExam from './pages/voltpal/TrainingExam'
+import VoltPalExamRun from './pages/voltpal/TrainingExamRun'
+import VoltPalReadiness from './pages/voltpal/TrainingReadiness'
+import VoltPalSR from './pages/voltpal/TrainingSR'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -98,7 +103,12 @@ export default function App() {
         <Route path="voltpal/terms" element={<VoltPalTerms />} />
         <Route path="voltpal/support" element={<VoltPalSupport />} />
         <Route path="voltpal/training" element={<VoltPalTraining />} />
-        <Route path="voltpal/training/:slug" element={<VoltPalArticle />} />
+        <Route path="voltpal/training/sr" element={<VoltPalSR />} />
+        <Route path="voltpal/training/:certLevel/readiness" element={<VoltPalReadiness />} />
+        <Route path="voltpal/training/:certLevel/exam" element={<VoltPalExam />} />
+        <Route path="voltpal/training/:certLevel/exam/run" element={<VoltPalExamRun />} />
+        <Route path="voltpal/training/:certLevel" element={<VoltPalModules />} />
+        <Route path="voltpal/training/:certLevel/:moduleId" element={<VoltPalModule />} />
 
         <Route path="pipepal" element={<PipePalProduct />} />
         <Route path="pipepal/privacy" element={<PipePalPrivacy />} />
