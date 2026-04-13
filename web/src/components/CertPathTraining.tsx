@@ -139,32 +139,30 @@ function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app:
       </div>
 
       {!cert.locked && (
-        <div className="mt-3">
-          {cert.readiness === 0 && !cert.inProgress ? (
-            <Link
-              to={href}
-              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold text-white no-underline"
-              style={{ backgroundColor: accent }}
-            >
-              Start
-            </Link>
-          ) : cert.inProgress ? (
-            <Link
-              to={href}
-              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold text-white no-underline"
-              style={{ backgroundColor: accent }}
-            >
-              Continue &mdash; {cert.readiness}% ready
-            </Link>
-          ) : (
-            <Link
-              to={href}
-              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold no-underline"
-              style={{ border: '1px solid var(--color-border)', color: 'var(--color-muted-fg)' }}
-            >
-              View Modules
-            </Link>
-          )}
+        <div style={{ marginTop: 12, position: 'relative', zIndex: 10 }}>
+          <a
+            href={href}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              height: 44,
+              borderRadius: 8,
+              fontWeight: 600,
+              textDecoration: 'none',
+              cursor: 'pointer',
+              backgroundColor: cert.readiness === 0 && !cert.inProgress ? accent : cert.inProgress ? accent : 'transparent',
+              color: cert.readiness === 0 && !cert.inProgress ? 'white' : cert.inProgress ? 'white' : 'var(--color-muted-fg)',
+              border: cert.readiness > 0 && !cert.inProgress ? '1px solid var(--color-border)' : 'none',
+            }}
+          >
+            {cert.readiness === 0 && !cert.inProgress
+              ? 'Start'
+              : cert.inProgress
+              ? 'Continue — ' + cert.readiness + '% ready'
+              : 'View Modules'}
+          </a>
         </div>
       )}
     </div>
