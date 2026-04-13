@@ -71,8 +71,8 @@ export default function App() {
         <Route path="splicepal/terms" element={<SplicePalTerms />} />
         <Route path="splicepal/support" element={<SplicePalSupport />} />
         <Route path="splicepal/training" element={<SplicePalTraining />} />
-        <Route path="splicepal/training/:certLevel" element={<SplicePalModules />} />
         <Route path="splicepal/training/sr" element={<SplicePalSR />} />
+        <Route path="splicepal/training/:certLevel" element={<SplicePalModules />} />
         <Route path="splicepal/training/:certLevel/readiness" element={<SplicePalReadiness />} />
         <Route path="splicepal/training/:certLevel/exam" element={<SplicePalExam />} />
         <Route path="splicepal/training/:certLevel/exam/run" element={<SplicePalExamRun />} />
