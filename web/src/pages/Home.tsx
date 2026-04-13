@@ -467,7 +467,7 @@ function PricingSection() {
               to="/signin"
               className="block text-center py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
             >
-              Start Free Trial
+              Get Started
             </Link>
           </div>
 
@@ -494,7 +494,7 @@ function PricingSection() {
         </div>
 
         <p className="text-center text-[var(--color-muted)] text-xs mt-6">
-          All plans include a 7-day free trial. No credit card required to start. Prices are per app.
+          Free tier included with every app. Upgrade to Pro anytime. Prices are per app.
         </p>
       </div>
     </section>
