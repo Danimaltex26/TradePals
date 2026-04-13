@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
 import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
@@ -105,12 +105,8 @@ function Connector() {
 /* ── Cert card ── */
 
 function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app: AppKey }) {
-  const navigate = useNavigate()
   const examReady = !cert.locked && cert.readiness >= cert.passPercent
-
-  function go() {
-    navigate(`/${app}/training/${cert.key}`)
-  }
+  const href = `/${app}/training/${cert.key}`
 
   return (
     <div
@@ -119,9 +115,7 @@ function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app:
         borderColor: 'var(--color-border)',
         backgroundColor: 'var(--color-card)',
         opacity: cert.locked ? 0.55 : 1,
-        cursor: cert.locked ? 'default' : 'pointer',
       }}
-      onClick={() => { if (!cert.locked) go() }}
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1 min-w-0">
@@ -147,32 +141,29 @@ function CertCard({ cert, accent, app }: { cert: CertLevel; accent: string; app:
       {!cert.locked && (
         <div className="mt-3">
           {cert.readiness === 0 && !cert.inProgress ? (
-            <button
-              type="button"
-              className="w-full h-11 rounded-lg font-semibold text-white cursor-pointer"
-              style={{ backgroundColor: accent, border: 'none' }}
-              onClick={go}
+            <Link
+              to={href}
+              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold text-white no-underline"
+              style={{ backgroundColor: accent }}
             >
               Start
-            </button>
+            </Link>
           ) : cert.inProgress ? (
-            <button
-              type="button"
-              className="w-full h-11 rounded-lg font-semibold text-white cursor-pointer"
-              style={{ backgroundColor: accent, border: 'none' }}
-              onClick={go}
+            <Link
+              to={href}
+              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold text-white no-underline"
+              style={{ backgroundColor: accent }}
             >
               Continue &mdash; {cert.readiness}% ready
-            </button>
+            </Link>
           ) : (
-            <button
-              type="button"
-              className="w-full h-11 rounded-lg font-semibold cursor-pointer"
-              style={{ border: '1px solid var(--color-border)', color: 'var(--color-muted-fg)', backgroundColor: 'transparent' }}
-              onClick={go}
+            <Link
+              to={href}
+              className="flex items-center justify-center w-full h-11 rounded-lg font-semibold no-underline"
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-muted-fg)' }}
             >
               View Modules
-            </button>
+            </Link>
           )}
         </div>
       )}
