@@ -33,6 +33,11 @@ const EXAM_CONFIG: Record<string, { name: string; questions: number; minutes: nu
   COMMERCIAL:  { name: 'Commercial',  questions: 75,  minutes: 120, pass: 72 },
   // PipePal
   MEDICAL_GAS: { name: 'Medical Gas', questions: 60,  minutes: 90,  pass: 75 },
+  // WindPal
+  GWO_BST:     { name: 'GWO BST',     questions: 50,  minutes: 75,  pass: 70 },
+  GWO_BTT:     { name: 'GWO BTT',     questions: 60,  minutes: 90,  pass: 70 },
+  ACP_TECH:    { name: 'ACP Tech',    questions: 80,  minutes: 120, pass: 72 },
+  SENIOR_TECH: { name: 'Senior Tech', questions: 100, minutes: 150, pass: 75 },
 }
 
 type Question = {

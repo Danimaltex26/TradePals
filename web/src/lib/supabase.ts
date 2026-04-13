@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 
-export type AppKey = 'splicepal' | 'weldpal' | 'poolpal' | 'voltpal' | 'pipepal'
+export type AppKey = 'splicepal' | 'weldpal' | 'poolpal' | 'voltpal' | 'pipepal' | 'windpal'
 
 const splicepalUrl = import.meta.env.VITE_SPLICEPAL_SUPABASE_URL
 const splicepalKey = import.meta.env.VITE_SPLICEPAL_SUPABASE_ANON_KEY
@@ -12,6 +12,8 @@ const voltpalUrl = import.meta.env.VITE_VOLTPAL_SUPABASE_URL || splicepalUrl
 const voltpalKey = import.meta.env.VITE_VOLTPAL_SUPABASE_ANON_KEY || splicepalKey
 const pipepalUrl = import.meta.env.VITE_PIPEPAL_SUPABASE_URL || splicepalUrl
 const pipepalKey = import.meta.env.VITE_PIPEPAL_SUPABASE_ANON_KEY || splicepalKey
+const windpalUrl = import.meta.env.VITE_WINDPAL_SUPABASE_URL || splicepalUrl
+const windpalKey = import.meta.env.VITE_WINDPAL_SUPABASE_ANON_KEY || splicepalKey
 
 if (!splicepalUrl || !splicepalKey || !weldpalUrl || !weldpalKey) {
   console.warn(
@@ -81,11 +83,24 @@ export const pipepalClient: SupabaseClient = createClient(
   }
 )
 
+export const windpalClient: SupabaseClient = createClient(
+  windpalUrl ?? 'https://placeholder.supabase.co',
+  windpalKey ?? 'placeholder',
+  {
+    auth: {
+      storageKey: 'tradepals-windpal-auth',
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  }
+)
+
 export function getClient(app: AppKey): SupabaseClient {
   if (app === 'splicepal') return splicepalClient
   if (app === 'poolpal') return poolpalClient
   if (app === 'voltpal') return voltpalClient
   if (app === 'pipepal') return pipepalClient
+  if (app === 'windpal') return windpalClient
   return weldpalClient
 }
 
@@ -97,6 +112,7 @@ export function getTrainingSchema(app: AppKey): string {
     poolpal: 'poolpal',
     voltpal: 'voltpal',
     pipepal: 'pipepal',
+    windpal: 'windpal',
   }
   return schemas[app]
 }

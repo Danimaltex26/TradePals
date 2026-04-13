@@ -65,6 +65,7 @@ export default function Layout() {
               <MobileLink to="/poolpal" indent>PoolPal</MobileLink>
               <MobileLink to="/voltpal" indent>VoltPal</MobileLink>
               <MobileLink to="/pipepal" indent>PipePal</MobileLink>
+              <MobileLink to="/windpal" indent>WindPal</MobileLink>
               <MobileLink to="/training">Training</MobileLink>
             </nav>
           </div>
@@ -97,6 +98,7 @@ export default function Layout() {
               <li><Link to="/poolpal" className="hover:text-white transition">PoolPal</Link> <span className="text-[var(--color-muted)]">— Pool & Spa</span></li>
               <li><Link to="/voltpal" className="hover:text-white transition">VoltPal</Link> <span className="text-[var(--color-muted)]">— Electrical</span></li>
               <li><Link to="/pipepal" className="hover:text-white transition">PipePal</Link> <span className="text-[var(--color-muted)]">— Plumbing</span></li>
+              <li><Link to="/windpal" className="hover:text-white transition">WindPal</Link> <span className="text-[var(--color-muted)]">— Wind Turbines</span></li>
             </ul>
           </div>
 
@@ -105,7 +107,6 @@ export default function Layout() {
             <div className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] mb-3">Coming Soon</div>
             <ul className="space-y-1.5 text-xs text-[var(--color-muted)]">
               <li>LiftPal — Elevators</li>
-              <li>WindPal — Wind Turbines</li>
               <li>MillPal — Millwrights</li>
             </ul>
           </div>
@@ -202,6 +203,7 @@ function PalAppsDropdown() {
           <DropdownLink to="/poolpal" onClick={() => setOpen(false)}>PoolPal</DropdownLink>
           <DropdownLink to="/voltpal" onClick={() => setOpen(false)}>VoltPal</DropdownLink>
           <DropdownLink to="/pipepal" onClick={() => setOpen(false)}>PipePal</DropdownLink>
+          <DropdownLink to="/windpal" onClick={() => setOpen(false)}>WindPal</DropdownLink>
         </div>
       )}
     </div>

@@ -46,6 +46,10 @@ const CERT_NAMES: Record<string, string> = {
   RESIDENTIAL: 'Residential Pool Specialist',
   COMMERCIAL: 'Commercial Pool Specialist',
   MEDICAL_GAS: 'Medical Gas Installer (ASSE 6010)',
+  GWO_BST: 'GWO Basic Safety Training',
+  GWO_BTT: 'GWO Basic Technical Training',
+  ACP_TECH: 'ACP Wind Turbine Service Technician',
+  SENIOR_TECH: 'Senior Wind Turbine Technician',
 }
 
 export default function TrainingModuleList({ app }: { app: AppKey }) {

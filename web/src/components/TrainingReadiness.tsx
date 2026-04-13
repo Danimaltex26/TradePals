@@ -12,6 +12,7 @@ const CERT_NAMES: Record<string, string> = {
   APPRENTICE: 'Apprentice', JOURNEYMAN: 'Journeyman', MASTER: 'Master', NFPA_70E: 'NFPA 70E',
   CPO: 'CPO', CST: 'CST', RESIDENTIAL: 'Residential', COMMERCIAL: 'Commercial',
   MEDICAL_GAS: 'Medical Gas',
+  GWO_BST: 'GWO BST', GWO_BTT: 'GWO BTT', ACP_TECH: 'ACP Tech', SENIOR_TECH: 'Senior Tech',
 }
 
 /* ── Large readiness gauge ── */

@@ -52,4 +52,12 @@ export const APPS: Record<AppKey, AppConfig> = {
     primary: '#3B82F6',
     appUrl: 'https://pipepal.tradepals.net',
   },
+  windpal: {
+    key: 'windpal',
+    name: 'WindPal',
+    tagline: 'AI field companion for wind turbine technicians',
+    logo: '/windpal-logo.png',
+    primary: '#10B981',
+    appUrl: 'https://windpal.tradepals.net',
+  },
 }

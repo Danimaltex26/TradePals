@@ -96,6 +96,7 @@ const ARTICLES: Record<AppKey, Article[]> = {
   poolpal: poolpalArticles,
   voltpal: voltpalArticles,
   pipepal: pipepalArticles,
+  windpal: [],
 }
 
 export function listArticles(app: AppKey): Article[] {

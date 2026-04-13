@@ -51,6 +51,17 @@ import VoltPalExam from './pages/voltpal/TrainingExam'
 import VoltPalExamRun from './pages/voltpal/TrainingExamRun'
 import VoltPalReadiness from './pages/voltpal/TrainingReadiness'
 import VoltPalSR from './pages/voltpal/TrainingSR'
+import WindPalProduct from './pages/windpal/Product'
+import WindPalPrivacy from './pages/windpal/Privacy'
+import WindPalTerms from './pages/windpal/Terms'
+import WindPalSupport from './pages/windpal/Support'
+import WindPalTraining from './pages/windpal/TrainingIndex'
+import WindPalModules from './pages/windpal/TrainingModules'
+import WindPalModule from './pages/windpal/TrainingModule'
+import WindPalExam from './pages/windpal/TrainingExam'
+import WindPalExamRun from './pages/windpal/TrainingExamRun'
+import WindPalReadiness from './pages/windpal/TrainingReadiness'
+import WindPalSR from './pages/windpal/TrainingSR'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -140,6 +151,18 @@ export default function App() {
         <Route path="pipepal/training/:certLevel/exam/run" element={<PipePalExamRun />} />
         <Route path="pipepal/training/:certLevel" element={<PipePalModules />} />
         <Route path="pipepal/training/:certLevel/:moduleId" element={<PipePalModule />} />
+
+        <Route path="windpal" element={<WindPalProduct />} />
+        <Route path="windpal/privacy" element={<WindPalPrivacy />} />
+        <Route path="windpal/terms" element={<WindPalTerms />} />
+        <Route path="windpal/support" element={<WindPalSupport />} />
+        <Route path="windpal/training" element={<WindPalTraining />} />
+        <Route path="windpal/training/sr" element={<WindPalSR />} />
+        <Route path="windpal/training/:certLevel/readiness" element={<WindPalReadiness />} />
+        <Route path="windpal/training/:certLevel/exam" element={<WindPalExam />} />
+        <Route path="windpal/training/:certLevel/exam/run" element={<WindPalExamRun />} />
+        <Route path="windpal/training/:certLevel" element={<WindPalModules />} />
+        <Route path="windpal/training/:certLevel/:moduleId" element={<WindPalModule />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

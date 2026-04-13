@@ -54,6 +54,13 @@ const PIPEPAL_CERTS: CertDef[] = [
   { key: 'MEDICAL_GAS',  name: 'Medical Gas',   fullTitle: 'Medical Gas Installer (ASSE 6010)', questionCount: 60,  timeMinutes: 90,  passPercent: 75 },
 ]
 
+const WINDPAL_CERTS: CertDef[] = [
+  { key: 'GWO_BST',     name: 'GWO BST',       fullTitle: 'GWO Basic Safety Training',           questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'GWO_BTT',     name: 'GWO BTT',       fullTitle: 'GWO Basic Technical Training',        questionCount: 60,  timeMinutes: 90,  passPercent: 70 },
+  { key: 'ACP_TECH',    name: 'ACP Wind Tech',  fullTitle: 'ACP Wind Turbine Service Technician', questionCount: 80,  timeMinutes: 120, passPercent: 72 },
+  { key: 'SENIOR_TECH', name: 'Senior Tech',    fullTitle: 'Senior Wind Turbine Technician',      questionCount: 100, timeMinutes: 150, passPercent: 75 },
+]
+
 // Per-app cert definitions and schema name
 const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   splicepal: SPLICEPAL_CERTS,
@@ -61,6 +68,7 @@ const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   voltpal: VOLTPAL_CERTS,
   poolpal: POOLPAL_CERTS,
   pipepal: PIPEPAL_CERTS,
+  windpal: WINDPAL_CERTS,
 }
 
 /* ── Types ── */
@@ -286,6 +294,14 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
             if (key === 'JOURNEYMAN') return appReady >= 80
             if (key === 'MASTER') return jourReady >= 80
             if (key === 'MEDICAL_GAS') return jourReady >= 80
+          } else if (app === 'windpal') {
+            const bstReady = readinessMap['GWO_BST'] || 0
+            const bttReady = readinessMap['GWO_BTT'] || 0
+            const acpReady = readinessMap['ACP_TECH'] || 0
+            if (key === 'GWO_BST') return true
+            if (key === 'GWO_BTT') return bstReady >= 80
+            if (key === 'ACP_TECH') return bttReady >= 80
+            if (key === 'SENIOR_TECH') return acpReady >= 80
           }
           // Default: first cert unlocked, rest locked
           if (certDefs && certDefs[0]?.key === key) return true
@@ -323,6 +339,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
     voltpal: 'Electrical licensing certification paths',
     poolpal: 'Pool & spa certification paths',
     pipepal: 'Plumbing certification paths',
+    windpal: 'Wind turbine technician certification paths',
   }
 
   // App-specific cert path layouts
