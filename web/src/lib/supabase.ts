@@ -88,3 +88,15 @@ export function getClient(app: AppKey): SupabaseClient {
   if (app === 'pipepal') return pipepalClient
   return weldpalClient
 }
+
+/** Returns the Supabase schema name for training tables */
+export function getTrainingSchema(app: AppKey): string {
+  const schemas: Record<AppKey, string> = {
+    splicepal: 'splicepal',
+    weldpal: 'weldpal',
+    poolpal: 'poolpal',
+    voltpal: 'voltpal',
+    pipepal: 'pipepal',
+  }
+  return schemas[app]
+}

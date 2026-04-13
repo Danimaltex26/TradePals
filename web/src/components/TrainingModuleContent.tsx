@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
@@ -115,7 +115,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
   useEffect(() => {
     if (!appAuth.user) return
     ;(client as any)
-      .schema('splicepal')
+      .schema(getTrainingSchema(app))
       .from('training_questions')
       .select('id, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, standard_reference')
       .eq('module_id', moduleId)
@@ -147,7 +147,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
     try {
       // Update module progress
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_progress')
         .upsert({
           user_id: appAuth.user.id,
@@ -162,7 +162,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
 
       // Record test session
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_test_sessions')
         .insert({
           user_id: appAuth.user.id,
@@ -179,7 +179,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
 
       // Recompute readiness for this cert level
       const { data: allProgress } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_progress')
         .select('last_practice_score_percent')
         .eq('user_id', appAuth.user.id)
@@ -192,7 +192,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
         )
 
         await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_readiness')
           .upsert({
             user_id: appAuth.user.id,
@@ -403,7 +403,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
     try {
       // Fetch module info
       const { data: mod, error: modErr } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_modules')
         .select('title')
         .eq('id', moduleId)
@@ -414,7 +414,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
 
       // Fetch content sections
       const { data: content, error: cntErr } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_content')
         .select('id, section_number, section_title, content_type, content_text, standard_reference')
         .eq('module_id', moduleId)
@@ -424,7 +424,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
 
       // Fetch user progress for this module
       const { data: progress } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_progress')
         .select('concept_sections_read')
         .eq('user_id', appAuth.user!.id)
@@ -463,7 +463,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
     // Upsert progress
     try {
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_progress')
         .upsert({
           user_id: appAuth.user!.id,

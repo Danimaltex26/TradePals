@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
@@ -41,6 +41,11 @@ const CERT_NAMES: Record<string, string> = {
   CFOS_D: 'CFOS — Design',
   CFOS_I: 'CFOS — Inspection',
   RCDD: 'Registered Communications Distribution Designer (RCDD)',
+  CW: 'Certified Welder (CW)',
+  CAWI: 'Certified Associate Welding Inspector (CAWI)',
+  CWI: 'Certified Welding Inspector (CWI)',
+  CWS: 'Certified Welding Supervisor (CWS)',
+  CRAW: 'Certified Robotic Arc Welding (CRAW)',
 }
 
 export default function TrainingModuleList({ app }: { app: AppKey }) {
@@ -63,7 +68,7 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
       try {
         // Fetch modules for this cert level
         const { data: mods, error: modErr } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_modules')
           .select('id, module_number, title, estimated_minutes, topic_list')
           .eq('cert_level', certLevel)
@@ -75,7 +80,7 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
         // Fetch content section counts per module
         const moduleIds = (mods || []).map((m: any) => m.id)
         const { data: contentCounts, error: cntErr } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_content')
           .select('module_id')
           .in('module_id', moduleIds)
@@ -89,7 +94,7 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
 
         // Fetch user progress
         const { data: progressRows } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_progress')
           .select('module_id, status, concept_sections_read, last_practice_score_percent')
           .eq('user_id', appAuth.user!.id)

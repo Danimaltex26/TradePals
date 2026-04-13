@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
@@ -105,7 +105,7 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
       try {
         // Get SR cards due for review (next_review_at <= now)
         const { data: srCards } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_spaced_repetition')
           .select('id, question_id, ease_factor, interval_days, repetitions')
           .eq('user_id', appAuth.user!.id)
@@ -117,7 +117,7 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
           // No SR cards yet — seed from recently answered questions
           // Find questions from practice tests the user has taken
           const { data: sessions } = await (client as any)
-            .schema('splicepal')
+            .schema(getTrainingSchema(app))
             .from('training_test_sessions')
             .select('module_id')
             .eq('user_id', appAuth.user!.id)
@@ -127,7 +127,7 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
           if (sessions && sessions.length > 0) {
             const moduleIds = [...new Set(sessions.map((s: any) => s.module_id))]
             const { data: qs } = await (client as any)
-              .schema('splicepal')
+              .schema(getTrainingSchema(app))
               .from('training_questions')
               .select('id, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, standard_reference')
               .in('module_id', moduleIds)
@@ -148,13 +148,13 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
 
               // Upsert to avoid duplicates
               await (client as any)
-                .schema('splicepal')
+                .schema(getTrainingSchema(app))
                 .from('training_spaced_repetition')
                 .upsert(srRows, { onConflict: 'user_id,question_id', ignoreDuplicates: true })
 
               // Now fetch the queue
               const { data: newCards } = await (client as any)
-                .schema('splicepal')
+                .schema(getTrainingSchema(app))
                 .from('training_spaced_repetition')
                 .select('id, question_id, ease_factor, interval_days, repetitions')
                 .eq('user_id', appAuth.user!.id)
@@ -185,7 +185,7 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
     async function loadQuestionDetails(srCards: any[]) {
       const qIds = srCards.map((c: any) => c.question_id)
       const { data: qs } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_questions')
         .select('id, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, standard_reference')
         .in('id', qIds)
@@ -229,7 +229,7 @@ export default function TrainingSpacedRepetition({ app }: { app: AppKey }) {
     // Save to Supabase
     try {
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_spaced_repetition')
         .update(update)
         .eq('id', q.sr_id)

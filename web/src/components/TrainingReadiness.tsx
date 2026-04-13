@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
 const CERT_NAMES: Record<string, string> = {
   FOT: 'FOT', CFOT: 'CFOT', CFOS_S: 'CFOS/S', CFOS_T: 'CFOS/T',
   CFOS_D: 'CFOS/D', CFOS_I: 'CFOS/I', RCDD: 'RCDD',
+  CW: 'CW', CAWI: 'CAWI', CWI: 'CWI', CWS: 'CWS', CRAW: 'CRAW',
 }
 
 /* ── Large readiness gauge ── */
@@ -88,7 +89,7 @@ export default function TrainingReadiness({ app }: { app: AppKey }) {
       try {
         // Fetch readiness data
         const { data: readinessData } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_readiness')
           .select('overall_readiness_percent, domain_readiness, sessions_count, estimated_pass, last_updated_at')
           .eq('user_id', appAuth.user!.id)
@@ -111,7 +112,7 @@ export default function TrainingReadiness({ app }: { app: AppKey }) {
 
         // Fetch per-module progress
         const { data: modules } = await (client as any)
-          .schema('splicepal')
+          .schema(getTrainingSchema(app))
           .from('training_modules')
           .select('id, title, module_number')
           .eq('cert_level', certLevel)
@@ -121,7 +122,7 @@ export default function TrainingReadiness({ app }: { app: AppKey }) {
         if (modules && !cancelled) {
           const moduleIds = modules.map((m: any) => m.id)
           const { data: progress } = await (client as any)
-            .schema('splicepal')
+            .schema(getTrainingSchema(app))
             .from('training_progress')
             .select('module_id, status, last_practice_score_percent')
             .eq('user_id', appAuth.user!.id)

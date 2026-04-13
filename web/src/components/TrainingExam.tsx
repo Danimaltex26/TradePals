@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
@@ -15,6 +15,12 @@ const EXAM_CONFIG: Record<string, { name: string; questions: number; minutes: nu
   CFOS_D: { name: 'CFOS/D', questions: 75,  minutes: 120, pass: 75 },
   CFOS_I: { name: 'CFOS/I', questions: 75,  minutes: 120, pass: 75 },
   RCDD:   { name: 'RCDD',   questions: 100, minutes: 150, pass: 75 },
+  // WeldPal
+  CW:     { name: 'CW',     questions: 50,  minutes: 75,  pass: 70 },
+  CAWI:   { name: 'CAWI',   questions: 75,  minutes: 120, pass: 72 },
+  CWI:    { name: 'CWI',    questions: 100, minutes: 150, pass: 72 },
+  CWS:    { name: 'CWS',    questions: 75,  minutes: 120, pass: 72 },
+  CRAW:   { name: 'CRAW',   questions: 75,  minutes: 120, pass: 72 },
 }
 
 type Question = {
@@ -97,7 +103,7 @@ function ExamSelectionView({ app, certLevel, accent }: { app: AppKey; certLevel:
   useEffect(() => {
     if (!appAuth.user) return
     ;(client as any)
-      .schema('splicepal')
+      .schema(getTrainingSchema(app))
       .from('training_exam_attempts')
       .select('id, attempt_number, score_percent, passed, completed_at')
       .eq('user_id', appAuth.user.id)
@@ -236,7 +242,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
     if (!appAuth.user) return
     ;(async () => {
       const { data, error } = await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_questions')
         .select('id, topic, question_text, option_a, option_b, option_c, option_d, correct_answer, explanation, standard_reference, difficulty')
         .eq('cert_level', certLevel)
@@ -292,7 +298,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
 
     // Get attempt number
     const { count } = await (client as any)
-      .schema('splicepal')
+      .schema(getTrainingSchema(app))
       .from('training_exam_attempts')
       .select('*', { count: 'exact', head: true })
       .eq('user_id', appAuth.user.id)
@@ -301,7 +307,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
     // Save attempt
     try {
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_exam_attempts')
         .insert({
           user_id: appAuth.user.id,
@@ -323,7 +329,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
 
       // Update readiness
       await (client as any)
-        .schema('splicepal')
+        .schema(getTrainingSchema(app))
         .from('training_readiness')
         .upsert({
           user_id: appAuth.user.id,

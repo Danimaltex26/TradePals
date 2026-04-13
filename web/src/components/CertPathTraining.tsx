@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../auth/AuthProvider'
-import { getClient, type AppKey } from '../lib/supabase'
+import { getClient, getTrainingSchema, type AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import TrainingGate from './TrainingGate'
 
@@ -26,12 +26,18 @@ const SPLICEPAL_CERTS: CertDef[] = [
   { key: 'RCDD',   name: 'RCDD',   fullTitle: 'Registered Communications Distribution Designer', questionCount: 100, timeMinutes: 150, passPercent: 75 },
 ]
 
+const WELDPAL_CERTS: CertDef[] = [
+  { key: 'CW',   name: 'CW',   fullTitle: 'Certified Welder',                     questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'CAWI', name: 'CAWI', fullTitle: 'Certified Associate Welding Inspector', questionCount: 75,  timeMinutes: 120, passPercent: 72 },
+  { key: 'CWI',  name: 'CWI',  fullTitle: 'Certified Welding Inspector',           questionCount: 100, timeMinutes: 150, passPercent: 72 },
+  { key: 'CWS',  name: 'CWS',  fullTitle: 'Certified Welding Supervisor',          questionCount: 75,  timeMinutes: 120, passPercent: 72 },
+  { key: 'CRAW', name: 'CRAW', fullTitle: 'Certified Robotic Arc Welding',         questionCount: 75,  timeMinutes: 120, passPercent: 72 },
+]
+
 // Per-app cert definitions and schema name
 const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   splicepal: SPLICEPAL_CERTS,
-}
-const APP_SCHEMA: Partial<Record<AppKey, string>> = {
-  splicepal: 'splicepal',
+  weldpal: WELDPAL_CERTS,
 }
 
 /* ── Types ── */
@@ -180,7 +186,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
   const [error, setError] = useState<string | null>(null)
 
   const certDefs = APP_CERTS[app]
-  const schema = APP_SCHEMA[app]
+  const schema = getTrainingSchema(app)
 
   useEffect(() => {
     if (appAuth.loading || !appAuth.user || !certDefs || !schema) return
@@ -221,21 +227,31 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
           readinessMap[r.cert_level] = Number(r.overall_readiness_percent) || 0
         }
 
-        // Determine lock status
-        const fotReady = readinessMap['FOT'] || 0
-        const cfotReady = readinessMap['CFOT'] || 0
-        const anyCfosReady = Math.max(
-          readinessMap['CFOS_S'] || 0,
-          readinessMap['CFOS_T'] || 0,
-          readinessMap['CFOS_D'] || 0,
-          readinessMap['CFOS_I'] || 0,
-        )
-
+        // Determine lock status (app-specific unlock logic)
         function isUnlocked(key: string) {
-          if (key === 'FOT') return true
-          if (key === 'CFOT') return fotReady >= 80
-          if (key.startsWith('CFOS_')) return cfotReady >= 80
-          if (key === 'RCDD') return anyCfosReady >= 80
+          if (app === 'splicepal') {
+            const fotReady = readinessMap['FOT'] || 0
+            const cfotReady = readinessMap['CFOT'] || 0
+            const anyCfosReady = Math.max(
+              readinessMap['CFOS_S'] || 0, readinessMap['CFOS_T'] || 0,
+              readinessMap['CFOS_D'] || 0, readinessMap['CFOS_I'] || 0,
+            )
+            if (key === 'FOT') return true
+            if (key === 'CFOT') return fotReady >= 80
+            if (key.startsWith('CFOS_')) return cfotReady >= 80
+            if (key === 'RCDD') return anyCfosReady >= 80
+          } else if (app === 'weldpal') {
+            const cwReady = readinessMap['CW'] || 0
+            const cawiReady = readinessMap['CAWI'] || 0
+            const cwiReady = readinessMap['CWI'] || 0
+            if (key === 'CW') return true
+            if (key === 'CAWI') return cwReady >= 80
+            if (key === 'CWI') return cawiReady >= 80
+            if (key === 'CWS') return cwiReady >= 80
+            if (key === 'CRAW') return cwReady >= 80
+          }
+          // Default: first cert unlocked, rest locked
+          if (certDefs && certDefs[0]?.key === key) return true
           return false
         }
 
@@ -263,11 +279,80 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
     return () => { cancelled = true }
   }, [app, appAuth.user, appAuth.loading])
 
-  // Separate cert levels for layout
-  const fot = levels.find((c) => c.key === 'FOT')
-  const cfot = levels.find((c) => c.key === 'CFOT')
-  const cfosSpecialties = levels.filter((c) => c.key.startsWith('CFOS_'))
-  const rcdd = levels.find((c) => c.key === 'RCDD')
+  // App-specific subtitles
+  const APP_SUBTITLE: Partial<Record<AppKey, string>> = {
+    splicepal: 'Fiber optic certification paths',
+    weldpal: 'AWS welding certification paths',
+  }
+
+  // App-specific cert path layouts
+  function renderCertPath() {
+    if (app === 'splicepal') {
+      const fot = levels.find((c) => c.key === 'FOT')
+      const cfot = levels.find((c) => c.key === 'CFOT')
+      const cfosSpecialties = levels.filter((c) => c.key.startsWith('CFOS_'))
+      const rcdd = levels.find((c) => c.key === 'RCDD')
+      return (
+        <>
+          {fot && <CertCard cert={fot} accent={cfg.primary} app={app} />}
+          {cfot && <><Connector /><CertCard cert={cfot} accent={cfg.primary} app={app} /></>}
+          {cfosSpecialties.length > 0 && (
+            <>
+              <Connector />
+              <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+                CFOS Specialties (choose track)
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {cfosSpecialties.map((cert) => (
+                  <CertCard key={cert.key} cert={cert} accent={cfg.primary} app={app} />
+                ))}
+              </div>
+            </>
+          )}
+          {rcdd && <><Connector /><CertCard cert={rcdd} accent={cfg.primary} app={app} /></>}
+        </>
+      )
+    }
+
+    if (app === 'weldpal') {
+      const cw = levels.find((c) => c.key === 'CW')
+      const cawi = levels.find((c) => c.key === 'CAWI')
+      const cwi = levels.find((c) => c.key === 'CWI')
+      const cws = levels.find((c) => c.key === 'CWS')
+      const craw = levels.find((c) => c.key === 'CRAW')
+      return (
+        <>
+          {cw && <CertCard cert={cw} accent={cfg.primary} app={app} />}
+          {cawi && <><Connector /><CertCard cert={cawi} accent={cfg.primary} app={app} /></>}
+          {cwi && <><Connector /><CertCard cert={cwi} accent={cfg.primary} app={app} /></>}
+          {(cws || craw) && (
+            <>
+              <Connector />
+              <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+                Advanced Tracks
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {cws && <CertCard cert={cws} accent={cfg.primary} app={app} />}
+                {craw && <CertCard cert={craw} accent={cfg.primary} app={app} />}
+              </div>
+            </>
+          )}
+        </>
+      )
+    }
+
+    // Default: linear layout for any other app
+    return (
+      <>
+        {levels.map((cert, i) => (
+          <div key={cert.key}>
+            {i > 0 && <Connector />}
+            <CertCard cert={cert} accent={cfg.primary} app={app} />
+          </div>
+        ))}
+      </>
+    )
+  }
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-12">
@@ -276,7 +361,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
         <h1 className="text-3xl font-extrabold">Training</h1>
       </div>
       <p className="text-sm mb-8" style={{ color: 'var(--color-muted-fg)' }}>
-        {app === 'splicepal' ? 'Fiber optic certification paths' : 'Certification training'}
+        {APP_SUBTITLE[app] || 'Certification training'}
       </p>
 
       <TrainingGate app={app}>
@@ -297,35 +382,7 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
           </div>
         ) : (
           <div className="flex flex-col gap-3">
-            {fot && <CertCard cert={fot} accent={cfg.primary} app={app} />}
-
-            {cfot && (
-              <>
-                <Connector />
-                <CertCard cert={cfot} accent={cfg.primary} app={app} />
-              </>
-            )}
-
-            {cfosSpecialties.length > 0 && (
-              <>
-                <Connector />
-                <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
-                  CFOS Specialties (choose track)
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  {cfosSpecialties.map((cert) => (
-                    <CertCard key={cert.key} cert={cert} accent={cfg.primary} app={app} />
-                  ))}
-                </div>
-              </>
-            )}
-
-            {rcdd && (
-              <>
-                <Connector />
-                <CertCard cert={rcdd} accent={cfg.primary} app={app} />
-              </>
-            )}
+            {renderCertPath()}
           </div>
         )}
       </TrainingGate>
