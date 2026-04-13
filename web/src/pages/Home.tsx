@@ -314,7 +314,7 @@ export default function Home() {
             <ProductCard appKey="voltpal" tagline="AI panel diagnosis and NEC reference for electricians" bullets={['Panel, motor, VFD fault photo diagnosis', 'NEC code lookups & wire sizing calculators', 'Apprentice / journeyman / NFPA 70E prep']} />
             <ProductCard appKey="pipepal" tagline="AI leak diagnosis and code reference for plumbers & pipefitters" bullets={['Leak & code violation photo diagnosis', 'Water heater, drain, gas troubleshooting', 'Pipe sizing, fixture units, IPC/UPC prep']} />
             <ComingSoonCard name="LiftPal" logo="/liftpal-logo.png" tagline="AI field companion for elevator & lift technicians" accent="#A855F7" bullets={['Control board fault diagnosis', 'Hoistway inspection checklists', 'NAEC / QEI cert prep']} />
-            <ComingSoonCard name="WindPal" logo="/windpal-logo.png" tagline="AI field companion for wind turbine technicians" accent="#22D3EE" bullets={['Blade damage photo analysis', 'Gearbox & generator troubleshooting', 'GWO / BZEE cert prep']} />
+            <ProductCard appKey="windpal" tagline="AI blade analysis and turbine troubleshooting for wind techs" bullets={['Blade damage photo analysis', 'Gearbox & generator troubleshooting', 'GWO / BZEE cert prep']} />
             <ComingSoonCard name="MillPal" logo="/millpal-logo.png" tagline="AI field companion for millwrights & machinery mechanics" accent="#EF4444" bullets={['Vibration & alignment photo diagnosis', 'Bearing, gear & coupling troubleshooting', 'Millwright / IMM cert prep']} />
           </div>
         </div>

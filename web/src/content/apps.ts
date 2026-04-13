@@ -57,7 +57,7 @@ export const APPS: Record<AppKey, AppConfig> = {
     name: 'WindPal',
     tagline: 'AI field companion for wind turbine technicians',
     logo: '/windpal-logo.png',
-    primary: '#10B981',
+    primary: '#22D3EE',
     appUrl: 'https://windpal.tradepals.net',
   },
 }

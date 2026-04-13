@@ -90,13 +90,30 @@ This is placeholder content. Full training will be added here.`,
   },
 ]
 
+const windpalArticles: Article[] = [
+  {
+    slug: 'blade-inspection-basics',
+    title: 'Blade Inspection Basics',
+    description: 'A field guide to identifying common wind turbine blade defects during visual inspection.',
+    body: `Blade inspection is one of the most critical maintenance tasks on a wind turbine. Catching defects early prevents catastrophic failure and costly downtime. Most blade inspections start with a ground-level visual using binoculars or a drone, followed by up-tower rope access or platform work when defects are suspected.
+
+Key defects to identify:
+- **Leading edge erosion** — pitting, gouging, or delamination along the blade's leading edge caused by rain, hail, and particulate impact.
+- **Lightning strike damage** — burn marks, punctures, or receptor damage at the tip or along lightning protection conductors.
+- **Trailing edge splits** — cracks or separations along the bonded trailing edge seam.
+- **Surface cracks** — gelcoat or laminate cracks that may indicate internal structural issues.
+
+This is placeholder content. Full training will be added here.`,
+  },
+]
+
 const ARTICLES: Record<AppKey, Article[]> = {
   splicepal: splicepalArticles,
   weldpal: weldpalArticles,
   poolpal: poolpalArticles,
   voltpal: voltpalArticles,
   pipepal: pipepalArticles,
-  windpal: [],
+  windpal: windpalArticles,
 }
 
 export function listArticles(app: AppKey): Article[] {
