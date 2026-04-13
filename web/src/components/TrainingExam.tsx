@@ -143,6 +143,11 @@ function ExamSelectionView({ app, certLevel, accent }: { app: AppKey; certLevel:
         <Card accent={accent} title="Study Mode" subtitle="View questions and explanations — no scoring"
           buttonLabel="Start Studying" onClick={() => start('study')} />
 
+        <p className="text-xs font-semibold uppercase tracking-wider mt-2" style={{ color: 'var(--color-muted)' }}>Daily Review</p>
+
+        <Card accent={accent} title="Spaced Repetition" subtitle="Review cards based on your memory strength"
+          buttonLabel="Start Review" onClick={() => navigate(`/${app}/training/sr`)} />
+
         {attempts.length > 0 && (
           <>
             <p className="text-xs font-semibold uppercase tracking-wider mt-2" style={{ color: 'var(--color-muted)' }}>Exam History</p>
