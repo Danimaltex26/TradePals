@@ -140,13 +140,16 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
       </div>
 
       <TrainingGate app={app}>
-        <button
-          className="text-sm mb-6 mt-2 block"
-          style={{ color: cfg.primary }}
-          onClick={() => navigate(`/${app}/training`)}
-        >
-          &larr; Back to Training
-        </button>
+        <div className="flex justify-between items-center mb-6 mt-2">
+          <button className="text-sm" style={{ color: cfg.primary }}
+            onClick={() => navigate(`/${app}/training`)}>
+            &larr; Back to Training
+          </button>
+          <button className="text-sm" style={{ color: cfg.primary }}
+            onClick={() => navigate(`/${app}/training/${certLevel}/readiness`)}>
+            Readiness &rarr;
+          </button>
+        </div>
 
         {loading ? (
           <p className="text-center py-12" style={{ color: 'var(--color-muted-fg)' }}>Loading modules&hellip;</p>
