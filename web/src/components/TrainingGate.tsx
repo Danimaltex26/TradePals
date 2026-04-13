@@ -11,6 +11,7 @@ const APP_LABEL: Record<AppKey, string> = {
   voltpal: 'VoltPal',
   pipepal: 'PipePal',
   windpal: 'WindPal',
+  liftpal: 'LiftPal',
 }
 
 export default function TrainingGate({
