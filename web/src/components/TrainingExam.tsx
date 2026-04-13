@@ -26,6 +26,13 @@ const EXAM_CONFIG: Record<string, { name: string; questions: number; minutes: nu
   JOURNEYMAN: { name: 'Journeyman',  questions: 80,  minutes: 120, pass: 70 },
   MASTER:     { name: 'Master',       questions: 100, minutes: 150, pass: 75 },
   NFPA_70E:   { name: 'NFPA 70E',    questions: 60,  minutes: 90,  pass: 70 },
+  // PoolPal
+  CPO:         { name: 'CPO',         questions: 50,  minutes: 75,  pass: 70 },
+  CST:         { name: 'CST',         questions: 60,  minutes: 90,  pass: 70 },
+  RESIDENTIAL: { name: 'Residential', questions: 50,  minutes: 75,  pass: 70 },
+  COMMERCIAL:  { name: 'Commercial',  questions: 75,  minutes: 120, pass: 72 },
+  // PipePal
+  MEDICAL_GAS: { name: 'Medical Gas', questions: 60,  minutes: 90,  pass: 75 },
 }
 
 type Question = {

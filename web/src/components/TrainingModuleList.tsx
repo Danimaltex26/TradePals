@@ -37,10 +37,15 @@ const CERT_NAMES: Record<string, string> = {
   CWI: 'Certified Welding Inspector (CWI)',
   CWS: 'Certified Welding Supervisor (CWS)',
   CRAW: 'Certified Robotic Arc Welding (CRAW)',
-  APPRENTICE: 'Electrical Apprentice',
-  JOURNEYMAN: 'Journeyman Electrician',
-  MASTER: 'Master Electrician',
+  APPRENTICE: 'Apprentice',
+  JOURNEYMAN: 'Journeyman',
+  MASTER: 'Master',
   NFPA_70E: 'NFPA 70E Electrical Safety',
+  CPO: 'Certified Pool Operator (CPO)',
+  CST: 'Certified Service Technician (CST)',
+  RESIDENTIAL: 'Residential Pool Specialist',
+  COMMERCIAL: 'Commercial Pool Specialist',
+  MEDICAL_GAS: 'Medical Gas Installer (ASSE 6010)',
 }
 
 export default function TrainingModuleList({ app }: { app: AppKey }) {

@@ -1,5 +1,5 @@
-import TrainingIndex from '../../components/TrainingIndex'
+import CertPathTraining from '../../components/CertPathTraining'
 
 export default function PipePalTraining() {
-  return <TrainingIndex app="pipepal" />
+  return <CertPathTraining app="pipepal" />
 }

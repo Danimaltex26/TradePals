@@ -33,6 +33,13 @@ import PoolPalProduct from './pages/poolpal/Product'
 import PoolPalPrivacy from './pages/poolpal/Privacy'
 import PoolPalTerms from './pages/poolpal/Terms'
 import PoolPalSupport from './pages/poolpal/Support'
+import PoolPalTraining from './pages/poolpal/TrainingIndex'
+import PoolPalModules from './pages/poolpal/TrainingModules'
+import PoolPalModule from './pages/poolpal/TrainingModule'
+import PoolPalExam from './pages/poolpal/TrainingExam'
+import PoolPalExamRun from './pages/poolpal/TrainingExamRun'
+import PoolPalReadiness from './pages/poolpal/TrainingReadiness'
+import PoolPalSR from './pages/poolpal/TrainingSR'
 import VoltPalProduct from './pages/voltpal/Product'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
@@ -49,7 +56,12 @@ import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
 import PipePalSupport from './pages/pipepal/Support'
 import PipePalTraining from './pages/pipepal/TrainingIndex'
-import PipePalArticle from './pages/pipepal/TrainingArticle'
+import PipePalModules from './pages/pipepal/TrainingModules'
+import PipePalModule from './pages/pipepal/TrainingModule'
+import PipePalExam from './pages/pipepal/TrainingExam'
+import PipePalExamRun from './pages/pipepal/TrainingExamRun'
+import PipePalReadiness from './pages/pipepal/TrainingReadiness'
+import PipePalSR from './pages/pipepal/TrainingSR'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -97,6 +109,13 @@ export default function App() {
         <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
         <Route path="poolpal/terms" element={<PoolPalTerms />} />
         <Route path="poolpal/support" element={<PoolPalSupport />} />
+        <Route path="poolpal/training" element={<PoolPalTraining />} />
+        <Route path="poolpal/training/sr" element={<PoolPalSR />} />
+        <Route path="poolpal/training/:certLevel/readiness" element={<PoolPalReadiness />} />
+        <Route path="poolpal/training/:certLevel/exam" element={<PoolPalExam />} />
+        <Route path="poolpal/training/:certLevel/exam/run" element={<PoolPalExamRun />} />
+        <Route path="poolpal/training/:certLevel" element={<PoolPalModules />} />
+        <Route path="poolpal/training/:certLevel/:moduleId" element={<PoolPalModule />} />
 
         <Route path="voltpal" element={<VoltPalProduct />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
@@ -115,7 +134,12 @@ export default function App() {
         <Route path="pipepal/terms" element={<PipePalTerms />} />
         <Route path="pipepal/support" element={<PipePalSupport />} />
         <Route path="pipepal/training" element={<PipePalTraining />} />
-        <Route path="pipepal/training/:slug" element={<PipePalArticle />} />
+        <Route path="pipepal/training/sr" element={<PipePalSR />} />
+        <Route path="pipepal/training/:certLevel/readiness" element={<PipePalReadiness />} />
+        <Route path="pipepal/training/:certLevel/exam" element={<PipePalExam />} />
+        <Route path="pipepal/training/:certLevel/exam/run" element={<PipePalExamRun />} />
+        <Route path="pipepal/training/:certLevel" element={<PipePalModules />} />
+        <Route path="pipepal/training/:certLevel/:moduleId" element={<PipePalModule />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

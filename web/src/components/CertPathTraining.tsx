@@ -40,11 +40,27 @@ const VOLTPAL_CERTS: CertDef[] = [
   { key: 'NFPA_70E',    name: 'NFPA 70E',         fullTitle: 'NFPA 70E Electrical Safety',     questionCount: 60,  timeMinutes: 90,  passPercent: 70 },
 ]
 
+const POOLPAL_CERTS: CertDef[] = [
+  { key: 'CPO',         name: 'CPO',          fullTitle: 'Certified Pool Operator',          questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'CST',         name: 'CST',          fullTitle: 'Certified Service Technician',     questionCount: 60,  timeMinutes: 90,  passPercent: 70 },
+  { key: 'RESIDENTIAL', name: 'Residential',   fullTitle: 'Residential Pool Specialist',      questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'COMMERCIAL',  name: 'Commercial',    fullTitle: 'Commercial Pool Specialist',       questionCount: 75,  timeMinutes: 120, passPercent: 72 },
+]
+
+const PIPEPAL_CERTS: CertDef[] = [
+  { key: 'APPRENTICE',   name: 'Apprentice',    fullTitle: 'Plumbing Apprentice',              questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'JOURNEYMAN',   name: 'Journeyman',    fullTitle: 'Journeyman Plumber',               questionCount: 80,  timeMinutes: 120, passPercent: 70 },
+  { key: 'MASTER',        name: 'Master',         fullTitle: 'Master Plumber',                   questionCount: 100, timeMinutes: 150, passPercent: 75 },
+  { key: 'MEDICAL_GAS',  name: 'Medical Gas',   fullTitle: 'Medical Gas Installer (ASSE 6010)', questionCount: 60,  timeMinutes: 90,  passPercent: 75 },
+]
+
 // Per-app cert definitions and schema name
 const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   splicepal: SPLICEPAL_CERTS,
   weldpal: WELDPAL_CERTS,
   voltpal: VOLTPAL_CERTS,
+  poolpal: POOLPAL_CERTS,
+  pipepal: PIPEPAL_CERTS,
 }
 
 /* ── Types ── */
@@ -256,7 +272,20 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
             if (key === 'APPRENTICE') return true
             if (key === 'JOURNEYMAN') return appReady >= 80
             if (key === 'MASTER') return jourReady >= 80
-            if (key === 'NFPA_70E') return true // standalone safety track, always available
+            if (key === 'NFPA_70E') return true
+          } else if (app === 'poolpal') {
+            const cpoReady = readinessMap['CPO'] || 0
+            if (key === 'CPO') return true
+            if (key === 'CST') return cpoReady >= 80
+            if (key === 'RESIDENTIAL') return cpoReady >= 80
+            if (key === 'COMMERCIAL') return cpoReady >= 80
+          } else if (app === 'pipepal') {
+            const appReady = readinessMap['APPRENTICE'] || 0
+            const jourReady = readinessMap['JOURNEYMAN'] || 0
+            if (key === 'APPRENTICE') return true
+            if (key === 'JOURNEYMAN') return appReady >= 80
+            if (key === 'MASTER') return jourReady >= 80
+            if (key === 'MEDICAL_GAS') return jourReady >= 80
           }
           // Default: first cert unlocked, rest locked
           if (certDefs && certDefs[0]?.key === key) return true
@@ -292,6 +321,8 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
     splicepal: 'Fiber optic certification paths',
     weldpal: 'AWS welding certification paths',
     voltpal: 'Electrical licensing certification paths',
+    poolpal: 'Pool & spa certification paths',
+    pipepal: 'Plumbing certification paths',
   }
 
   // App-specific cert path layouts
@@ -367,6 +398,54 @@ export default function CertPathTraining({ app }: { app: AppKey }) {
                 Safety Certification
               </p>
               <CertCard cert={nfpa} accent={cfg.primary} app={app} />
+            </>
+          )}
+        </>
+      )
+    }
+
+    if (app === 'poolpal') {
+      const cpo = levels.find((c) => c.key === 'CPO')
+      const cst = levels.find((c) => c.key === 'CST')
+      const residential = levels.find((c) => c.key === 'RESIDENTIAL')
+      const commercial = levels.find((c) => c.key === 'COMMERCIAL')
+      return (
+        <>
+          {cpo && <CertCard cert={cpo} accent={cfg.primary} app={app} />}
+          {(cst || residential || commercial) && (
+            <>
+              <Connector />
+              <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+                Specializations
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {cst && <CertCard cert={cst} accent={cfg.primary} app={app} />}
+                {residential && <CertCard cert={residential} accent={cfg.primary} app={app} />}
+              </div>
+              {commercial && <CertCard cert={commercial} accent={cfg.primary} app={app} />}
+            </>
+          )}
+        </>
+      )
+    }
+
+    if (app === 'pipepal') {
+      const apprentice = levels.find((c) => c.key === 'APPRENTICE')
+      const journeyman = levels.find((c) => c.key === 'JOURNEYMAN')
+      const master = levels.find((c) => c.key === 'MASTER')
+      const medGas = levels.find((c) => c.key === 'MEDICAL_GAS')
+      return (
+        <>
+          {apprentice && <CertCard cert={apprentice} accent={cfg.primary} app={app} />}
+          {journeyman && <><Connector /><CertCard cert={journeyman} accent={cfg.primary} app={app} /></>}
+          {master && <><Connector /><CertCard cert={master} accent={cfg.primary} app={app} /></>}
+          {medGas && (
+            <>
+              <Connector />
+              <p className="text-center text-sm font-medium" style={{ color: 'var(--color-muted)' }}>
+                Specialty Certification
+              </p>
+              <CertCard cert={medGas} accent={cfg.primary} app={app} />
             </>
           )}
         </>
