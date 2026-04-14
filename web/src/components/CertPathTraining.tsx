@@ -104,7 +104,7 @@ function CircularProgress({ size = 56, stroke = 5, percent = 0, accent }: {
         x={size / 2} y={size / 2}
         textAnchor="middle" dominantBaseline="central"
         fill="#F5F5F5" fontSize={size * 0.24} fontWeight="700"
-        style={{ transform: 'rotate(90deg)', transformOrigin: 'center' }}
+        transform={`rotate(90 ${size / 2} ${size / 2})`}
       >
         {percent}%
       </text>
