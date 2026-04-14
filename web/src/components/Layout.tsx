@@ -27,6 +27,7 @@ export default function Layout() {
             <NavItem to="/about">About</NavItem>
             <PalAppsDropdown />
             <NavItem to="/training">Training</NavItem>
+            <NavItem to="/#pricing">Pricing</NavItem>
           </nav>
 
           {/* Mobile hamburger */}
@@ -68,6 +69,7 @@ export default function Layout() {
               <MobileLink to="/windpal" indent>WindPal</MobileLink>
               <MobileLink to="/liftpal" indent>LiftPal</MobileLink>
               <MobileLink to="/training">Training</MobileLink>
+              <MobileLink to="/#pricing">Pricing</MobileLink>
             </nav>
           </div>
         )}
@@ -86,6 +88,7 @@ export default function Layout() {
             <ul className="space-y-1.5 text-xs">
               <li><Link to="/about" className="hover:text-white transition">About</Link></li>
               <li><Link to="/training" className="hover:text-white transition">Training</Link></li>
+              <li><Link to="/#pricing" className="hover:text-white transition">Pricing</Link></li>
               <li><a href="mailto:support@tradepals.net" className="hover:text-white transition">Contact</a></li>
             </ul>
           </div>
