@@ -66,6 +66,13 @@ import LiftPalProduct from './pages/liftpal/Product'
 import LiftPalPrivacy from './pages/liftpal/Privacy'
 import LiftPalTerms from './pages/liftpal/Terms'
 import LiftPalSupport from './pages/liftpal/Support'
+import LiftPalTraining from './pages/liftpal/TrainingIndex'
+import LiftPalModules from './pages/liftpal/TrainingModules'
+import LiftPalModule from './pages/liftpal/TrainingModule'
+import LiftPalExam from './pages/liftpal/TrainingExam'
+import LiftPalExamRun from './pages/liftpal/TrainingExamRun'
+import LiftPalReadiness from './pages/liftpal/TrainingReadiness'
+import LiftPalSR from './pages/liftpal/TrainingSR'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -172,6 +179,13 @@ export default function App() {
         <Route path="liftpal/privacy" element={<LiftPalPrivacy />} />
         <Route path="liftpal/terms" element={<LiftPalTerms />} />
         <Route path="liftpal/support" element={<LiftPalSupport />} />
+        <Route path="liftpal/training" element={<LiftPalTraining />} />
+        <Route path="liftpal/training/sr" element={<LiftPalSR />} />
+        <Route path="liftpal/training/:certLevel/readiness" element={<LiftPalReadiness />} />
+        <Route path="liftpal/training/:certLevel/exam" element={<LiftPalExam />} />
+        <Route path="liftpal/training/:certLevel/exam/run" element={<LiftPalExamRun />} />
+        <Route path="liftpal/training/:certLevel" element={<LiftPalModules />} />
+        <Route path="liftpal/training/:certLevel/:moduleId" element={<LiftPalModule />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

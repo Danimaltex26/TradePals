@@ -61,6 +61,13 @@ const WINDPAL_CERTS: CertDef[] = [
   { key: 'SENIOR_TECH', name: 'Senior Tech',    fullTitle: 'Senior Wind Turbine Technician',      questionCount: 100, timeMinutes: 150, passPercent: 75 },
 ]
 
+const LIFTPAL_CERTS: CertDef[] = [
+  { key: 'CET',         name: 'CET',         fullTitle: 'Certified Elevator Technician',     questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'QEI',         name: 'QEI',         fullTitle: 'Qualified Elevator Inspector',       questionCount: 80,  timeMinutes: 120, passPercent: 72 },
+  { key: 'CAT',         name: 'CAT',         fullTitle: 'Certified Accessibility Technician', questionCount: 50,  timeMinutes: 75,  passPercent: 70 },
+  { key: 'SENIOR_TECH', name: 'Senior Tech', fullTitle: 'Senior Elevator Technician',         questionCount: 100, timeMinutes: 150, passPercent: 75 },
+]
+
 // Per-app cert definitions and schema name
 const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   splicepal: SPLICEPAL_CERTS,
@@ -69,6 +76,7 @@ const APP_CERTS: Partial<Record<AppKey, CertDef[]>> = {
   poolpal: POOLPAL_CERTS,
   pipepal: PIPEPAL_CERTS,
   windpal: WINDPAL_CERTS,
+  liftpal: LIFTPAL_CERTS,
 }
 
 /* ── Types ── */
