@@ -42,14 +42,14 @@ export default function SignIn() {
         Use the same email and password from your Pal app.
       </p>
 
-      <div className="flex gap-2 mb-6 p-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
-        <AppToggle current={app} value="splicepal" onClick={setApp} label="SplicePal" />
-        <AppToggle current={app} value="weldpal" onClick={setApp} label="WeldPal" />
-        <AppToggle current={app} value="poolpal" onClick={setApp} label="PoolPal" />
-        <AppToggle current={app} value="voltpal" onClick={setApp} label="VoltPal" />
-        <AppToggle current={app} value="pipepal" onClick={setApp} label="PipePal" />
-        <AppToggle current={app} value="windpal" onClick={setApp} label="WindPal" />
-        <AppToggle current={app} value="liftpal" onClick={setApp} label="LiftPal" />
+      <div className="grid grid-cols-4 gap-2 mb-6 p-2 rounded-lg border border-[var(--color-border)] bg-[var(--color-card)]">
+        <AppToggle current={app} value="splicepal" onClick={setApp} label="SplicePal" color="#33cc33" />
+        <AppToggle current={app} value="weldpal" onClick={setApp} label="WeldPal" color="#F97316" />
+        <AppToggle current={app} value="poolpal" onClick={setApp} label="PoolPal" color="#14B8A6" />
+        <AppToggle current={app} value="voltpal" onClick={setApp} label="VoltPal" color="#FACC15" />
+        <AppToggle current={app} value="pipepal" onClick={setApp} label="PipePal" color="#3B82F6" />
+        <AppToggle current={app} value="windpal" onClick={setApp} label="WindPal" color="#22D3EE" />
+        <AppToggle current={app} value="liftpal" onClick={setApp} label="LiftPal" color="#A855F7" />
       </div>
 
       {error && (
@@ -108,20 +108,25 @@ function AppToggle({
   value,
   onClick,
   label,
+  color,
 }: {
   current: AppKey
   value: AppKey
   onClick: (a: AppKey) => void
   label: string
+  color: string
 }) {
   const active = current === value
   return (
     <button
       type="button"
       onClick={() => onClick(value)}
-      className={`flex-1 h-9 rounded-md text-sm font-semibold ${
-        active ? 'bg-[var(--color-primary)] text-white' : 'text-[var(--color-muted-fg)]'
-      }`}
+      className="h-9 rounded-md text-sm font-semibold transition"
+      style={{
+        backgroundColor: active ? color : 'transparent',
+        color: active ? (value === 'voltpal' ? '#0D0D0F' : '#fff') : '#A0A0A8',
+        border: active ? 'none' : '1px solid transparent',
+      }}
     >
       {label}
     </button>
