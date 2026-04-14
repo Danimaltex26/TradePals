@@ -93,6 +93,7 @@ export default function Home() {
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
               <img src="/watch1.png" alt="Take a photo" style={{ width: '100%', display: 'block' }} />
             </div>
+            <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 rounded-full bg-[var(--color-primary)] text-white text-2xl font-extrabold flex items-center justify-center mx-auto mb-4">2</div>
@@ -103,6 +104,7 @@ export default function Home() {
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
               <img src="/watch2.png" alt="AI diagnosis" style={{ width: '100%', display: 'block' }} />
             </div>
+            <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
           <div className="text-center">
             <div className="w-16 h-16 rounded-full bg-[var(--color-primary)] text-white text-2xl font-extrabold flex items-center justify-center mx-auto mb-4">3</div>
@@ -113,6 +115,7 @@ export default function Home() {
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
               <img src="/watch3.png" alt="Save and learn" style={{ width: '100%', display: 'block' }} />
             </div>
+            <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
         </div>
       </section>
