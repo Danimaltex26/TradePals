@@ -505,9 +505,11 @@ function PricingSection() {
           </div>
         </div>
 
-        <p className="text-center text-[var(--color-muted)] text-xs mt-6">
-          Free tier included with every app. Upgrade to Pro anytime. Prices are per app.
-        </p>
+        <div className="text-center text-[var(--color-muted)] text-xs mt-6 space-y-1">
+          <p>Free tier included with every app. Upgrade to Pro anytime. Prices are per app.</p>
+          <p>Sign up free in any Pal app first, then upgrade to Pro from your profile.</p>
+          <p>Pro upgrades are managed as an in-app purchase within each Pal app.</p>
+        </div>
       </div>
     </section>
   )
