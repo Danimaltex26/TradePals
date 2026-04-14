@@ -111,7 +111,6 @@ export default function Layout() {
           <div>
             <div className="text-[10px] uppercase tracking-wider text-[var(--color-muted)] mb-3">Coming Soon</div>
             <ul className="space-y-1.5 text-xs text-[var(--color-muted)]">
-              <li>LiftPal — Elevators</li>
               <li>MillPal — Millwrights</li>
             </ul>
           </div>

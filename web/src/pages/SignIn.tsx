@@ -48,6 +48,8 @@ export default function SignIn() {
         <AppToggle current={app} value="poolpal" onClick={setApp} label="PoolPal" />
         <AppToggle current={app} value="voltpal" onClick={setApp} label="VoltPal" />
         <AppToggle current={app} value="pipepal" onClick={setApp} label="PipePal" />
+        <AppToggle current={app} value="windpal" onClick={setApp} label="WindPal" />
+        <AppToggle current={app} value="liftpal" onClick={setApp} label="LiftPal" />
       </div>
 
       {error && (

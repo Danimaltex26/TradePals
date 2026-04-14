@@ -378,7 +378,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <Link
-              to="/signin"
+              to="/#apps"
               className="px-8 py-4 rounded-lg bg-[var(--color-primary)] text-white font-bold text-base hover:opacity-90 transition"
             >
               Get Started Free
@@ -448,7 +448,7 @@ function PricingSection() {
               <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Offline photo queue</li>
             </ul>
             <Link
-              to="/signin"
+              to="/#apps"
               className="block text-center py-3 rounded-lg border border-[var(--color-border)] font-semibold text-sm hover:border-[var(--color-primary)] transition"
             >
               Get Started
@@ -476,7 +476,7 @@ function PricingSection() {
               <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> Full history (100+ entries)</li>
             </ul>
             <Link
-              to="/signin"
+              to="/#apps"
               className="block text-center py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
             >
               Get Started
