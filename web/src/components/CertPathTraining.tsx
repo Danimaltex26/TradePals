@@ -90,25 +90,28 @@ function CircularProgress({ size = 56, stroke = 5, percent = 0, accent }: {
   const circumference = 2 * Math.PI * radius
   const offset = circumference - (percent / 100) * circumference
   const color = percent >= 75 ? accent : percent >= 50 ? '#F59E0B' : '#EF4444'
+  const cx = size / 2
+  const cy = size / 2
 
   return (
-    <svg width={size} height={size} style={{ transform: 'rotate(-90deg)', flexShrink: 0 }}>
-      <circle cx={size / 2} cy={size / 2} r={radius} fill="none" stroke="var(--color-border)" strokeWidth={stroke} />
-      <circle
-        cx={size / 2} cy={size / 2} r={radius} fill="none"
-        stroke={color} strokeWidth={stroke}
-        strokeDasharray={circumference} strokeDashoffset={offset}
-        strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.6s ease' }}
-      />
-      <text
-        x={size / 2} y={size / 2}
-        textAnchor="middle" dominantBaseline="central"
-        fill="#F5F5F5" fontSize={size * 0.24} fontWeight="700"
-        transform={`rotate(90 ${size / 2} ${size / 2})`}
-      >
+    <div style={{ position: 'relative', width: size, height: size, flexShrink: 0 }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+        <circle cx={cx} cy={cy} r={radius} fill="none" stroke="var(--color-border)" strokeWidth={stroke} />
+        <circle
+          cx={cx} cy={cy} r={radius} fill="none"
+          stroke={color} strokeWidth={stroke}
+          strokeDasharray={circumference} strokeDashoffset={offset}
+          strokeLinecap="round" style={{ transition: 'stroke-dashoffset 0.6s ease' }}
+        />
+      </svg>
+      <div style={{
+        position: 'absolute', top: 0, left: 0, width: size, height: size,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: size * 0.24, fontWeight: 700, color: '#F5F5F5',
+      }}>
         {percent}%
-      </text>
-    </svg>
+      </div>
+    </div>
   )
 }
 
