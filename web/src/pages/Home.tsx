@@ -90,11 +90,8 @@ export default function Home() {
             <p className="text-[var(--color-muted-fg)] text-sm mb-6">
               Snap a pic of a weld, a panel, a pool, a pipe — or type in the symptom and equipment. Works offline too.
             </p>
-            <div className="mx-auto" style={{ width: 200, height: 400, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6B6B73" strokeWidth="1.5" style={{ margin: '0 auto 0.75rem' }}><rect x="3" y="3" width="18" height="18" rx="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>
-                <p style={{ fontSize: '0.6875rem', color: '#6B6B73' }}>Screenshot placeholder</p>
-              </div>
+            <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
+              <img src="/watch1.png" alt="Take a photo" style={{ width: '100%', display: 'block' }} />
             </div>
           </div>
           <div className="text-center">
@@ -103,11 +100,8 @@ export default function Home() {
             <p className="text-[var(--color-muted-fg)] text-sm mb-6">
               Ranked probable causes, step-by-step fixes, parts to check, code references, and escalation criteria — structured like a senior tech would explain it.
             </p>
-            <div className="mx-auto" style={{ width: 200, height: 400, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6B6B73" strokeWidth="1.5" style={{ margin: '0 auto 0.75rem' }}><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
-                <p style={{ fontSize: '0.6875rem', color: '#6B6B73' }}>Screenshot placeholder</p>
-              </div>
+            <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
+              <img src="/watch2.png" alt="AI diagnosis" style={{ width: '100%', display: 'block' }} />
             </div>
           </div>
           <div className="text-center">
@@ -116,11 +110,8 @@ export default function Home() {
             <p className="text-[var(--color-muted-fg)] text-sm mb-6">
               Every diagnosis is saved to your history. Over time, your Pal app becomes a personal field journal — and your training library for the next certification.
             </p>
-            <div className="mx-auto" style={{ width: 200, height: 400, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6B6B73" strokeWidth="1.5" style={{ margin: '0 auto 0.75rem' }}><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></svg>
-                <p style={{ fontSize: '0.6875rem', color: '#6B6B73' }}>Screenshot placeholder</p>
-              </div>
+            <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
+              <img src="/watch3.png" alt="Save and learn" style={{ width: '100%', display: 'block' }} />
             </div>
           </div>
         </div>
