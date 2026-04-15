@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import Layout from './components/Layout'
 import Home from './pages/Home'
 import About from './pages/About'
+import AdminDashboard from './pages/admin/Dashboard'
 import Training from './pages/Training'
 import SignIn from './pages/SignIn'
 import Account from './pages/Account'
@@ -102,6 +103,7 @@ export default function App() {
     <>
     <ScrollToTop />
     <Routes>
+      <Route path="/admin" element={<AdminDashboard />} />
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
