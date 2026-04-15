@@ -26,7 +26,7 @@ export default function Layout() {
           <nav className="hidden md:flex items-center gap-5 text-sm">
             <NavItem to="/about">About</NavItem>
             <PalAppsDropdown />
-            <NavItem to="/training">Training</NavItem>
+            <NavItem to="/signin">Training</NavItem>
             <NavItem to="/#pricing">Pricing</NavItem>
           </nav>
 
@@ -68,7 +68,7 @@ export default function Layout() {
               <MobileLink to="/pipepal" indent>PipePal</MobileLink>
               <MobileLink to="/windpal" indent>WindPal</MobileLink>
               <MobileLink to="/liftpal" indent>LiftPal</MobileLink>
-              <MobileLink to="/training">Training</MobileLink>
+              <MobileLink to="/signin">Training</MobileLink>
               <MobileLink to="/#pricing">Pricing</MobileLink>
             </nav>
           </div>
@@ -87,7 +87,7 @@ export default function Layout() {
             <p className="text-xs text-[var(--color-muted)] mb-3">AI field companions for skilled trades.</p>
             <ul className="space-y-1.5 text-xs">
               <li><Link to="/about" className="hover:text-white transition">About</Link></li>
-              <li><Link to="/training" className="hover:text-white transition">Training</Link></li>
+              <li><Link to="/signin" className="hover:text-white transition">Training</Link></li>
               <li><Link to="/#pricing" className="hover:text-white transition">Pricing</Link></li>
               <li><a href="mailto:support@tradepals.net" className="hover:text-white transition">Contact</a></li>
             </ul>
