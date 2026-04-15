@@ -97,10 +97,10 @@ export default function ProductPage({ app, description, longDescription, feature
             </a>
           )}
           <Link
-            to={`/${app}/training`}
+            to="/signin"
             className="px-5 py-3 rounded-md border border-[var(--color-border)] text-white font-semibold text-sm"
           >
-            View Training
+            Training Log In
           </Link>
         </div>
       </div>
