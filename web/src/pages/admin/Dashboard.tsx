@@ -263,9 +263,9 @@ export default function AdminDashboard() {
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={stats.signupsByDay}>
             <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2E" />
-            <XAxis dataKey="day" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={(v: string) => fmtDate(v)} interval={4} />
+            <XAxis dataKey="day" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={((v: string) => fmtDate(v)) as any} interval={4} />
             <YAxis tick={{ fill: '#6B6B73', fontSize: 11 }} allowDecimals={false} />
-            <Tooltip contentStyle={tooltipStyle} labelFormatter={(v: string) => fmtDate(v)} />
+            <Tooltip contentStyle={tooltipStyle} labelFormatter={((v: string) => fmtDate(v)) as any} />
             <Bar dataKey="count" fill="#4B9CD3" radius={[4, 4, 0, 0] as [number, number, number, number]} />
           </BarChart>
         </ResponsiveContainer>
@@ -276,9 +276,9 @@ export default function AdminDashboard() {
         <ResponsiveContainer width="100%" height={250}>
           <BarChart data={stats.signupsByWeek}>
             <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2E" />
-            <XAxis dataKey="week" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={(v: string) => fmtDate(v)} />
+            <XAxis dataKey="week" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={((v: string) => fmtDate(v)) as any} />
             <YAxis tick={{ fill: '#6B6B73', fontSize: 11 }} allowDecimals={false} />
-            <Tooltip contentStyle={tooltipStyle} labelFormatter={(v: string) => fmtDate(v)} />
+            <Tooltip contentStyle={tooltipStyle} labelFormatter={((v: string) => fmtDate(v)) as any} />
             <Bar dataKey="count" fill="#14B8A6" radius={[4, 4, 0, 0] as [number, number, number, number]} />
           </BarChart>
         </ResponsiveContainer>
@@ -291,7 +291,7 @@ export default function AdminDashboard() {
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
                 <Pie data={stats.usersByApp} dataKey="count" nameKey="app" cx="50%" cy="50%" outerRadius={90}
-                  label={(props: { app?: string; count?: number; name?: string }) => `${props.app || props.name || ''} (${props.count || 0})`}>
+                  label={((props: any) => `${props.app || props.name || ''} (${props.count || 0})`) as any}>
                   {stats.usersByApp.map((entry) => (
                     <Cell key={entry.app} fill={APP_COLORS[entry.app] || '#6B6B73'} />
                   ))}
@@ -332,10 +332,10 @@ export default function AdminDashboard() {
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={stats.aiCallsByDay}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2A2A2E" />
-              <XAxis dataKey="day" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={(v: string) => fmtDate(v)} />
-              <YAxis yAxisId="cost" tick={{ fill: '#6B6B73', fontSize: 11 }} tickFormatter={(v: string | number) => '$' + Number(v).toFixed(2)} />
+              <XAxis dataKey="day" tick={{ fill: '#6B6B73', fontSize: 10 }} tickFormatter={((v: string) => fmtDate(v)) as any} />
+              <YAxis yAxisId="cost" tick={{ fill: '#6B6B73', fontSize: 11 }} tickFormatter={((v: number) => '$' + v.toFixed(2)) as any} />
               <YAxis yAxisId="calls" orientation="right" tick={{ fill: '#6B6B73', fontSize: 11 }} />
-              <Tooltip contentStyle={tooltipStyle} labelFormatter={(v: string) => fmtDate(v)} />
+              <Tooltip contentStyle={tooltipStyle} labelFormatter={((v: string) => fmtDate(v)) as any} />
               <Line yAxisId="cost" type="monotone" dataKey="cost" stroke="#EF4444" strokeWidth={2} dot={false} name="Cost ($)" />
               <Line yAxisId="calls" type="monotone" dataKey="count" stroke="#4B9CD3" strokeWidth={2} dot={false} name="Calls" />
               <Legend />
