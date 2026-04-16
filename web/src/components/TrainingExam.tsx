@@ -471,7 +471,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
           <span className="flex items-center gap-1"><span className="inline-block w-3 h-3 rounded-sm" style={{ backgroundColor: '#EF4444' }} /> Skipped</span>
         </div>
         {unanswered > 0 && <p className="text-sm mb-3 text-amber-400">{unanswered} unanswered question{unanswered !== 1 ? 's' : ''}</p>}
-        <button className="w-full h-11 rounded-lg font-semibold text-white" style={{ backgroundColor: accent }} onClick={() => setShowConfirm(true)}>
+        <button className="w-full h-11 rounded-lg font-semibold text-white" style={{ backgroundColor: accent }} onClick={() => { setShowReview(false); setShowConfirm(true); }}>
           Submit Exam
         </button>
       </div>
@@ -490,7 +490,7 @@ function ExamEngineView({ app, certLevel, accent }: { app: AppKey; certLevel: st
               Yes, Submit
             </button>
             <button className="w-full h-11 rounded-lg font-semibold border" style={{ borderColor: 'var(--color-border)', color: 'var(--color-muted-fg)' }}
-              onClick={() => setShowConfirm(false)}>
+              onClick={() => { setShowConfirm(false); setShowReview(true); }}>
               Go Back
             </button>
           </div>
