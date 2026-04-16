@@ -41,7 +41,7 @@ type Stats = {
   usersByApp: { app: string; count: number }[]
   signupsByDay: { day: string; count: number }[]
   signupsByWeek: { week: string; count: number }[]
-  recentUsers: { id: string; email: string; created_at: string; last_sign_in_at: string; display_name: string }[]
+  recentUsers: { id: string; email: string; created_at: string; last_sign_in_at: string; display_name: string; apps: string[] }[]
   aiCallsByDay: { day: string; count: number; cost: number }[]
   aiCallsByFeature: { feature: string; count: number; cost: number }[]
   aiCallsByModel: { model: string; count: number; cost: number }[]
@@ -128,11 +128,16 @@ export default function AdminDashboard() {
       })
       const signupsByWeek = Object.entries(weekMap).map(([week, count]) => ({ week, count }))
 
-      // Users by app
-      const { data: subs } = await supabase.from('subscriptions').select('app_key')
+      // Users by app + per-user app list
+      const { data: subs } = await supabase.from('subscriptions').select('user_id, app_key')
       const appCount: Record<string, number> = {}
-      for (const s of (subs || []) as { app_key: string }[]) {
+      const userAppsMap: Record<string, string[]> = {}
+      for (const s of (subs || []) as { user_id: string; app_key: string }[]) {
         appCount[s.app_key] = (appCount[s.app_key] || 0) + 1
+        if (!userAppsMap[s.user_id]) userAppsMap[s.user_id] = []
+        if (!userAppsMap[s.user_id].includes(s.app_key)) {
+          userAppsMap[s.user_id].push(s.app_key)
+        }
       }
       const usersByApp = Object.entries(appCount).map(([app, count]) => ({ app, count }))
 
@@ -146,6 +151,7 @@ export default function AdminDashboard() {
           created_at: u.created_at,
           last_sign_in_at: u.last_sign_in_at || '',
           display_name: (u.user_metadata as Record<string, string>)?.display_name || '',
+          apps: userAppsMap[u.id] || [],
         }))
 
       // AI usage stats
@@ -369,6 +375,7 @@ export default function AdminDashboard() {
               <tr style={{ borderBottom: '1px solid #2A2A2E' }}>
                 <th style={{ padding: '8px 12px', textAlign: 'left', color: '#6B6B73', fontWeight: 500 }}>Email</th>
                 <th style={{ padding: '8px 12px', textAlign: 'left', color: '#6B6B73', fontWeight: 500 }}>Name</th>
+                <th style={{ padding: '8px 12px', textAlign: 'left', color: '#6B6B73', fontWeight: 500 }}>Apps</th>
                 <th style={{ padding: '8px 12px', textAlign: 'left', color: '#6B6B73', fontWeight: 500 }}>Signed Up</th>
                 <th style={{ padding: '8px 12px', textAlign: 'left', color: '#6B6B73', fontWeight: 500 }}>Last Sign In</th>
               </tr>
@@ -378,6 +385,32 @@ export default function AdminDashboard() {
                 <tr key={u.id} style={{ borderBottom: '1px solid #1A1A1E' }}>
                   <td style={{ padding: '8px 12px', color: '#F5F5F5' }}>{u.email}</td>
                   <td style={{ padding: '8px 12px', color: '#A0A0A8' }}>{u.display_name || '—'}</td>
+                  <td style={{ padding: '8px 12px' }}>
+                    {u.apps.length === 0 ? (
+                      <span style={{ color: '#6B6B73' }}>—</span>
+                    ) : (
+                      <div style={{ display: 'flex', gap: 4, flexWrap: 'wrap' }}>
+                        {u.apps.map(app => (
+                          <span
+                            key={app}
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 600,
+                              padding: '2px 8px',
+                              borderRadius: 10,
+                              background: (APP_COLORS[app] || '#6B6B73') + '22',
+                              color: APP_COLORS[app] || '#A0A0A8',
+                              border: '1px solid ' + (APP_COLORS[app] || '#6B6B73') + '55',
+                              textTransform: 'capitalize',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {app.replace('pal', 'Pal')}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </td>
                   <td style={{ padding: '8px 12px', color: '#A0A0A8' }}>{fmtDateTime(u.created_at)}</td>
                   <td style={{ padding: '8px 12px', color: '#A0A0A8' }}>{u.last_sign_in_at ? fmtDateTime(u.last_sign_in_at) : '—'}</td>
                 </tr>
