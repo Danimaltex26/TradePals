@@ -23,7 +23,7 @@ Whether you're a first-year apprentice learning to read traces or a 20-year vete
         'Offline photo queue — capture in the field, process when connected',
       ]}
       screenshots={[
-        { label: 'OTDR Trace Analysis', beforeTitle: 'Photo your OTDR screen', afterTitle: 'Get splice-by-splice diagnosis' },
+        { label: 'OTDR Trace Analysis', beforeTitle: 'Photo your OTDR screen', afterTitle: 'Get splice-by-splice diagnosis', beforeImage: '/in.png', afterImage: '/out.png' },
         { label: 'Splice Troubleshooting', beforeTitle: 'Enter loss & error code', afterTitle: 'Ranked causes + step-by-step fix' },
       ]}
     />

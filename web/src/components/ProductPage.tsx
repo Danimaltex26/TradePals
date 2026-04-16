@@ -6,6 +6,8 @@ type ScreenshotPair = {
   label: string
   beforeTitle: string
   afterTitle: string
+  beforeImage?: string
+  afterImage?: string
 }
 
 type ProductPageProps = {
@@ -135,19 +137,27 @@ export default function ProductPage({ app, description, longDescription, feature
             <div className="flex flex-col items-center md:flex-row md:items-center md:justify-center gap-2 md:gap-4">
               {/* Before */}
               <PhoneMockup title={shot.beforeTitle} accent={cfg.primary}>
-                <div className="text-center p-5">
-                  <div
-                    className="w-14 h-14 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                    style={{ backgroundColor: `${cfg.primary}15`, border: `2px dashed ${cfg.primary}40` }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-                      <circle cx="12" cy="13" r="4" />
-                    </svg>
+                {shot.beforeImage ? (
+                  <img
+                    src={shot.beforeImage}
+                    alt={shot.beforeTitle}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <div className="text-center p-5">
+                    <div
+                      className="w-14 h-14 rounded-xl mx-auto mb-3 flex items-center justify-center"
+                      style={{ backgroundColor: `${cfg.primary}15`, border: `2px dashed ${cfg.primary}40` }}
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+                        <circle cx="12" cy="13" r="4" />
+                      </svg>
+                    </div>
+                    <p className="text-xs text-[var(--color-muted-fg)]">{shot.beforeTitle}</p>
+                    <p className="text-[10px] text-[var(--color-muted)] mt-1">Screenshot coming soon</p>
                   </div>
-                  <p className="text-xs text-[var(--color-muted-fg)]">{shot.beforeTitle}</p>
-                  <p className="text-[10px] text-[var(--color-muted)] mt-1">Screenshot coming soon</p>
-                </div>
+                )}
               </PhoneMockup>
 
               {/* Arrow — right on desktop, down on mobile */}
@@ -155,19 +165,27 @@ export default function ProductPage({ app, description, longDescription, feature
 
               {/* After */}
               <PhoneMockup title={shot.afterTitle} accent={cfg.primary}>
-                <div className="text-center p-5">
-                  <div
-                    className="w-14 h-14 rounded-xl mx-auto mb-3 flex items-center justify-center"
-                    style={{ backgroundColor: `${cfg.primary}15` }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
-                    </svg>
+                {shot.afterImage ? (
+                  <img
+                    src={shot.afterImage}
+                    alt={shot.afterTitle}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <div className="text-center p-5">
+                    <div
+                      className="w-14 h-14 rounded-xl mx-auto mb-3 flex items-center justify-center"
+                      style={{ backgroundColor: `${cfg.primary}15` }}
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <p className="text-xs text-[var(--color-muted-fg)]">{shot.afterTitle}</p>
+                    <p className="text-[10px] text-[var(--color-muted)] mt-1">Screenshot coming soon</p>
                   </div>
-                  <p className="text-xs text-[var(--color-muted-fg)]">{shot.afterTitle}</p>
-                  <p className="text-[10px] text-[var(--color-muted)] mt-1">Screenshot coming soon</p>
-                </div>
+                )}
               </PhoneMockup>
             </div>
           </div>
