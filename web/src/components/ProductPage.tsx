@@ -219,16 +219,19 @@ export default function ProductPage({ app, description, longDescription, feature
         ))}
       </div>
 
-      <div className="text-[var(--color-muted-fg)] text-base leading-relaxed mb-16 max-w-3xl space-y-4">
-        <p>
-          Study content is built from current industry standards — not outdated textbooks. Each module covers what you'll actually see on the certification exam and in the field, updated as standards evolve.
-        </p>
-        <p>
-          Practice with timed exams that mirror the real test format, untimed sessions to learn at your own pace, or targeted weak-area drills that focus on your lowest-scoring domains. Questions are generated fresh so you build understanding, not just memorize answers.
-        </p>
-        <p>
-          Track your progress with a weighted readiness score that aggregates your performance across every domain. Know exactly when you're ready to sit for the real exam — no guessing.
-        </p>
+      <div className="text-[var(--color-muted-fg)] text-base leading-relaxed mb-16 max-w-3xl space-y-5">
+        <div className="flex gap-3 items-start">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
+          <p>Study content is built from current industry standards — not outdated textbooks. Each module covers what you'll actually see on the certification exam and in the field, updated as standards evolve.</p>
+        </div>
+        <div className="flex gap-3 items-start">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
+          <p>Practice with timed exams that mirror the real test format, untimed sessions to learn at your own pace, or targeted weak-area drills that focus on your lowest-scoring domains. Questions are generated fresh so you build understanding, not just memorize answers.</p>
+        </div>
+        <div className="flex gap-3 items-start">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
+          <p>Track your progress with a weighted readiness score that aggregates your performance across every domain. Know exactly when you're ready to sit for the real exam — no guessing.</p>
+        </div>
       </div>
 
       <h2 className="text-2xl font-bold mb-4">Features</h2>
