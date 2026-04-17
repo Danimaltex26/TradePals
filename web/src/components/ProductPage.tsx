@@ -219,6 +219,18 @@ export default function ProductPage({ app, description, longDescription, feature
         ))}
       </div>
 
+      <div className="text-[var(--color-muted-fg)] text-base leading-relaxed mb-16 max-w-3xl space-y-4">
+        <p>
+          Study content is built from current industry standards — not outdated textbooks. Each module covers what you'll actually see on the certification exam and in the field, updated as standards evolve.
+        </p>
+        <p>
+          Practice with timed exams that mirror the real test format, untimed sessions to learn at your own pace, or targeted weak-area drills that focus on your lowest-scoring domains. Questions are generated fresh so you build understanding, not just memorize answers.
+        </p>
+        <p>
+          Track your progress with a weighted readiness score that aggregates your performance across every domain. Know exactly when you're ready to sit for the real exam — no guessing.
+        </p>
+      </div>
+
       <h2 className="text-2xl font-bold mb-4">Features</h2>
       <ul className="grid gap-3 md:grid-cols-2 mb-12">
         {features.map((f) => (
