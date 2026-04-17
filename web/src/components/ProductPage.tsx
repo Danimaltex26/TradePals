@@ -17,6 +17,7 @@ type ProductPageProps = {
   features: string[]
   appStoreUrl?: string
   screenshots?: ScreenshotPair[]
+  trainingImages?: string[]
 }
 
 function PhoneMockup({ title, accent, children }: { title: string; accent: string; children: React.ReactNode }) {
@@ -52,7 +53,7 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages }: ProductPageProps) {
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -195,39 +196,27 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Training Screenshots ────────────────────────────── */}
       <h2 className="text-2xl font-bold mb-6">Certification Training</h2>
       <div className="grid gap-6 grid-cols-3 mb-16">
-        <div className="text-center">
-          <div className="mx-auto" style={{ width: '100%', maxWidth: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-            <div style={{ width: '100%', aspectRatio: '9/16', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" style={{ margin: '0 auto 0.5rem' }}><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></svg>
-                <p style={{ fontSize: '0.625rem', color: '#6B6B73' }}>Screenshot coming soon</p>
+        {[
+          { label: 'Cert path', placeholder: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></> },
+          { label: 'Practice exam', placeholder: <><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></> },
+          { label: 'Readiness score', placeholder: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
+        ].map((slot, idx) => (
+          <div key={idx} className="text-center">
+            <div className="mx-auto" style={{ width: '100%', maxWidth: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
+              <div style={{ width: '100%', aspectRatio: '9/16', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {trainingImages?.[idx] ? (
+                  <img src={trainingImages[idx]} alt={slot.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                ) : (
+                  <div style={{ textAlign: 'center', padding: '1rem' }}>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" style={{ margin: '0 auto 0.5rem' }}>{slot.placeholder}</svg>
+                    <p style={{ fontSize: '0.625rem', color: '#6B6B73' }}>Screenshot coming soon</p>
+                  </div>
+                )}
               </div>
             </div>
+            <p className="text-[var(--color-muted)] text-xs mt-2">{slot.label}</p>
           </div>
-          <p className="text-[var(--color-muted)] text-xs mt-2">Cert path</p>
-        </div>
-        <div className="text-center">
-          <div className="mx-auto" style={{ width: '100%', maxWidth: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-            <div style={{ width: '100%', aspectRatio: '9/16', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" style={{ margin: '0 auto 0.5rem' }}><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
-                <p style={{ fontSize: '0.625rem', color: '#6B6B73' }}>Screenshot coming soon</p>
-              </div>
-            </div>
-          </div>
-          <p className="text-[var(--color-muted)] text-xs mt-2">Practice exam</p>
-        </div>
-        <div className="text-center">
-          <div className="mx-auto" style={{ width: '100%', maxWidth: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-            <div style={{ width: '100%', aspectRatio: '9/16', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ textAlign: 'center', padding: '1rem' }}>
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="1.5" style={{ margin: '0 auto 0.5rem' }}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                <p style={{ fontSize: '0.625rem', color: '#6B6B73' }}>Screenshot coming soon</p>
-              </div>
-            </div>
-          </div>
-          <p className="text-[var(--color-muted)] text-xs mt-2">Readiness score</p>
-        </div>
+        ))}
       </div>
 
       <h2 className="text-2xl font-bold mb-4">Features</h2>
