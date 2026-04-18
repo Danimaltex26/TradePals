@@ -146,7 +146,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
 
     try {
       // Update module progress
-      await (client as any)
+      const { error: progressErr } = await (client as any)
         .schema(getTrainingSchema(app))
         .from('training_progress')
         .upsert({
@@ -160,8 +160,10 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
           last_session_at: new Date().toISOString(),
         }, { onConflict: 'user_id,module_id' })
 
+      if (progressErr) console.error('Failed to save module progress:', progressErr)
+
       // Record test session
-      await (client as any)
+      const { error: sessionErr } = await (client as any)
         .schema(getTrainingSchema(app))
         .from('training_test_sessions')
         .insert({
@@ -177,6 +179,8 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
           completed_at: new Date().toISOString(),
         })
 
+      if (sessionErr) console.error('Failed to save test session:', sessionErr)
+
       // Recompute readiness for this cert level
       const { data: allProgress } = await (client as any)
         .schema(getTrainingSchema(app))
@@ -191,7 +195,7 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
           allProgress.reduce((sum: number, p: any) => sum + Number(p.last_practice_score_percent), 0) / allProgress.length
         )
 
-        await (client as any)
+        const { error: readinessErr } = await (client as any)
           .schema(getTrainingSchema(app))
           .from('training_readiness')
           .upsert({
@@ -203,6 +207,8 @@ function PracticeTest({ app, moduleId, certLevel, accent }: { app: AppKey; modul
             estimated_pass: avgReadiness >= 70,
             last_updated_at: new Date().toISOString(),
           }, { onConflict: 'user_id,cert_level' })
+
+        if (readinessErr) console.error('Failed to save readiness:', readinessErr)
       }
     } catch (err) {
       console.error('Failed to save progress:', err)
@@ -462,7 +468,7 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
 
     // Upsert progress
     try {
-      await (client as any)
+      const { error: upsertErr } = await (client as any)
         .schema(getTrainingSchema(app))
         .from('training_progress')
         .upsert({
@@ -474,7 +480,10 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
           status: newCount >= sections.length ? 'sections_complete' : 'in_progress',
           last_session_at: new Date().toISOString(),
         }, { onConflict: 'user_id,module_id' })
-    } catch {
+
+      if (upsertErr) throw upsertErr
+    } catch (err) {
+      console.error('Failed to save training progress:', err)
       // Revert on failure
       setSections((prev) => prev.map((s) => s.section_number === sectionNumber ? { ...s, is_read: false } : s))
       setSectionsRead(sectionsRead)
