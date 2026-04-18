@@ -400,11 +400,12 @@ export default function Home() {
 
 function PricingSection() {
   const [annual, setAnnual] = useState(false)
-  const monthlyPrice = 12.99
-  const annualPrice = 9.99
-  const price = annual ? annualPrice : monthlyPrice
-  const period = annual ? '/mo' : '/mo'
-  const savings = Math.round((1 - annualPrice / monthlyPrice) * 100)
+  const monthlyPrice = 12.95
+  const annualTotal = 89.95
+  const annualMonthly = annualTotal / 12
+  const price = annual ? annualMonthly : monthlyPrice
+  const period = '/mo'
+  const savings = Math.round((1 - annualMonthly / monthlyPrice) * 100)
 
   return (
     <section id="pricing" className="bg-[#111114] border-y border-[var(--color-border)]">
@@ -465,7 +466,7 @@ function PricingSection() {
               ${price.toFixed(2)}<span className="text-sm font-normal text-[var(--color-muted-fg)]"> {period}</span>
             </p>
             <p className="text-xs text-[var(--color-muted)] mb-5">
-              {annual ? `$${(annualPrice * 12).toFixed(2)} billed annually` : 'per app, billed monthly'}
+              {annual ? `$${annualTotal.toFixed(2)} billed annually` : 'per app, billed monthly'}
             </p>
             <ul className="space-y-2.5 text-sm text-[var(--color-muted-fg)] mb-6">
               <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Unlimited</strong> photo analyses</li>
