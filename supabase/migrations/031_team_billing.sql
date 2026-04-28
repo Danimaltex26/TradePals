@@ -6,8 +6,8 @@ ALTER TABLE public.teams
   ADD COLUMN IF NOT EXISTS stripe_customer_id text,
   ADD COLUMN IF NOT EXISTS stripe_subscription_id text;
 
--- Flat plan: 10 members per team (was 5 for per-seat model)
-ALTER TABLE public.teams ALTER COLUMN seats_purchased SET DEFAULT 10;
+-- Flat plan: 5 members per team
+ALTER TABLE public.teams ALTER COLUMN seats_purchased SET DEFAULT 5;
 
 -- Teams start as 'pending' until Stripe confirms payment
 ALTER TABLE public.teams ALTER COLUMN subscription_status SET DEFAULT 'pending';
