@@ -22,6 +22,7 @@ import SplicePalSR from './pages/splicepal/TrainingSR'
 import SplicePalCertPrep from './pages/splicepal/CertPrep'
 import SplicePalTeam from './pages/splicepal/Team'
 import SplicePalJoin from './pages/splicepal/Join'
+import SplicePalProfile from './pages/splicepal/Profile'
 import WeldPalProduct from './pages/weldpal/Product'
 import WeldPalPrivacy from './pages/weldpal/Privacy'
 import WeldPalTerms from './pages/weldpal/Terms'
@@ -36,6 +37,7 @@ import WeldPalSR from './pages/weldpal/TrainingSR'
 import WeldPalCertPrep from './pages/weldpal/CertPrep'
 import WeldPalTeam from './pages/weldpal/Team'
 import WeldPalJoin from './pages/weldpal/Join'
+import WeldPalProfile from './pages/weldpal/Profile'
 import PoolPalProduct from './pages/poolpal/Product'
 import PoolPalPrivacy from './pages/poolpal/Privacy'
 import PoolPalTerms from './pages/poolpal/Terms'
@@ -50,6 +52,7 @@ import PoolPalSR from './pages/poolpal/TrainingSR'
 import PoolPalCertPrep from './pages/poolpal/CertPrep'
 import PoolPalTeam from './pages/poolpal/Team'
 import PoolPalJoin from './pages/poolpal/Join'
+import PoolPalProfile from './pages/poolpal/Profile'
 import VoltPalProduct from './pages/voltpal/Product'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
@@ -64,6 +67,7 @@ import VoltPalSR from './pages/voltpal/TrainingSR'
 import VoltPalCertPrep from './pages/voltpal/CertPrep'
 import VoltPalTeam from './pages/voltpal/Team'
 import VoltPalJoin from './pages/voltpal/Join'
+import VoltPalProfile from './pages/voltpal/Profile'
 import WindPalProduct from './pages/windpal/Product'
 import WindPalPrivacy from './pages/windpal/Privacy'
 import WindPalTerms from './pages/windpal/Terms'
@@ -78,6 +82,7 @@ import WindPalSR from './pages/windpal/TrainingSR'
 import WindPalCertPrep from './pages/windpal/CertPrep'
 import WindPalTeam from './pages/windpal/Team'
 import WindPalJoin from './pages/windpal/Join'
+import WindPalProfile from './pages/windpal/Profile'
 import LiftPalProduct from './pages/liftpal/Product'
 import LiftPalPrivacy from './pages/liftpal/Privacy'
 import LiftPalTerms from './pages/liftpal/Terms'
@@ -92,6 +97,7 @@ import LiftPalSR from './pages/liftpal/TrainingSR'
 import LiftPalCertPrep from './pages/liftpal/CertPrep'
 import LiftPalTeam from './pages/liftpal/Team'
 import LiftPalJoin from './pages/liftpal/Join'
+import LiftPalProfile from './pages/liftpal/Profile'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -106,6 +112,7 @@ import PipePalSR from './pages/pipepal/TrainingSR'
 import PipePalCertPrep from './pages/pipepal/CertPrep'
 import PipePalTeam from './pages/pipepal/Team'
 import PipePalJoin from './pages/pipepal/Join'
+import PipePalProfile from './pages/pipepal/Profile'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -146,6 +153,7 @@ export default function App() {
         <Route path="splicepal/certprep" element={<SplicePalCertPrep />} />
         <Route path="splicepal/team" element={<SplicePalTeam />} />
         <Route path="splicepal/join" element={<SplicePalJoin />} />
+        <Route path="splicepal/profile" element={<SplicePalProfile />} />
 
         <Route path="weldpal" element={<WeldPalProduct />} />
         <Route path="weldpal/privacy" element={<WeldPalPrivacy />} />
@@ -161,6 +169,7 @@ export default function App() {
         <Route path="weldpal/certprep" element={<WeldPalCertPrep />} />
         <Route path="weldpal/team" element={<WeldPalTeam />} />
         <Route path="weldpal/join" element={<WeldPalJoin />} />
+        <Route path="weldpal/profile" element={<WeldPalProfile />} />
 
         <Route path="poolpal" element={<PoolPalProduct />} />
         <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
@@ -176,6 +185,7 @@ export default function App() {
         <Route path="poolpal/certprep" element={<PoolPalCertPrep />} />
         <Route path="poolpal/team" element={<PoolPalTeam />} />
         <Route path="poolpal/join" element={<PoolPalJoin />} />
+        <Route path="poolpal/profile" element={<PoolPalProfile />} />
 
         <Route path="voltpal" element={<VoltPalProduct />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
@@ -191,6 +201,7 @@ export default function App() {
         <Route path="voltpal/certprep" element={<VoltPalCertPrep />} />
         <Route path="voltpal/team" element={<VoltPalTeam />} />
         <Route path="voltpal/join" element={<VoltPalJoin />} />
+        <Route path="voltpal/profile" element={<VoltPalProfile />} />
 
         <Route path="pipepal" element={<PipePalProduct />} />
         <Route path="pipepal/privacy" element={<PipePalPrivacy />} />
@@ -206,6 +217,7 @@ export default function App() {
         <Route path="pipepal/certprep" element={<PipePalCertPrep />} />
         <Route path="pipepal/team" element={<PipePalTeam />} />
         <Route path="pipepal/join" element={<PipePalJoin />} />
+        <Route path="pipepal/profile" element={<PipePalProfile />} />
 
         <Route path="windpal" element={<WindPalProduct />} />
         <Route path="windpal/privacy" element={<WindPalPrivacy />} />
@@ -221,6 +233,7 @@ export default function App() {
         <Route path="windpal/certprep" element={<WindPalCertPrep />} />
         <Route path="windpal/team" element={<WindPalTeam />} />
         <Route path="windpal/join" element={<WindPalJoin />} />
+        <Route path="windpal/profile" element={<WindPalProfile />} />
 
         <Route path="liftpal" element={<LiftPalProduct />} />
         <Route path="liftpal/privacy" element={<LiftPalPrivacy />} />
@@ -236,6 +249,7 @@ export default function App() {
         <Route path="liftpal/certprep" element={<LiftPalCertPrep />} />
         <Route path="liftpal/team" element={<LiftPalTeam />} />
         <Route path="liftpal/join" element={<LiftPalJoin />} />
+        <Route path="liftpal/profile" element={<LiftPalProfile />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -51,11 +51,17 @@ function AppSection({ app }: { app: AppKey }) {
           <p className="text-sm text-[var(--color-muted-fg)]">Signed in as {appAuth.user.email}</p>
           <div className="flex gap-3">
             <Link
-              to={`/${app}/training`}
+              to={`/${app}/profile`}
               className="px-4 py-2 rounded-md font-semibold text-sm"
               style={{ backgroundColor: cfg.primary, color: '#0D0D0F' }}
             >
-              View Training
+              View Profile
+            </Link>
+            <Link
+              to={`/${app}/training`}
+              className="px-4 py-2 rounded-md border border-[var(--color-border)] text-sm font-semibold"
+            >
+              Training
             </Link>
             <button
               onClick={() => auth.signOut(app)}
