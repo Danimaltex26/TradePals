@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import type { AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 
@@ -95,6 +96,7 @@ export default function ProductPage({ app, description, longDescription, feature
               href={appStoreUrl}
               className="px-5 py-3 rounded-md text-white font-semibold text-sm"
               style={{ backgroundColor: cfg.primary }}
+              onClick={() => track('app_store_click', { app })}
             >
               Download on App Store
             </a>

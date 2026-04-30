@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { track } from '@vercel/analytics'
 import { useAuth } from '../auth/AuthProvider'
 import type { AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
@@ -37,6 +38,7 @@ export default function SignIn() {
     setLoading(true)
     try {
       await auth.signIn(app, email.trim(), password)
+      track('sign_in', { app })
       nav(state?.redirect ?? `/${app}/training`, { replace: true })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign in failed.')
