@@ -20,6 +20,8 @@ import SplicePalExamRun from './pages/splicepal/TrainingExamRun'
 import SplicePalReadiness from './pages/splicepal/TrainingReadiness'
 import SplicePalSR from './pages/splicepal/TrainingSR'
 import SplicePalCertPrep from './pages/splicepal/CertPrep'
+import SplicePalTeam from './pages/splicepal/Team'
+import SplicePalJoin from './pages/splicepal/Join'
 import WeldPalProduct from './pages/weldpal/Product'
 import WeldPalPrivacy from './pages/weldpal/Privacy'
 import WeldPalTerms from './pages/weldpal/Terms'
@@ -32,6 +34,8 @@ import WeldPalExamRun from './pages/weldpal/TrainingExamRun'
 import WeldPalReadiness from './pages/weldpal/TrainingReadiness'
 import WeldPalSR from './pages/weldpal/TrainingSR'
 import WeldPalCertPrep from './pages/weldpal/CertPrep'
+import WeldPalTeam from './pages/weldpal/Team'
+import WeldPalJoin from './pages/weldpal/Join'
 import PoolPalProduct from './pages/poolpal/Product'
 import PoolPalPrivacy from './pages/poolpal/Privacy'
 import PoolPalTerms from './pages/poolpal/Terms'
@@ -44,6 +48,8 @@ import PoolPalExamRun from './pages/poolpal/TrainingExamRun'
 import PoolPalReadiness from './pages/poolpal/TrainingReadiness'
 import PoolPalSR from './pages/poolpal/TrainingSR'
 import PoolPalCertPrep from './pages/poolpal/CertPrep'
+import PoolPalTeam from './pages/poolpal/Team'
+import PoolPalJoin from './pages/poolpal/Join'
 import VoltPalProduct from './pages/voltpal/Product'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
@@ -56,6 +62,8 @@ import VoltPalExamRun from './pages/voltpal/TrainingExamRun'
 import VoltPalReadiness from './pages/voltpal/TrainingReadiness'
 import VoltPalSR from './pages/voltpal/TrainingSR'
 import VoltPalCertPrep from './pages/voltpal/CertPrep'
+import VoltPalTeam from './pages/voltpal/Team'
+import VoltPalJoin from './pages/voltpal/Join'
 import WindPalProduct from './pages/windpal/Product'
 import WindPalPrivacy from './pages/windpal/Privacy'
 import WindPalTerms from './pages/windpal/Terms'
@@ -68,6 +76,8 @@ import WindPalExamRun from './pages/windpal/TrainingExamRun'
 import WindPalReadiness from './pages/windpal/TrainingReadiness'
 import WindPalSR from './pages/windpal/TrainingSR'
 import WindPalCertPrep from './pages/windpal/CertPrep'
+import WindPalTeam from './pages/windpal/Team'
+import WindPalJoin from './pages/windpal/Join'
 import LiftPalProduct from './pages/liftpal/Product'
 import LiftPalPrivacy from './pages/liftpal/Privacy'
 import LiftPalTerms from './pages/liftpal/Terms'
@@ -80,6 +90,8 @@ import LiftPalExamRun from './pages/liftpal/TrainingExamRun'
 import LiftPalReadiness from './pages/liftpal/TrainingReadiness'
 import LiftPalSR from './pages/liftpal/TrainingSR'
 import LiftPalCertPrep from './pages/liftpal/CertPrep'
+import LiftPalTeam from './pages/liftpal/Team'
+import LiftPalJoin from './pages/liftpal/Join'
 import PipePalProduct from './pages/pipepal/Product'
 import PipePalPrivacy from './pages/pipepal/Privacy'
 import PipePalTerms from './pages/pipepal/Terms'
@@ -92,6 +104,8 @@ import PipePalExamRun from './pages/pipepal/TrainingExamRun'
 import PipePalReadiness from './pages/pipepal/TrainingReadiness'
 import PipePalSR from './pages/pipepal/TrainingSR'
 import PipePalCertPrep from './pages/pipepal/CertPrep'
+import PipePalTeam from './pages/pipepal/Team'
+import PipePalJoin from './pages/pipepal/Join'
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
@@ -130,6 +144,8 @@ export default function App() {
         <Route path="splicepal/training/:certLevel/exam/run" element={<SplicePalExamRun />} />
         <Route path="splicepal/training/:certLevel/:moduleId" element={<SplicePalModule />} />
         <Route path="splicepal/certprep" element={<SplicePalCertPrep />} />
+        <Route path="splicepal/team" element={<SplicePalTeam />} />
+        <Route path="splicepal/join" element={<SplicePalJoin />} />
 
         <Route path="weldpal" element={<WeldPalProduct />} />
         <Route path="weldpal/privacy" element={<WeldPalPrivacy />} />
@@ -143,6 +159,8 @@ export default function App() {
         <Route path="weldpal/training/:certLevel" element={<WeldPalModules />} />
         <Route path="weldpal/training/:certLevel/:moduleId" element={<WeldPalModule />} />
         <Route path="weldpal/certprep" element={<WeldPalCertPrep />} />
+        <Route path="weldpal/team" element={<WeldPalTeam />} />
+        <Route path="weldpal/join" element={<WeldPalJoin />} />
 
         <Route path="poolpal" element={<PoolPalProduct />} />
         <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
@@ -156,6 +174,8 @@ export default function App() {
         <Route path="poolpal/training/:certLevel" element={<PoolPalModules />} />
         <Route path="poolpal/training/:certLevel/:moduleId" element={<PoolPalModule />} />
         <Route path="poolpal/certprep" element={<PoolPalCertPrep />} />
+        <Route path="poolpal/team" element={<PoolPalTeam />} />
+        <Route path="poolpal/join" element={<PoolPalJoin />} />
 
         <Route path="voltpal" element={<VoltPalProduct />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
@@ -169,6 +189,8 @@ export default function App() {
         <Route path="voltpal/training/:certLevel" element={<VoltPalModules />} />
         <Route path="voltpal/training/:certLevel/:moduleId" element={<VoltPalModule />} />
         <Route path="voltpal/certprep" element={<VoltPalCertPrep />} />
+        <Route path="voltpal/team" element={<VoltPalTeam />} />
+        <Route path="voltpal/join" element={<VoltPalJoin />} />
 
         <Route path="pipepal" element={<PipePalProduct />} />
         <Route path="pipepal/privacy" element={<PipePalPrivacy />} />
@@ -182,6 +204,8 @@ export default function App() {
         <Route path="pipepal/training/:certLevel" element={<PipePalModules />} />
         <Route path="pipepal/training/:certLevel/:moduleId" element={<PipePalModule />} />
         <Route path="pipepal/certprep" element={<PipePalCertPrep />} />
+        <Route path="pipepal/team" element={<PipePalTeam />} />
+        <Route path="pipepal/join" element={<PipePalJoin />} />
 
         <Route path="windpal" element={<WindPalProduct />} />
         <Route path="windpal/privacy" element={<WindPalPrivacy />} />
@@ -195,6 +219,8 @@ export default function App() {
         <Route path="windpal/training/:certLevel" element={<WindPalModules />} />
         <Route path="windpal/training/:certLevel/:moduleId" element={<WindPalModule />} />
         <Route path="windpal/certprep" element={<WindPalCertPrep />} />
+        <Route path="windpal/team" element={<WindPalTeam />} />
+        <Route path="windpal/join" element={<WindPalJoin />} />
 
         <Route path="liftpal" element={<LiftPalProduct />} />
         <Route path="liftpal/privacy" element={<LiftPalPrivacy />} />
@@ -208,6 +234,8 @@ export default function App() {
         <Route path="liftpal/training/:certLevel" element={<LiftPalModules />} />
         <Route path="liftpal/training/:certLevel/:moduleId" element={<LiftPalModule />} />
         <Route path="liftpal/certprep" element={<LiftPalCertPrep />} />
+        <Route path="liftpal/team" element={<LiftPalTeam />} />
+        <Route path="liftpal/join" element={<LiftPalJoin />} />
 
         <Route path="*" element={<NotFound />} />
       </Route>
