@@ -78,7 +78,7 @@ VALUES
 -- CPO Module 1: Water Chemistry Fundamentals (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'pH',
  'What is the ideal pH range for a swimming pool according to most health codes?',
  '6.8 – 7.0', '7.2 – 7.8', '7.8 – 8.2', '8.2 – 8.6',
@@ -86,7 +86,7 @@ VALUES
  'The recommended pH range is 7.2–7.8. This range optimizes chlorine effectiveness while minimizing eye irritation and equipment corrosion.',
  'MAHC 4.7.3.2.1', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'alkalinity',
  'What is the recommended total alkalinity range for a plaster-finish pool?',
  '40 – 60 ppm', '60 – 80 ppm', '80 – 120 ppm', '150 – 200 ppm',
@@ -94,7 +94,7 @@ VALUES
  'Total alkalinity of 80–120 ppm provides adequate pH buffering for plaster pools. Low alkalinity leads to pH bounce, while high alkalinity can cause scaling and difficulty adjusting pH.',
  'ANSI/APSP-11 2009, Section 5.3', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'chlorine',
  'At a pH of 7.2, approximately what percentage of hypochlorous acid (HOCl) is present in chlorinated pool water?',
  '25%', '50%', '63%', '96%',
@@ -102,7 +102,7 @@ VALUES
  'At pH 7.2, approximately 63% of free chlorine exists as HOCl, the active sanitizing form. As pH rises, more chlorine converts to the weaker hypochlorite ion (OCl⁻), reducing sanitizing power.',
  'White''s Handbook of Chlorination, 5th Ed.', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'CYA',
  'What is the maximum recommended cyanuric acid (CYA) level for a public pool?',
  '20 ppm', '40 ppm', '100 ppm', '150 ppm',
@@ -110,7 +110,7 @@ VALUES
  'Most health codes limit CYA to 40 ppm in public pools. Higher CYA levels reduce chlorine effectiveness by binding too much free chlorine, a phenomenon known as chlorine lock.',
  'MAHC 4.7.3.3.4', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'calcium_hardness',
  'A pool has the following readings: pH 7.4, TA 90 ppm, CH 250 ppm, TDS 1200 ppm, temp 82°F. The Langelier Saturation Index (LSI) calculates to +0.1. What does this indicate?',
  'The water is highly corrosive', 'The water is balanced', 'The water is heavily scaling', 'The test results are invalid',
@@ -118,7 +118,7 @@ VALUES
  'An LSI value between –0.3 and +0.3 indicates balanced water. A value of +0.1 is near ideal, meaning the water is neither significantly corrosive nor scale-forming.',
  'ANSI/APSP-11 2009, Section 7', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'chlorine',
  'What is breakpoint chlorination?',
  'Adding enough chlorine to raise the pH above 7.8', 'Adding chlorine until all combined chlorine is oxidized and a free chlorine residual is established', 'Reducing chlorine levels by adding sodium thiosulfate', 'Maintaining chlorine at exactly 1.0 ppm',
@@ -126,7 +126,7 @@ VALUES
  'Breakpoint chlorination is the point at which enough chlorine has been added to oxidize all combined chlorine (chloramines). Beyond this point, additional chlorine remains as free available chlorine.',
  'ANSI/APSP-11 2009, Section 6.1', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'alkalinity',
  'Which chemical is most effective for raising total alkalinity with minimal impact on pH?',
  'Sodium carbonate (soda ash)', 'Sodium bicarbonate (baking soda)', 'Calcium chloride', 'Muriatic acid',
@@ -134,7 +134,7 @@ VALUES
  'Sodium bicarbonate raises alkalinity effectively while having a relatively small effect on pH. Soda ash raises both pH and alkalinity significantly, making it more suitable when pH also needs adjustment.',
  'ANSI/APSP-11 2009, Section 6.2', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'CYA',
  'The ratio of free chlorine to CYA is important because:',
  'It determines the amount of combined chlorine present', 'It indicates how much effective (active) chlorine is available for disinfection', 'It measures total dissolved solids', 'It predicts the calcium saturation index',
@@ -142,7 +142,7 @@ VALUES
  'The FC:CYA ratio determines the amount of active chlorine available. A commonly recommended minimum ratio is 7.5% (e.g., 3 ppm FC with 40 ppm CYA). Lower ratios mean insufficient active chlorine for disinfection.',
  'CDC Model Aquatic Health Code, Annex 4.7.3', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'pH',
  'A pool operator measures a pH of 8.4. Which of the following is the most likely consequence?',
  'Accelerated chlorine loss from UV degradation', 'Significantly reduced chlorine efficacy and potential scaling', 'Rapid corrosion of copper heat exchangers', 'Increased CYA consumption',
@@ -150,7 +150,7 @@ VALUES
  'At pH 8.4, only about 17% of free chlorine exists as the effective HOCl form, drastically reducing sanitizing power. High pH also promotes calcium carbonate scaling on surfaces and equipment.',
  'MAHC 4.7.3.2.1', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=1 LIMIT 1),
  'CPO', 'calcium_hardness',
  'What is the recommended calcium hardness range for a vinyl-liner pool?',
  '25 – 75 ppm', '100 – 200 ppm', '200 – 400 ppm', '400 – 600 ppm',
@@ -162,7 +162,7 @@ VALUES
 -- CPO Module 2: Filtration & Circulation (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'turnover_rate',
  'What is the maximum recommended turnover time for a public swimming pool?',
  '2 hours', '4 hours', '6 hours', '8 hours',
@@ -170,7 +170,7 @@ VALUES
  'Most health codes require a maximum turnover time of 6 hours for public swimming pools. Wading pools and spas typically require shorter turnover times (1–2 hours) due to higher bather loads relative to volume.',
  'MAHC 4.7.1.2.1', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'sand_filters',
  'What is the normal operating pressure range increase that indicates a sand filter needs backwashing?',
  '2 – 4 psi above clean start-up pressure', '8 – 10 psi above clean start-up pressure', '15 – 20 psi above clean start-up pressure', '25+ psi above clean start-up pressure',
@@ -178,7 +178,7 @@ VALUES
  'Sand filters should be backwashed when the pressure gauge reads 8–10 psi above the clean start-up pressure. Backwashing too frequently prevents the filter bed from forming an effective dirt layer, while waiting too long reduces flow and risks channeling.',
  'NSF/ANSI 50-2016', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'DE_filters',
  'What is the filtration capability of a diatomaceous earth (DE) filter?',
  'Removes particles down to 20–30 microns', 'Removes particles down to 10–15 microns', 'Removes particles down to 3–5 microns', 'Removes particles down to 0.5–1 micron',
@@ -186,7 +186,7 @@ VALUES
  'DE filters can remove particles as small as 3–5 microns, making them the most effective of the three common pool filter types. Sand filters capture 20–40 microns and cartridge filters capture 10–20 microns.',
  'NSF/ANSI 50-2016', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'cartridge_filters',
  'When should a cartridge filter element be replaced rather than cleaned?',
  'When the filter pressure drops below start-up pressure', 'When the clean start-up pressure is higher than the original clean pressure or the cartridge cannot maintain flow after cleaning', 'After every 30 days of operation', 'When the pool water turns cloudy',
@@ -194,7 +194,7 @@ VALUES
  'Cartridge elements should be replaced when they can no longer be cleaned effectively, indicated by a higher-than-normal clean start-up pressure. This typically occurs after 1–3 years depending on usage and maintenance.',
  'NSF/ANSI 50-2016', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'turnover_rate',
  'A 50,000-gallon pool requires a 6-hour turnover. What is the minimum flow rate needed in gallons per minute (GPM)?',
  '69 GPM', '104 GPM', '139 GPM', '208 GPM',
@@ -202,7 +202,7 @@ VALUES
  'Flow rate = Volume ÷ (Turnover time × 60). 50,000 ÷ (6 × 60) = 50,000 ÷ 360 = 138.9 GPM, rounded to 139 GPM.',
  'MAHC 4.7.1.2.1', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'sand_filters',
  'During backwashing, what is the recommended flow rate relative to the normal filtration rate for a sand filter?',
  'Same as the filtration rate', '1.5 times the filtration rate', '2 times the filtration rate', '3 times the filtration rate',
@@ -210,7 +210,7 @@ VALUES
  'The recommended backwash flow rate is approximately 15 GPM per square foot of filter area, which is typically about 1.5 times the normal filtration rate. This flow rate is sufficient to lift and agitate the sand bed for effective cleaning.',
  'NSF/ANSI 50-2016', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'DE_filters',
  'After backwashing a DE filter, what must the operator do before returning it to service?',
  'Add muriatic acid to the filter', 'Pre-coat the filter grids with fresh DE powder', 'Replace the filter grids', 'Run the pump at half speed for 30 minutes',
@@ -218,7 +218,7 @@ VALUES
  'After backwashing, fresh DE must be added (pre-coated) through the skimmer to re-establish the filter media layer on the grids. Without pre-coating, the bare grids cannot filter effectively and may become clogged with debris.',
  'NSF/ANSI 50-2016', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'cartridge_filters',
  'What is the recommended maximum design flow rate for cartridge filters per square foot of filter area?',
  '0.375 GPM/sq ft', '1.0 GPM/sq ft', '1.5 GPM/sq ft', '3.0 GPM/sq ft',
@@ -226,7 +226,7 @@ VALUES
  'Cartridge filters are designed for a maximum flow rate of 0.375 GPM per square foot of filter media. Exceeding this rate forces debris through the media, reducing filtration efficiency and shortening element life.',
  'NSF/ANSI 50-2016', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'turnover_rate',
  'Which pool type requires the fastest turnover rate?',
  'Competition pool', 'Recreational pool', 'Spa/hot tub', 'Diving pool',
@@ -234,7 +234,7 @@ VALUES
  'Spas and hot tubs require the fastest turnover, typically 30 minutes or less. The small water volume, high bather load, and elevated temperature create conditions that demand rapid filtration and chemical distribution.',
  'MAHC 4.7.1.2.1', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=2 LIMIT 1),
  'CPO', 'sand_filters',
  'What is the typical filtration rate for a high-rate sand filter?',
  '1–3 GPM per square foot', '5–8 GPM per square foot', '15–20 GPM per square foot', '25–30 GPM per square foot',
@@ -246,7 +246,7 @@ VALUES
 -- CPO Module 3: Health & Safety Regulations (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'VGB_Act',
  'The Virginia Graeme Baker Pool & Spa Safety Act (VGB Act) primarily addresses which hazard?',
  'Chemical burns from improper storage', 'Drowning due to lack of fencing', 'Entrapment from suction outlets', 'Electrocution from faulty wiring',
@@ -254,7 +254,7 @@ VALUES
  'The VGB Act (P.L. 110-140) was enacted in 2007 to prevent suction entrapment injuries and deaths. It requires compliant drain covers meeting ASME/ANSI A112.19.8 and safety vacuum release systems (SVRS) on single-drain pools and spas.',
  'P.L. 110-140, Virginia Graeme Baker Act', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'fecal_incidents',
  'If a formed stool is found in a public pool, what is the minimum required response?',
  'Remove the stool and continue operations', 'Close the pool, remove the stool, maintain 2 ppm free chlorine for 25 minutes at pH 7.5 or less', 'Drain and refill the pool', 'Superchlorinate to 20 ppm and close for 24 hours',
@@ -262,7 +262,7 @@ VALUES
  'For a formed-stool incident, the CDC recommends removing the stool, verifying pH ≤ 7.5, maintaining 2 ppm free chlorine for at least 25 minutes (CT value of 50), then reopening. Diarrheal incidents require 20 ppm for 12.75 hours due to Cryptosporidium risk.',
  'CDC Fecal Incident Response Recommendations', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'health_codes',
  'Which of the following is a required safety feature for all public pools per the Model Aquatic Health Code?',
  'Diving board', 'Automatic chemical feeder', 'Emergency telephone or communication device accessible within the pool area', 'Underwater speakers',
@@ -270,7 +270,7 @@ VALUES
  'MAHC requires an emergency communication device (phone) accessible from the pool area. This ensures that lifeguards or operators can quickly contact emergency services without leaving the pool area.',
  'MAHC 6.3.5.1', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'signage',
  'Which of the following statements about pool signage is required by most health codes?',
  'The pool hours and depth markings must be posted', 'The name of the pool operator must be displayed', 'The water temperature must be displayed at all times', 'The chemical log must be posted publicly',
@@ -278,7 +278,7 @@ VALUES
  'Health codes require posting of pool hours, capacity limits, depth markings, and safety rules. Depth markings must be placed at maximum and minimum depth points and at the break in slope between shallow and deep ends.',
  'MAHC 6.4.1.1', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'VGB_Act',
  'Under the VGB Act, which drain cover standard must be met for all public pool and spa suction outlets?',
  'UL 1081', 'ASME/ANSI A112.19.8', 'NSF/ANSI 50', 'NFPA 70',
@@ -286,7 +286,7 @@ VALUES
  'The VGB Act mandates that all drain covers in public pools and spas comply with ASME/ANSI A112.19.8 standard. Covers must be rated for the maximum flow of the circulation system and must be replaced before their marked expiration date.',
  'P.L. 110-140, Section 1404', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'fecal_incidents',
  'A diarrheal fecal incident occurs in a public pool. What is the required CT inactivation value for Cryptosporidium using chlorine?',
  'CT 50 (2 ppm × 25 min)', 'CT 200 (10 ppm × 20 min)', 'CT 15,300 (20 ppm × 765 min)', 'CT 100 (5 ppm × 20 min)',
@@ -294,7 +294,7 @@ VALUES
  'Cryptosporidium requires a CT value of 15,300 for inactivation with chlorine at pH 7.5 or below. This equates to 20 ppm free chlorine for 12.75 hours (765 minutes). This extended closure is necessary because Crypto is highly resistant to chlorine.',
  'CDC Fecal Incident Response, Table 1', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'health_codes',
  'What is the maximum allowable bather load calculation method for a pool according to MAHC?',
  '1 bather per 10 gallons', '1 bather per 20 square feet of shallow area and 1 per 25 square feet of deep area', '1 bather per 50 square feet regardless of depth', '1 bather per 100 gallons',
@@ -302,7 +302,7 @@ VALUES
  'MAHC calculates maximum bather load based on surface area: one bather per 20 sq ft in water less than 5 feet deep, and one bather per 25 sq ft in deeper water. This ensures adequate space for safe swimming.',
  'MAHC 4.9.1.1', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'signage',
  'Pool depth markings must be placed at which locations?',
  'Only at the deep end', 'At maximum depth, minimum depth, and the break point between shallow and deep areas', 'Every 2 feet along the pool perimeter', 'Only on the pool deck, not on the wall',
@@ -310,7 +310,7 @@ VALUES
  'Depth markings are required at the maximum depth, minimum depth, break in slope (transition from shallow to deep), and at regular intervals. They must be visible from both the deck and within the pool on the wall or coping.',
  'MAHC 6.4.1.3', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'VGB_Act',
  'A single-drain spa installed in 2010 must have which additional safety device under the VGB Act?',
  'An automatic pool cover', 'A safety vacuum release system (SVRS) or equivalent', 'A secondary filtration system', 'An emergency drain valve',
@@ -318,7 +318,7 @@ VALUES
  'The VGB Act requires single-drain pools and spas to have a backup anti-entrapment system such as a safety vacuum release system (SVRS), gravity drainage, automatic pump shut-off, or a suction-limiting vent system in addition to compliant drain covers.',
  'P.L. 110-140, Section 1404(c)', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=3 LIMIT 1),
  'CPO', 'health_codes',
  'How frequently must public pool water chemistry be tested according to MAHC recommendations?',
  'Once per week', 'Once per day before opening', 'At least every 4 hours during operation, plus before opening', 'Only when the water appears cloudy',
@@ -330,7 +330,7 @@ VALUES
 -- CPO Module 4: Chemical Safety & Handling (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'mixing_hazards',
  'What potentially deadly reaction occurs when calcium hypochlorite is mixed with an acid?',
  'It produces hydrogen gas', 'It produces chlorine gas', 'It produces carbon monoxide', 'It produces ammonia vapor',
@@ -338,7 +338,7 @@ VALUES
  'Mixing calcium hypochlorite (or any chlorine compound) with acid produces toxic chlorine gas. This reaction has caused numerous injuries and fatalities in the pool industry. Chemicals must never be mixed and should be stored separately.',
  'OSHA 29 CFR 1910.1200', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'storage',
  'What is the minimum required separation distance between oxidizers (chlorine products) and acids in a chemical storage room?',
  'They can be stored on the same shelf if sealed', 'They must be on separate shelves at least 3 feet apart', 'They must be stored in separate rooms or at least 20 feet apart with a physical barrier', 'They can be adjacent if in original containers',
@@ -346,7 +346,7 @@ VALUES
  'Oxidizers and acids must be stored in separate rooms or at least 20 feet apart with a physical barrier. NFPA 400 and manufacturer SDS requirements mandate strict separation to prevent accidental mixing and toxic gas generation.',
  'NFPA 400, Chapter 15', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'SDS',
  'A Safety Data Sheet (SDS) for a pool chemical must contain how many sections?',
  '8 sections', '12 sections', '16 sections', '20 sections',
@@ -354,7 +354,7 @@ VALUES
  'Per the Globally Harmonized System (GHS) adopted by OSHA, all SDS documents must contain exactly 16 standardized sections covering identification, hazards, composition, first aid, fire-fighting, handling, exposure controls, physical properties, stability, toxicology, ecology, disposal, transport, regulatory, and other information.',
  'OSHA 29 CFR 1910.1200(g)', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'PPE',
  'What PPE is required when handling granular calcium hypochlorite?',
  'Gloves only', 'Safety glasses and gloves', 'Chemical splash goggles, chemical-resistant gloves, and a dust mask or respirator', 'No PPE required if using a scoop',
@@ -362,7 +362,7 @@ VALUES
  'Handling calcium hypochlorite requires chemical splash goggles (not just safety glasses), chemical-resistant gloves, and respiratory protection (dust mask or respirator) to prevent inhalation of dust. An apron is also recommended for larger quantities.',
  'Cal Hypo SDS, Section 8; OSHA 1910.1200', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'mixing_hazards',
  'A pool operator accidentally adds trichlor tablets to a chlorinator that previously held calcium hypochlorite without cleaning it. What is the most likely result?',
  'The chlorine will be more effective', 'Nothing hazardous will occur', 'A violent exothermic reaction, potentially causing fire or explosion', 'The tablets will dissolve slower than normal',
@@ -370,7 +370,7 @@ VALUES
  'Mixing different chlorine products (trichlor is acidic, cal hypo is alkaline) can cause a violent exothermic reaction resulting in fire, explosion, or release of toxic chlorine gas. Chlorinators must be thoroughly cleaned before switching products.',
  'NFPA 400; CDC/EPA Guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'storage',
  'Which of the following is an acceptable location for pool chemical storage?',
  'In the pump room directly above electrical panels', 'In a dedicated, well-ventilated room with separate access from the pool area', 'In a closet adjacent to the pool deck', 'In the same room as the HVAC equipment',
@@ -378,7 +378,7 @@ VALUES
  'Pool chemicals must be stored in a dedicated, well-ventilated room with corrosion-resistant construction, separate from mechanical and electrical equipment. The room should have secondary containment, proper signage, and direct outside access.',
  'MAHC 5.7.3.1; NFPA 400', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'SDS',
  'Section 4 of a Safety Data Sheet covers:',
  'Composition and ingredient information', 'First-aid measures', 'Fire-fighting measures', 'Handling and storage',
@@ -386,7 +386,7 @@ VALUES
  'SDS Section 4 covers first-aid measures, including symptoms of exposure and required treatment for inhalation, skin contact, eye contact, and ingestion. Section 3 covers composition, Section 5 covers fire-fighting, and Section 7 covers handling/storage.',
  'GHS/OSHA 29 CFR 1910.1200(g)', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'PPE',
  'When performing a chemical spill cleanup of liquid muriatic acid, which additional PPE beyond standard is required?',
  'Steel-toed boots', 'A full-face chemical respirator rated for acid gases', 'Hearing protection', 'A hard hat',
@@ -394,7 +394,7 @@ VALUES
  'Muriatic acid (hydrochloric acid) releases HCl fumes that can cause severe respiratory damage. A full-face respirator with acid gas cartridges is required for spill cleanup in addition to goggles, acid-resistant gloves, boots, and an apron.',
  'Muriatic Acid SDS, Section 8', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'mixing_hazards',
  'What should an operator do if chlorine gas is detected in the chemical storage room?',
  'Enter the room and open windows', 'Evacuate the area immediately, call 911, and do not re-enter until cleared by hazmat', 'Pour water on the source to dilute the gas', 'Turn on the room fan and wait 5 minutes',
@@ -402,7 +402,7 @@ VALUES
  'Chlorine gas is toxic at concentrations as low as 3 ppm and can be fatal at 100 ppm. The correct response is immediate evacuation upwind, calling emergency services, and not re-entering until hazmat teams have cleared the area.',
  'OSHA 29 CFR 1910.1200; Emergency Response Guidebook', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CPO' AND module_number=4 LIMIT 1),
  'CPO', 'storage',
  'Pool chemical containers should be stored:',
  'Stacked three high to save space', 'On the floor, off pallets, for stability', 'On shelves or pallets, off the ground, with oxidizers above acids', 'On shelves with oxidizers below acids to prevent dripping contamination',
@@ -414,7 +414,7 @@ VALUES
 -- CST Module 1: Pump & Motor Diagnostics (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'priming',
  'A pool pump loses prime after running for several minutes. What is the most likely cause?',
  'The motor is overheating', 'There is a suction-side air leak', 'The impeller is too large', 'The discharge valve is closed',
@@ -422,7 +422,7 @@ VALUES
  'Suction-side air leaks are the most common cause of lost prime. Air can enter through cracked pump lids, worn lid O-rings, loose fittings, or failed shaft seals. The pump initially primes on residual water but loses suction as air infiltrates.',
  'Pool & Spa Operator Handbook, NSPF', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'impeller_sizing',
  'What happens when an oversized impeller is installed in a pool pump?',
  'The pump runs quieter', 'The pump draws less amperage', 'The pump exceeds its rated flow and pressure, increasing energy consumption and potentially damaging the filter', 'The pump will not prime',
@@ -430,7 +430,7 @@ VALUES
  'An oversized impeller produces excessive flow and pressure, increasing energy consumption significantly. It can also damage filters by exceeding rated flow, cause cavitation, and void equipment warranties. Impellers should match the system curve.',
  'Hydraulic Institute Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'motor_troubleshooting',
  'A single-phase pool pump motor hums but does not start. The capacitor tests good. What should be checked next?',
  'The impeller for debris or binding', 'The water level in the pool', 'The filter pressure', 'The circuit breaker size',
@@ -438,7 +438,7 @@ VALUES
  'If the capacitor is functional, a motor that hums but won''t start likely has a seized or bound impeller. Debris, scale buildup, or bearing failure can prevent rotation. The technician should check for free shaft rotation before condemning the motor.',
  'Electric Motor Diagnostics, EASA', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'priming',
  'Which of the following is NOT a common cause of pump priming failure?',
  'Clogged impeller', 'Water level below the skimmer weir', 'Excessive head pressure on the discharge side', 'Cracked suction pipe below grade',
@@ -446,7 +446,7 @@ VALUES
  'Excessive discharge head pressure does not cause priming failure — it affects flow rate after the pump is running. Priming failures are caused by suction-side issues: air leaks, low water level, clogged impeller, or cracked suction piping.',
  'Pool & Spa Operator Handbook, NSPF', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'motor_troubleshooting',
  'A pool pump motor trips its circuit breaker after running for 20 minutes. The amperage draw reads normal at startup. What is the most probable cause?',
  'Undersized supply wiring causing voltage drop', 'A faulty GFCI outlet', 'The motor is overheating due to poor ventilation or failing bearings', 'The timer is malfunctioning',
@@ -454,7 +454,7 @@ VALUES
  'Delayed tripping with normal startup amps suggests thermal overload. As the motor heats up from poor ventilation, blocked cooling vents, or failing bearings, amperage gradually rises until the breaker trips on thermal overload.',
  'NEC Article 430; EASA Guidelines', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'impeller_sizing',
  'To determine the correct impeller trim for a variable-speed pump application, a technician needs:',
  'Only the pool volume', 'The system curve and desired flow rate at various speeds', 'The water chemistry readings', 'The filter model number only',
@@ -462,7 +462,7 @@ VALUES
  'Proper impeller sizing requires matching the pump curve to the system curve at the desired flow rates. For variable-speed applications, the system curve determines the relationship between flow and head loss, allowing the technician to select the optimal impeller trim.',
  'Hydraulic Institute Standards', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'motor_troubleshooting',
  'What does a megohmmeter (megger) test measure on a pool pump motor?',
  'Motor RPM', 'Insulation resistance between windings and ground', 'Capacitor microfarads', 'Voltage at the motor terminals',
@@ -470,7 +470,7 @@ VALUES
  'A megohmmeter applies high DC voltage to measure the insulation resistance between motor windings and the motor frame (ground). Low readings (below 1 megohm) indicate degraded insulation and risk of ground fault. This test identifies failing motors before catastrophic failure.',
  'EASA Technical Manual', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'priming',
  'What is the maximum recommended suction lift for a typical aboveground pool pump?',
  '5 feet', '10 feet', '15 feet', '25 feet',
@@ -478,7 +478,7 @@ VALUES
  'At sea level, the theoretical maximum suction lift is about 33.9 feet (atmospheric pressure). Practical limits for pool pumps are around 25 feet due to friction losses, altitude, and NPSH requirements. Exceeding this causes cavitation and loss of prime.',
  'Hydraulic Institute Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'motor_troubleshooting',
  'A dual-speed motor runs on low speed but not on high speed. Which component most likely failed?',
  'The run capacitor', 'The low-speed winding', 'The high-speed winding or associated relay/contactor', 'The shaft seal',
@@ -486,7 +486,7 @@ VALUES
  'Dual-speed motors have separate windings for each speed. If low speed operates correctly, the common components (capacitor, shaft, bearings) are functional. The failure is isolated to the high-speed winding or its switching relay/contactor.',
  'EASA Technical Manual', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=1 LIMIT 1),
  'CST', 'impeller_sizing',
  'The affinity laws state that pump power consumption varies with:',
  'The square of the speed change', 'The cube of the speed change', 'The speed change directly (linearly)', 'The fourth power of the speed change',
@@ -498,7 +498,7 @@ VALUES
 -- CST Module 2: Heater Systems (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'BTU_calculations',
  'How many BTUs are required to raise one gallon of water by 1°F?',
  '1 BTU', '8.33 BTUs', '100 BTUs', '1,000 BTUs',
@@ -506,7 +506,7 @@ VALUES
  'One BTU raises one pound of water by 1°F. Since one gallon of water weighs 8.33 pounds, it takes 8.33 BTUs to raise one gallon by 1°F. This is the fundamental calculation for pool heater sizing.',
  'ASHRAE Fundamentals Handbook', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'gas_heaters',
  'What is the minimum required water flow rate through a pool gas heater to prevent damage?',
  'Any flow is acceptable', 'Typically 25–35 GPM depending on heater size, as specified by the manufacturer', 'Exactly 100 GPM', 'Flow rate does not affect heater operation',
@@ -514,7 +514,7 @@ VALUES
  'Pool gas heaters require minimum water flow (typically 25–35 GPM) to prevent heat exchanger damage. Insufficient flow causes localized overheating, thermal stress, and premature failure of the heat exchanger. A pressure or flow switch should prevent firing without adequate flow.',
  'Manufacturer installation manuals; ANSI Z21.56', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'heat_pumps',
  'A pool heat pump has a COP (Coefficient of Performance) of 5.0. What does this mean?',
  'It uses 5 watts of power per BTU produced', 'For every 1 kW of electricity consumed, it produces 5 kW of heat output', 'It heats the pool 5 times faster than a gas heater', 'It operates at 5% efficiency',
@@ -522,7 +522,7 @@ VALUES
  'A COP of 5.0 means the heat pump produces 5 units of heat energy for every 1 unit of electrical energy consumed. This represents 500% efficiency — the extra energy comes from heat absorbed from the ambient air. Gas heaters typically achieve 80–95% thermal efficiency.',
  'ASHRAE 90.1; AHRI 1160', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'electric_heaters',
  'What is the primary disadvantage of electric resistance heaters for pool heating?',
  'They cannot heat water above 90°F', 'They have the highest operating cost per BTU of all heater types', 'They require more maintenance than gas heaters', 'They cannot be used with salt systems',
@@ -530,7 +530,7 @@ VALUES
  'Electric resistance heaters operate at nearly 100% thermal efficiency but have the highest operating cost because electricity costs more per BTU than natural gas or the effective cost of heat pump operation. They are typically used only for spas or small therapy pools.',
  'ASHRAE Fundamentals Handbook', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'BTU_calculations',
  'A 20,000-gallon pool needs to be heated from 70°F to 82°F. Ignoring heat loss, how many BTUs are required?',
  '240,000 BTUs', '1,000,000 BTUs', '1,999,200 BTUs', '4,000,000 BTUs',
@@ -538,7 +538,7 @@ VALUES
  'BTUs = gallons × 8.33 × temperature rise. 20,000 × 8.33 × 12 = 1,999,200 BTUs. In practice, a heater must also overcome surface evaporation and convection losses, so actual energy required is higher.',
  'ASHRAE Fundamentals Handbook', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'gas_heaters',
  'A pool gas heater produces soot on the heat exchanger. What is the most likely cause?',
  'Water flow is too high', 'Inadequate combustion air supply or improper gas pressure', 'The pool water is too cold', 'The thermostat is set too high',
@@ -546,7 +546,7 @@ VALUES
  'Soot formation indicates incomplete combustion, caused by insufficient air supply, improper gas pressure (usually too high), a dirty burner tray, or a cracked heat exchanger allowing water to contact the flame. Gas pressure and combustion air openings should be verified.',
  'ANSI Z21.56; Manufacturer service manuals', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'heat_pumps',
  'At what ambient air temperature does a standard air-source pool heat pump begin to lose significant heating capacity?',
  'Below 70°F', 'Below 50°F', 'Below 32°F', 'They work equally well at all temperatures',
@@ -554,7 +554,7 @@ VALUES
  'Standard pool heat pumps lose significant capacity below 50°F ambient temperature because there is less heat energy available in the air. Below 45°F, most units cannot operate efficiently. Some manufacturers offer low-ambient models rated to 40°F.',
  'AHRI 1160; DOE Energy Efficiency Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'gas_heaters',
  'What is the purpose of the high-limit switch in a pool gas heater?',
  'To maintain the desired pool temperature', 'To shut off the heater if the heat exchanger exceeds a safe temperature, preventing damage or fire', 'To regulate gas flow to the burner', 'To control the ignition sequence',
@@ -562,7 +562,7 @@ VALUES
  'The high-limit switch is a safety device that shuts off the gas valve if the heat exchanger temperature exceeds a preset maximum (typically 135°F). This prevents damage from low flow, blocked exhausts, or thermostat failure. It requires manual reset after tripping.',
  'ANSI Z21.56, Section 2.14', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'electric_heaters',
  'An electric spa heater draws 50 amps at 240 volts. What is its power output in kW?',
  '6 kW', '12 kW', '18 kW', '24 kW',
@@ -570,7 +570,7 @@ VALUES
  'Power (kW) = Volts × Amps ÷ 1000 = 240 × 50 ÷ 1000 = 12 kW. This is equivalent to approximately 40,946 BTUs per hour (12 kW × 3,412 BTU/kW).',
  'NEC Article 424', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=2 LIMIT 1),
  'CST', 'heat_pumps',
  'Why must a pool heat pump be installed with adequate clearance around the unit?',
  'To allow access for filter cleaning', 'To ensure sufficient airflow across the evaporator coil for efficient heat transfer', 'To reduce noise levels for neighbors', 'To prevent chemical damage to the unit',
@@ -582,7 +582,7 @@ VALUES
 -- CST Module 3: Automation & Salt Systems (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'salt_chlorine_generators',
  'What is the ideal salt concentration for most salt chlorine generators?',
  '500 – 1,000 ppm', '2,800 – 3,400 ppm', '5,000 – 7,000 ppm', '10,000 – 15,000 ppm',
@@ -590,7 +590,7 @@ VALUES
  'Most salt chlorine generators operate optimally at 2,800–3,400 ppm salt (sodium chloride). This is well below the human taste threshold of about 5,000 ppm. Too little salt reduces chlorine output; too much can damage the cell and void the warranty.',
  'Manufacturer specifications; APSP Technical Bulletin', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'ORP',
  'What ORP (Oxidation-Reduction Potential) reading generally indicates adequate sanitizer levels in a pool?',
  '200 – 400 mV', '450 – 550 mV', '650 – 750 mV', '900 – 1000 mV',
@@ -598,7 +598,7 @@ VALUES
  'An ORP reading of 650–750 mV generally indicates adequate oxidizing (sanitizing) potential. The WHO recommends a minimum of 650 mV for safe bathing water. ORP measures the water''s overall oxidizing ability, not just chlorine concentration.',
  'WHO Guidelines for Recreational Water, Vol. 2', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'controllers',
  'What does an automated pool controller use a flow sensor for?',
  'To measure water temperature', 'To verify adequate water flow before activating chemical feeders and heaters', 'To measure salt concentration', 'To calculate turnover rate for the operator',
@@ -606,7 +606,7 @@ VALUES
  'Flow sensors confirm water is moving through the system before the controller activates heaters or chemical feeders. Operating these devices without flow can cause equipment damage (overheated heat exchangers) or dangerous chemical concentration spikes.',
  'MAHC 4.7.1; Manufacturer manuals', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'salt_chlorine_generators',
  'White flaky deposits on a salt cell indicate:',
  'Insufficient salt levels', 'Calcium scale buildup on the cell plates, typically from high pH or calcium hardness', 'Normal operation', 'The cell is producing too much chlorine',
@@ -614,7 +614,7 @@ VALUES
  'Calcium scale forms on cell plates when water pH or calcium hardness is too high. Scale insulates the plates, reducing chlorine production and increasing power consumption. Regular acid washing (or reverse-polarity self-cleaning) removes scale.',
  'Salt cell manufacturer maintenance guides', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'ORP',
  'Why can ORP readings be misleading when cyanuric acid (CYA) levels are high?',
  'CYA interferes with the ORP probe electronics', 'High CYA reduces the active chlorine available, but ORP may still read in the acceptable range because it measures total oxidizing potential', 'CYA has no effect on ORP', 'ORP probes cannot function in stabilized water',
@@ -622,7 +622,7 @@ VALUES
  'At high CYA levels, most of the free chlorine is bound as chloro-isocyanurate, reducing the active (killing) form. ORP measures the overall oxidizing potential, which can appear adequate even when active chlorine is insufficient for rapid pathogen inactivation.',
  'CDC MAHC Annex; CYA-Chlorine Relationship Studies', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'controllers',
  'An automated chemical controller adjusts chlorine feed based on ORP and pH. If the pH probe drifts out of calibration, what is the primary risk?',
  'The pool will overheat', 'The controller will overdose or underdose acid/CO2, causing pH to drift, which in turn affects chlorine effectiveness and ORP readings', 'The salt cell will fail', 'The filter pressure will increase',
@@ -630,7 +630,7 @@ VALUES
  'A miscalibrated pH probe sends inaccurate data to the controller, causing improper acid or CO2 dosing. Since pH directly affects chlorine efficacy and ORP readings, this cascading error can result in unsafe water conditions. Regular probe calibration (weekly minimum) is essential.',
  'MAHC 4.7.3; Controller manufacturer guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'salt_chlorine_generators',
  'What effect does water temperature below 60°F have on salt chlorine generator performance?',
  'Chlorine production increases', 'The cell may not produce chlorine efficiently and some units shut down to protect the cell', 'No effect on performance', 'The salt concentration increases',
@@ -638,7 +638,7 @@ VALUES
  'Cold water reduces the electrolysis efficiency of salt cells. Most manufacturers program their units to reduce output or shut down below 60°F to prevent cell damage. This is a consideration for pools in cooler climates during spring and fall.',
  'Salt cell manufacturer specifications', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'controllers',
  'What is the recommended frequency for calibrating ORP and pH probes on an automated pool controller?',
  'Once per year', 'Once per month', 'At least weekly, or per manufacturer recommendation', 'Only when readings seem off',
@@ -646,7 +646,7 @@ VALUES
  'ORP and pH probes drift over time due to coating, aging reference solutions, and environmental factors. MAHC and most manufacturers recommend weekly calibration using fresh buffer solutions to maintain accuracy.',
  'MAHC 4.7.3; Probe manufacturer guidelines', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'ORP',
  'An ORP reading suddenly drops from 700 mV to 400 mV. What is the most likely cause?',
  'The water temperature dropped', 'A large bather load introduced significant organic demand, consuming available oxidizer', 'The filter was recently backwashed', 'The pump speed was increased',
@@ -654,7 +654,7 @@ VALUES
  'A sudden ORP drop indicates rapid oxidizer consumption. A large bather load introduces sweat, body oils, lotions, and urine — all organic contaminants that consume free chlorine. The system needs time (or additional chlorine) to overcome the increased demand and restore ORP.',
  'WHO Recreational Water Guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=3 LIMIT 1),
  'CST', 'salt_chlorine_generators',
  'A salt system displays a "low salt" warning but the salt level tests at 3,200 ppm. What should the technician check?',
  'The pH level', 'The cell for scale buildup that may be affecting the conductivity sensor reading', 'The pool water temperature', 'The filter pressure',
@@ -666,7 +666,7 @@ VALUES
 -- CST Module 4: Plumbing & Hydraulics (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'TDH_calculations',
  'Total Dynamic Head (TDH) is the sum of:',
  'Filter pressure and water temperature', 'Static head (vertical lift) plus friction head (pipe and fitting losses) plus resistance head (equipment losses)', 'Pool volume and flow rate', 'Pump horsepower and impeller diameter',
@@ -674,7 +674,7 @@ VALUES
  'TDH represents the total resistance a pump must overcome, comprising: static head (vertical distance the water must be lifted), friction head (losses from pipe length, diameter, and fittings), and resistance head (losses through filters, heaters, valves, and other equipment).',
  'Hydraulic Institute Standards', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'pipe_sizing',
  'What is the maximum recommended water velocity in pool suction piping?',
  '2 feet per second', '6 feet per second', '10 feet per second', '15 feet per second',
@@ -682,7 +682,7 @@ VALUES
  'Suction piping velocity should not exceed 6 fps to minimize friction losses, noise, and cavitation risk. Discharge piping can handle up to 8–10 fps. Exceeding these velocities increases TDH, energy consumption, and can cause water hammer.',
  'MAHC 4.7.1; Hydraulic Institute Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'head_loss',
  'Which of the following pipe configurations creates the most friction head loss?',
  'Long-radius 90° elbow', 'Short-radius 90° elbow', 'Two 45° elbows', 'A straight coupling',
@@ -690,7 +690,7 @@ VALUES
  'A short-radius 90° elbow creates the most friction loss due to the abrupt change in flow direction. A long-radius 90° elbow creates approximately 60% of the loss of a short-radius. Two 45° elbows with spacing between them create less loss than a single short-radius 90°.',
  'Hydraulic Institute Standards; ASHRAE Duct Fitting Database', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'valves',
  'Which valve type is most appropriate for throttling flow in a pool system?',
  'Gate valve', 'Ball valve', 'Butterfly or globe valve', 'Check valve',
@@ -698,7 +698,7 @@ VALUES
  'Butterfly and globe valves are designed for throttling (partial opening) to regulate flow. Gate and ball valves are designed for full-open or full-closed service only. Using a gate valve for throttling causes erosion of the gate and eventual failure.',
  'ASHRAE Fundamentals; Valve manufacturer guidelines', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'TDH_calculations',
  'A pump must push water 15 feet vertically, through 200 feet of 2-inch PVC pipe at 60 GPM (friction loss = 4.5 ft per 100 ft), plus 5 feet of equipment resistance. What is the approximate TDH?',
  '15 feet', '24 feet', '29 feet', '35 feet',
@@ -706,7 +706,7 @@ VALUES
  'TDH = static head + friction head + equipment resistance = 15 + (200 × 4.5/100) + 5 = 15 + 9 + 5 = 29 feet. Fitting losses would add additional head, but based on the given information, 29 feet is correct.',
  'Hydraulic Institute Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'pipe_sizing',
  'Increasing pipe diameter from 1.5 inches to 2 inches reduces friction loss by approximately:',
  '25%', '50%', '75%', '90%',
@@ -714,7 +714,7 @@ VALUES
  'Friction loss decreases dramatically with increased pipe diameter. Going from 1.5" to 2" roughly triples the cross-sectional area, reducing velocity by about 56% and friction loss by approximately 75% for the same flow rate. This is because friction loss is proportional to roughly the fifth power of the diameter.',
  'Hazen-Williams Equation; Hydraulic Reference Tables', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'valves',
  'What is the purpose of a check valve in a pool plumbing system?',
  'To regulate flow speed', 'To prevent backflow when the pump stops', 'To filter debris from the water', 'To reduce water hammer',
@@ -722,7 +722,7 @@ VALUES
  'Check valves prevent reverse flow when the pump shuts off. They are essential on heater bypasses, chemical feeder lines, and when the pool is above the pump to prevent draining back through the pump. Spring-loaded or swing-type check valves are most common.',
  'Uniform Plumbing Code; Pool industry best practices', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'head_loss',
  'The Hazen-Williams equation is used to calculate:',
  'Pool volume', 'Friction loss in pipe based on flow rate, pipe diameter, and pipe material roughness', 'Heater BTU requirements', 'Chemical dosage rates',
@@ -730,7 +730,7 @@ VALUES
  'The Hazen-Williams equation calculates friction head loss in pressurized piping systems based on flow rate (GPM), pipe inside diameter, pipe length, and the C-factor (roughness coefficient). PVC pipe has a C-factor of approximately 150, while copper is about 140.',
  'Hydraulic Engineering Reference Manual', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'TDH_calculations',
  'If a pool pump operates at a point on its curve where TDH equals 45 feet and flow is 80 GPM, what happens if the filter becomes dirty and adds 10 feet of head?',
  'Flow stays at 80 GPM and TDH increases to 55 feet', 'The pump moves along its curve to a new operating point with higher TDH and lower flow', 'The pump shuts off automatically', 'Motor amperage decreases',
@@ -738,7 +738,7 @@ VALUES
  'A centrifugal pump operates along its performance curve. When system resistance increases (dirty filter), the operating point shifts up and left on the curve — TDH increases but flow decreases. The pump cannot simultaneously increase both TDH and flow.',
  'Hydraulic Institute Standards; Pump Performance Curves', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='CST' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='CST' AND module_number=4 LIMIT 1),
  'CST', 'pipe_sizing',
  'Why is it important to use Schedule 40 PVC (not Schedule 20 or thin-wall) for pressure-side pool plumbing?',
  'Schedule 40 is lighter and easier to install', 'Schedule 40 has thicker walls rated for the working pressures found in pool systems (up to 50+ psi)', 'Schedule 40 reduces friction loss', 'Schedule 40 is required by the VGB Act',
@@ -750,7 +750,7 @@ VALUES
 -- RESIDENTIAL Module 1: Residential Pool Maintenance (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'weekly_service',
  'What is the recommended order for a weekly pool service visit?',
  'Add chemicals, then test water, then skim debris', 'Test water chemistry, skim/vacuum debris, clean filter, adjust chemicals', 'Backwash filter first, then add chemicals without testing', 'Vacuum first, then drain and refill water',
@@ -758,7 +758,7 @@ VALUES
  'The correct service order is: test water first to understand current conditions, remove debris (skim, brush, vacuum) to reduce demand on chemicals, service equipment as needed, then adjust chemicals based on test results and anticipated demand.',
  'APSP Service Technician Manual', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'chemical_dosing',
  'A residential pool tests at 0.5 ppm free chlorine. The homeowner says they added chlorine yesterday. What should the technician investigate first?',
  'Whether the pool cover was left open', 'The CYA level and chlorine demand — low CYA causes rapid chlorine loss, and high organic demand consumes chlorine quickly', 'Whether the pool was used recently', 'The filter pressure',
@@ -766,7 +766,7 @@ VALUES
  'Rapid chlorine loss despite recent addition suggests either inadequate CYA protection (UV degradation) or high chlorine demand from organic contamination. Checking CYA and combined chlorine helps determine the cause and correct dosing strategy.',
  'APSP Service Technician Manual', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'algae_prevention',
  'Which type of algae is most resistant to normal chlorine levels and hardest to eliminate?',
  'Green algae', 'Yellow (mustard) algae', 'Black algae', 'Pink algae',
@@ -774,7 +774,7 @@ VALUES
  'Black algae is the most resistant because it forms a protective layered head with a waxy coating that shields the inner cells from chlorine. It also embeds deep roots into plaster surfaces. Treatment requires aggressive brushing with a stainless steel brush and superchlorination.',
  'Pool Chemistry Fundamentals, NSPF', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'weekly_service',
  'How often should a residential pool be brushed as part of routine maintenance?',
  'Only when algae is visible', 'Monthly', 'Weekly — brushing prevents algae attachment and distributes chemicals along surfaces', 'Every 6 months',
@@ -782,7 +782,7 @@ VALUES
  'Weekly brushing is essential preventive maintenance. It disrupts biofilm formation, prevents algae from establishing on surfaces, distributes stagnant water near walls, and exposes hidden debris to the sanitizer and filtration system.',
  'APSP Service Technician Manual', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'chemical_dosing',
  'When adding dry acid (sodium bisulfate) to a pool, what is the correct procedure?',
  'Pour it directly into the skimmer while the pump is off', 'Broadcast it across the deep end with the pump running', 'Dissolve it in a bucket of pool water first, then pour along the edge with the pump running', 'Mix it with chlorine in a bucket first',
@@ -790,7 +790,7 @@ VALUES
  'Dry acid should be pre-dissolved in a bucket of pool water and poured around the perimeter with the pump running. Never add it directly to the skimmer (can damage equipment) or mix it with chlorine (produces toxic gas). Broadcasting dry granules can stain plaster.',
  'Chemical manufacturer directions; APSP guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'algae_prevention',
  'What free chlorine level should be maintained to prevent algae growth in a residential pool with a CYA level of 40 ppm?',
  '0.5 ppm', '1.0 ppm', '3.0 ppm (minimum 7.5% of CYA)', '10.0 ppm',
@@ -798,7 +798,7 @@ VALUES
  'The recommended minimum free chlorine is 7.5% of the CYA level. At 40 ppm CYA, that is 3.0 ppm FC. This ratio ensures sufficient active chlorine to prevent algae growth despite chlorine being partially bound by cyanuric acid.',
  'CDC MAHC Annex; Pool industry consensus', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'weekly_service',
  'What should a service technician check if the pool water level is consistently dropping more than 1/4 inch per day?',
  'Only the evaporation rate', 'Perform a bucket test to distinguish between evaporation and a structural or plumbing leak', 'Immediately recommend replastering', 'Reduce the pump run time',
@@ -806,7 +806,7 @@ VALUES
  'The bucket test isolates evaporation from leaks: fill a bucket to pool water level, mark both, and compare after 24 hours. If the pool drops more than the bucket, there is a leak. Normal evaporation is approximately 1/4 inch per day depending on climate and wind.',
  'APSP Leak Detection Guide', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'chemical_dosing',
  'A pool owner asks why their eyes burn even though the chlorine level is "normal." What is the most likely explanation?',
  'The chlorine level is too high', 'High combined chlorine (chloramines) or pH outside the 7.2–7.8 range', 'The water is too cold', 'The filter needs replacing',
@@ -814,7 +814,7 @@ VALUES
  'Eye irritation is most commonly caused by high chloramines (combined chlorine above 0.5 ppm) or improper pH. Chloramines form when free chlorine reacts with nitrogen compounds from sweat and urine. A pH outside 7.2–7.8 also causes irritation regardless of chlorine level.',
  'NSPF Pool Operator Manual', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'algae_prevention',
  'Phosphate remover products work by:',
  'Killing algae directly', 'Removing phosphates that serve as a nutrient source for algae growth', 'Raising the chlorine level', 'Lowering CYA levels',
@@ -822,7 +822,7 @@ VALUES
  'Phosphate removers (typically lanthanum-based compounds) bind to phosphates and precipitate them out of solution. Since phosphates are a primary nutrient for algae, reducing them below 200 ppb can help prevent algae blooms. However, proper chlorine levels remain the primary defense.',
  'Pool chemistry research literature', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=1 LIMIT 1),
  'RESIDENTIAL', 'chemical_dosing',
  'What is the purpose of shocking a residential pool?',
  'To lower the pH', 'To raise the free chlorine high enough to oxidize chloramines and organic contaminants (breakpoint chlorination)', 'To add stabilizer', 'To increase total alkalinity',
@@ -834,7 +834,7 @@ VALUES
 -- RESIDENTIAL Module 2: Equipment Installation (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'pump_selection',
  'When selecting a replacement pump for a residential pool, the most important factor is:',
  'Choosing the highest horsepower available', 'Matching the pump performance curve to the pool''s hydraulic system requirements', 'Selecting the most expensive model', 'Choosing a pump with the largest strainer basket',
@@ -842,7 +842,7 @@ VALUES
  'The pump must be matched to the pool''s specific hydraulic needs. An oversized pump wastes energy, creates excessive noise, and can damage equipment. The correct approach is to calculate the required flow rate and TDH, then select a pump whose curve meets those requirements at optimal efficiency.',
  'DOE Pool Pump Energy Standards; Hydraulic Institute', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'filter_installation',
  'What is the correct orientation for a pool filter in relation to the pump?',
  'The filter should be installed before the pump on the suction side', 'The filter is installed after the pump on the pressure side, before the heater and return lines', 'The filter can be placed anywhere in the system', 'The filter should be installed at the highest point of the system',
@@ -850,7 +850,7 @@ VALUES
  'The filter is always installed on the pressure (discharge) side of the pump, after the pump and before the heater, chemical feeders, and return lines. This ensures the pump pushes water through the filter under pressure for effective filtration.',
  'Equipment manufacturer installation guides', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'timer_setup',
  'For a residential pool in a warm climate, what is the minimum recommended pump run time per day?',
  '2–4 hours', '4–6 hours', '8–12 hours to achieve at least one full turnover', '24 hours continuously',
@@ -858,7 +858,7 @@ VALUES
  'The pump should run long enough to turn over the entire pool volume at least once (ideally 1.5–2 times) per day. For most residential pools, this requires 8–12 hours. Running less risks poor chemical distribution and filtration, leading to algae growth.',
  'APSP Standards; DOE Energy Guidelines', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'pump_selection',
  'The Department of Energy (DOE) pool pump regulation that took effect in 2021 requires:',
  'All pool pumps to be solar-powered', 'Replacement residential pool pumps with motors 1 HP and above to meet minimum energy efficiency standards (most must be variable-speed)', 'All pumps to be dual-speed', 'Pumps to run only at night',
@@ -866,7 +866,7 @@ VALUES
  'The DOE regulation (10 CFR 431) requires dedicated-purpose pool pumps with motors 1 HP and above to be variable-speed to meet the Weighted Energy Factor (WEF) requirement. This mandate significantly reduces energy consumption in residential pool applications.',
  'DOE 10 CFR 431, Subpart Y', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'filter_installation',
  'When installing a new cartridge filter, what must be verified before startup?',
  'The water temperature', 'That the cartridge element is properly seated, the filter tank is assembled correctly, and all o-rings are lubricated and in place', 'The chlorine level', 'The pool water level is at the tile line',
@@ -874,7 +874,7 @@ VALUES
  'Before starting a new filter, verify: cartridge is correctly seated on the manifold, tank halves are properly aligned and clamped, all o-rings are in place and lubricated with silicone-based lube, and the air relief valve is open. Failure to check these items can cause leaks or bypass.',
  'Filter manufacturer installation guides', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'timer_setup',
  'A homeowner wants to save money by running their variable-speed pump at the lowest speed 24/7 instead of higher speed for fewer hours. Is this a valid strategy?',
  'No, the pump must always run at full speed', 'Yes, running at low speed 24/7 uses significantly less energy due to the affinity laws while still providing adequate turnover and filtration', 'No, low speed cannot filter the water', 'It makes no difference in energy usage',
@@ -882,7 +882,7 @@ VALUES
  'Running a variable-speed pump at low speed 24/7 can use 60–80% less energy than a single-speed pump running 8 hours. Per the affinity laws, power varies with the cube of speed — half speed uses only 1/8 the power. Continuous low-speed operation also provides constant filtration and chemical distribution.',
  'DOE Pool Pump Standards; Affinity Laws', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'pump_selection',
  'What electrical requirement must be verified before installing a replacement pool pump?',
  'Only the voltage (115V vs 230V)', 'Voltage, amperage capacity of the circuit, wire gauge, breaker size, and bonding/grounding per NEC', 'The color of the wiring', 'Only the breaker size',
@@ -890,7 +890,7 @@ VALUES
  'A complete electrical verification includes: correct voltage (115V/230V), adequate circuit amperage for the pump''s full-load amps, proper wire gauge for the distance, correctly sized breaker, GFCI protection, and equipment bonding/grounding per NEC Article 680.',
  'NEC Article 680; Local electrical codes', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'filter_installation',
  'What is the correct sequence of equipment in a residential pool plumbing system from the pool and back?',
  'Pool → heater → pump → filter → pool', 'Pool → pump → filter → heater → chemical feeder → pool', 'Pool → chemical feeder → pump → heater → filter → pool', 'Pool → filter → pump → heater → pool',
@@ -898,7 +898,7 @@ VALUES
  'The standard sequence is: pool water exits through skimmer/drain → pump → filter → heater → chemical feeder (chlorinator/salt cell) → return jets → pool. This order protects the heater from debris and ensures chemicals are added after heating to minimize equipment corrosion.',
  'APSP Installation Standards; Equipment manufacturer guides', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'timer_setup',
  'When programming a pool pump timer, why is it recommended to run the pump during daylight hours?',
  'Electricity is cheaper during the day', 'Chlorine consumption from UV and bather load is highest during the day, so filtration and chemical distribution are most needed then', 'The pump is quieter during the day', 'It does not matter when the pump runs',
@@ -906,7 +906,7 @@ VALUES
  'Daytime operation is recommended because chlorine demand peaks during daylight hours (UV degradation, higher bather loads, increased algae activity). Running the pump ensures chemicals are distributed and debris is filtered when demand is highest. Off-peak electrical rates may shift timing preference.',
  'APSP Service Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=2 LIMIT 1),
  'RESIDENTIAL', 'pump_selection',
  'A pool has 100 feet of 2-inch pipe, a cartridge filter, and a gas heater. The total calculated TDH is 35 feet at the required 60 GPM flow. Which pump is correctly sized?',
  'A pump that produces 60 GPM at 35 feet of head on its performance curve', 'The largest HP pump available', 'A pump that produces 120 GPM at 20 feet of head', 'A pump that produces 40 GPM at 50 feet of head',
@@ -918,7 +918,7 @@ VALUES
 -- RESIDENTIAL Module 3: Troubleshooting Common Issues (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'green_water',
  'A residential pool turns green overnight after a heavy rainstorm. What is the primary cause?',
  'The heater malfunctioned', 'Rainwater diluted sanitizer levels and introduced phosphates/organics, allowing rapid algae growth', 'The filter is too large', 'The pool was drained too much',
@@ -926,7 +926,7 @@ VALUES
  'Heavy rain introduces phosphates, nitrogen, and organic debris while diluting chlorine and lowering pH and alkalinity. This combination creates ideal conditions for explosive algae growth. The reduced CYA-to-chlorine ratio further compromises sanitizer effectiveness.',
  'NSPF Pool Chemistry Manual', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'cloudy_water',
  'A pool has clear water chemistry readings (FC 3 ppm, pH 7.4, TA 90) but the water is cloudy. What should the technician check?',
  'The heater thermostat', 'The filter — it may need cleaning, backwashing, or replacement, as poor filtration is the most common cause of cloudy water with good chemistry', 'The salt cell', 'The pool light',
@@ -934,7 +934,7 @@ VALUES
  'When chemistry is balanced but water is cloudy, the filter is the primary suspect. Channeled sand, torn cartridge elements, damaged DE grids, or simply a dirty filter unable to remove fine particles will cause persistent cloudiness. The filter pressure differential confirms this.',
  'APSP Troubleshooting Guide', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'staining',
  'A reddish-brown stain appears on the pool plaster near a return jet. What is the most likely cause?',
  'Algae', 'Iron (ferrous) in the fill water that has oxidized on the surface', 'Too much CYA', 'Calcium scaling',
@@ -942,7 +942,7 @@ VALUES
  'Reddish-brown stains are characteristic of iron. When ferrous iron (Fe²⁺) in the water is oxidized by chlorine, it forms ferric iron (Fe³⁺) that precipitates as rust-colored stains. The stain near the return jet indicates iron-laden fill water entering the pool.',
  'Pool Stain Identification Guide; NSPF', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'scaling',
  'White, rough, chalky deposits on the tile line and waterfall are caused by:',
  'Excess chlorine', 'Calcium carbonate scale from high pH, high calcium hardness, or high alkalinity', 'Low CYA levels', 'Excessive backwashing',
@@ -950,7 +950,7 @@ VALUES
  'Calcium carbonate scaling occurs when the water is over-saturated with calcium, typically from high pH (above 7.8), high calcium hardness (above 400 ppm), high alkalinity, or elevated temperature. The Langelier Saturation Index (LSI) predicts scaling tendency.',
  'ANSI/APSP-11; Pool chemistry literature', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'green_water',
  'After shocking a green pool to 30 ppm FC, the water turns milky blue-white. Is this normal?',
  'No, the pool has a serious chemical imbalance', 'Yes, this is normal — dead algae cells and oxidized organics create temporary cloudiness that the filter will remove over 24–48 hours', 'No, the chlorine level is dangerously high', 'Yes, but the pool should be drained immediately',
@@ -958,7 +958,7 @@ VALUES
  'After successful shocking, dead algae cells and oxidized organic matter create a milky, blue-white cloudiness. This is a sign the treatment worked. Running the filter continuously for 24–48 hours will clear the water. The filter should be cleaned frequently during this period.',
  'NSPF Algae Treatment Protocol', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'cloudy_water',
  'Which water chemistry condition most commonly causes persistent cloudiness even with a clean filter?',
  'Low CYA', 'High total dissolved solids (TDS) or high calcium hardness causing microscopic suspended particles', 'Low pH', 'High free chlorine',
@@ -966,7 +966,7 @@ VALUES
  'High TDS (above 2,000–3,000 ppm) or high calcium hardness (above 400 ppm) can cause microscopic precipitation that even a clean filter struggles to remove. These tiny particles scatter light, creating a hazy or cloudy appearance. Partial drain and refill is often the most practical solution.',
  'ANSI/APSP-11; Pool chemistry literature', 'hard'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'staining',
  'To identify whether a pool stain is organic or metallic, what quick test can be performed?',
  'Add muriatic acid to the stain area', 'Place a vitamin C (ascorbic acid) tablet on the stain — if it lightens, it is metallic; if chlorine removes it, it is organic', 'Test the water pH', 'Backwash the filter',
@@ -974,7 +974,7 @@ VALUES
  'Vitamin C (ascorbic acid) is a reducing agent that dissolves metallic stains (iron, copper, manganese) on contact. If the stain lightens under the tablet, it is metallic. Organic stains (leaves, algae, berries) respond to chlorine or enzyme treatments instead.',
  'Pool stain diagnosis best practices', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'scaling',
  'A homeowner''s salt cell keeps scaling despite monthly cleaning. What systemic issue should the technician address?',
  'The salt level is too low', 'The pool water''s pH or calcium hardness is chronically too high, causing accelerated calcium deposition on the cell plates', 'The pump is too powerful', 'The pool needs more CYA',
@@ -982,7 +982,7 @@ VALUES
  'Frequent salt cell scaling indicates a water balance problem. High pH (above 7.8) or high calcium hardness (above 400 ppm) accelerates calcium deposition. The technician should correct the water balance to reduce scaling frequency and extend cell life.',
  'Salt cell manufacturer guidelines; ANSI/APSP-11', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'green_water',
  'A pool has been shocked but remains green after 24 hours with the filter running. The FC level has dropped to 0. What does this indicate?',
  'The pool needs more stabilizer', 'The chlorine demand was not fully met — the initial shock dose was insufficient and the pool needs to be shocked again to a higher level', 'The filter is oversized', 'The heater should be turned off',
@@ -990,7 +990,7 @@ VALUES
  'If FC drops to zero within 24 hours, the organic and algae demand consumed all the chlorine before completing oxidation. The pool must be shocked again to a higher FC level (often 30+ ppm) and maintained above 10 ppm until the FC holds overnight, indicating demand has been satisfied.',
  'Trouble Free Pool SLAM Method; NSPF Guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=3 LIMIT 1),
  'RESIDENTIAL', 'staining',
  'Teal or blue-green stains on pool plaster or around metal fittings most likely indicate:',
  'Iron staining', 'Copper from corroded heat exchangers, low-quality algaecides, or acidic water dissolving copper fittings', 'Organic staining from leaves', 'Calcium scale',
@@ -1002,7 +1002,7 @@ VALUES
 -- RESIDENTIAL Module 4: Customer Communication (10 questions)
 -- ============================================================
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'service_reports',
  'A professional service report should include which of the following at minimum?',
  'Only the chemicals added', 'Date, chemical readings (before and after), chemicals added with quantities, equipment observations, and recommendations', 'Just the technician''s name and date', 'Only the amount billed',
@@ -1010,7 +1010,7 @@ VALUES
  'A comprehensive service report documents the date, all chemical readings (before and after adjustments), specific chemicals and quantities added, equipment status observations, any issues found, and recommendations. This protects both the technician and the customer and provides a maintenance history.',
  'APSP Service Professional Standards', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'water_test_results',
  'When explaining water test results to a homeowner, the best approach is:',
  'Use technical jargon to demonstrate expertise', 'Explain results in plain language, compare to ideal ranges, and describe what each parameter means for their pool and swimmers', 'Just hand them the test strip and leave', 'Only discuss results if there is a problem',
@@ -1018,7 +1018,7 @@ VALUES
  'Effective communication involves translating technical data into plain language. Explain what each reading means for their pool''s health and swimmer comfort, compare to ideal ranges, and describe any corrective actions. This builds trust and helps customers understand maintenance value.',
  'Customer service best practices; APSP guidelines', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'recommendations',
  'A customer''s pool equipment is 12 years old and showing signs of corrosion and reduced efficiency. How should the technician communicate replacement recommendations?',
  'Tell them their equipment is junk and needs replacing immediately', 'Document the specific issues, explain how aging equipment affects efficiency and reliability, provide options with estimated costs, and let the customer decide on timing', 'Don''t mention it unless the equipment completely fails', 'Only recommend the most expensive replacement option',
@@ -1026,7 +1026,7 @@ VALUES
  'Professional communication involves documenting observable issues, explaining the implications (energy costs, reliability risks), providing tiered options (repair vs. replace, good/better/best), and letting the customer make an informed decision. This builds trust and demonstrates professional integrity.',
  'Service industry best practices', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'service_reports',
  'Why should a service technician photograph equipment conditions during visits?',
  'For social media posts', 'Photos provide documented evidence of equipment condition, before/after proof of work, and support for repair or replacement recommendations', 'It is not necessary', 'Only to show the homeowner what the pool looks like',
@@ -1034,7 +1034,7 @@ VALUES
  'Photographs create a visual record that supports service recommendations, documents pre-existing conditions, provides before/after evidence of work performed, and can be attached to service reports. This protects against liability and helps customers understand repair needs.',
  'Service industry best practices; Liability management', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'water_test_results',
  'A homeowner''s water test shows a CYA level of 120 ppm. How should the technician explain this to the customer?',
  'Don''t mention it, CYA is not important', 'Explain that CYA above 70–80 ppm reduces chlorine effectiveness, that it cannot be chemically removed, and that a partial drain and refill is the only solution, with an estimated cost and timeline', 'Tell them to add more chlorine to compensate', 'Say the reading is normal',
@@ -1042,7 +1042,7 @@ VALUES
  'High CYA is a common issue the customer needs to understand. The technician should explain CYA''s purpose, why it''s too high (accumulation from stabilized chlorine), the impact on sanitation, and the only remedy (dilution through drain/refill). Providing cost estimates helps the customer plan.',
  'CDC MAHC CYA Guidelines; APSP Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'recommendations',
  'A customer asks if they really need to upgrade from a single-speed to a variable-speed pump. The best response is:',
  'Yes, because it''s the law', 'Explain the energy savings with specific estimates for their pool size, note that DOE regulations require VS for new installations over 1 HP, and provide an estimated payback period', 'No, single-speed pumps work fine', 'Only if they want to spend more money',
@@ -1050,7 +1050,7 @@ VALUES
  'An effective recommendation includes specific energy savings estimates (often 60–80%), regulatory context (DOE mandate for new/replacement pumps 1 HP+), quality-of-life improvements (quieter operation), and an estimated payback period (typically 1–3 years). This helps the customer make an informed value-based decision.',
  'DOE 10 CFR 431; Energy Star Pool Pump Guidelines', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'service_reports',
  'A service technician notices a suction outlet cover that appears warped and possibly non-compliant with VGB Act requirements. What is the correct course of action?',
  'Ignore it — that''s the homeowner''s problem', 'Document the concern in the service report, verbally inform the homeowner of the safety risk, and recommend immediate replacement with a VGB-compliant cover', 'Replace it without telling the homeowner and charge for it', 'Only mention it at the next visit',
@@ -1058,7 +1058,7 @@ VALUES
  'Non-compliant drain covers pose an entrapment risk. The technician has a professional duty to document the hazard, inform the homeowner of the safety risk, and recommend immediate replacement. Providing this documentation protects the technician from liability and may save lives.',
  'P.L. 110-140 (VGB Act); APSP Professional Standards', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'water_test_results',
  'After a service visit, the homeowner calls saying their test kit shows different results than what the technician recorded. What is the best response?',
  'Tell them their test kit is wrong', 'Acknowledge their concern, ask about their testing method and kit condition, explain that expired reagents or improper testing techniques can cause discrepancies, and offer to retest on the next visit', 'Ignore the call', 'Change the original report to match their results',
@@ -1066,7 +1066,7 @@ VALUES
  'The professional response validates the customer''s concern while explaining common causes of discrepancies (expired reagents, improper sample collection, different test methods). Offering to demonstrate proper technique builds confidence and trust. Never alter original documentation.',
  'Customer service best practices', 'easy'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'recommendations',
  'When recommending a salt chlorine system to a homeowner, what potential downsides should be transparently communicated?',
  'There are no downsides to salt systems', 'Salt can affect certain surfaces (natural stone, some metals), the cell requires periodic cleaning and eventual replacement ($400–800), and water chemistry still needs regular monitoring', 'Salt systems don''t work', 'Only that salt is expensive',
@@ -1074,7 +1074,7 @@ VALUES
  'Transparent communication includes benefits (convenience, consistent chlorine, softer water feel) AND limitations: salt splash can damage certain coping/decking materials, cells last 3–7 years ($400–800 replacement), pH tends to drift high requiring acid additions, and water chemistry still needs weekly monitoring.',
  'Salt system manufacturer guidelines; APSP Standards', 'medium'),
 
-((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4),
+((SELECT id FROM m WHERE cert_level='RESIDENTIAL' AND module_number=4 LIMIT 1),
  'RESIDENTIAL', 'recommendations',
  'A homeowner wants to close their pool for winter but asks the technician to skip the winterization chemicals to save money. How should the technician respond?',
  'Agree — it will save the customer money', 'Explain that skipping winterization chemicals risks algae growth, staining, and scale formation that will cost significantly more to treat in spring, then provide the cost comparison', 'Winterize anyway and don''t tell them', 'Refuse to do the closing without chemicals',
