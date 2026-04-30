@@ -129,20 +129,16 @@ export default function Home() {
           <p className="text-[var(--color-muted-fg)] text-lg mb-8">
             Watch a real diagnosis — from photo to fix — in under 90 seconds.
           </p>
-          {/* Video placeholder — replace with actual embed */}
-          <div
-            className="mx-auto rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] flex items-center justify-center"
-            style={{ maxWidth: 720, aspectRatio: '16/9' }}
+          <video
+            className="mx-auto rounded-2xl border border-[var(--color-border)]"
+            style={{ maxWidth: 720, width: '100%' }}
+            controls
+            playsInline
+            preload="metadata"
           >
-            <div className="text-center p-8">
-              <div className="w-20 h-20 rounded-full bg-[var(--color-primary)] bg-opacity-20 flex items-center justify-center mx-auto mb-4">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--color-primary)">
-                  <polygon points="5 3 19 12 5 21 5 3" />
-                </svg>
-              </div>
-              <p className="text-[var(--color-muted)] text-sm">Demo video coming soon</p>
-            </div>
-          </div>
+            <source src="/ExampleSplice.mov" type="video/quicktime" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </section>
 

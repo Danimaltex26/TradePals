@@ -30,6 +30,7 @@ import WeldPalExam from './pages/weldpal/TrainingExam'
 import WeldPalExamRun from './pages/weldpal/TrainingExamRun'
 import WeldPalReadiness from './pages/weldpal/TrainingReadiness'
 import WeldPalSR from './pages/weldpal/TrainingSR'
+import WeldPalCertPrep from './pages/weldpal/CertPrep'
 import PoolPalProduct from './pages/poolpal/Product'
 import PoolPalPrivacy from './pages/poolpal/Privacy'
 import PoolPalTerms from './pages/poolpal/Terms'
@@ -134,6 +135,7 @@ export default function App() {
         <Route path="weldpal/training/:certLevel/exam/run" element={<WeldPalExamRun />} />
         <Route path="weldpal/training/:certLevel" element={<WeldPalModules />} />
         <Route path="weldpal/training/:certLevel/:moduleId" element={<WeldPalModule />} />
+        <Route path="weldpal/certprep" element={<WeldPalCertPrep />} />
 
         <Route path="poolpal" element={<PoolPalProduct />} />
         <Route path="poolpal/privacy" element={<PoolPalPrivacy />} />
