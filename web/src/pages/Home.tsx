@@ -136,6 +136,7 @@ export default function Home() {
             playsInline
             preload="metadata"
           >
+            <source src="/ExampleSplice.mp4" type="video/mp4" />
             <source src="/ExampleSplice.mov" type="video/quicktime" />
             Your browser does not support the video tag.
           </video>
