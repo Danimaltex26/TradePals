@@ -131,7 +131,7 @@ export default function Home() {
           </p>
           <video
             className="mx-auto rounded-2xl border border-[var(--color-border)]"
-            style={{ maxWidth: 720, width: '100%' }}
+            style={{ maxWidth: 400, maxHeight: 500, width: '100%' }}
             controls
             playsInline
             preload="metadata"
