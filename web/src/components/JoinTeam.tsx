@@ -140,11 +140,12 @@ function JoinTeamView({ app, accent }: { app: AppKey; accent: string }) {
       .update({ team_id: teamId })
       .eq('id', appAuth.user.id)
 
-    // Increment seats_used
-    await client.rpc('increment_seats_used', { team_id_input: teamId }).catch(() => {
-      // If RPC doesn't exist, do manual update (best effort)
-      client.from('teams').update({ seats_used: undefined }).eq('id', teamId)
-    })
+    // Increment seats_used (best effort)
+    try {
+      await (client.rpc as any)('increment_seats_used', { team_id_input: teamId })
+    } catch {
+      // RPC may not exist — seats_used tracked server-side
+    }
 
     setSuccess(true)
     setTimeout(() => navigate(`/${app}/team`), 2000)
