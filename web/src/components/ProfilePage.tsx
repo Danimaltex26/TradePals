@@ -159,6 +159,13 @@ function ProfileView({ app, accent }: { app: AppKey; accent: string }) {
   const [usage, setUsage] = useState<Record<string, number>>({})
   const [team, setTeam] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [selectedPlan, setSelectedPlan] = useState<'annual' | 'monthly'>('annual')
+
+  // Pricing (static until RC is wired up)
+  const monthlyPrice = '12.95'
+  const annualPrice = '89.95'
+  const monthlyEquiv = (parseFloat(annualPrice) / 12).toFixed(2)
+  const savingsPercent = Math.round((1 - parseFloat(annualPrice) / (parseFloat(monthlyPrice) * 12)) * 100)
 
   useEffect(() => {
     if (!appAuth.user) return
@@ -166,55 +173,65 @@ function ProfileView({ app, accent }: { app: AppKey; accent: string }) {
   }, [appAuth.user])
 
   async function loadProfile() {
-    const userId = appAuth.user!.id
+    try {
+      const userId = appAuth.user!.id
 
-    // Profile
-    const { data: profileData } = await client
-      .from('profiles')
-      .select('display_name, email, role, team_id')
-      .eq('id', userId)
-      .single()
-    setProfile(profileData)
-
-    // Preferences
-    const { data: prefsData } = await (client as any)
-      .schema(schema)
-      .from('user_preferences')
-      .select('*')
-      .eq('user_id', userId)
-      .single()
-    setPrefs(prefsData)
-
-    // Usage counts (this month) for free tier
-    if (!ent.active) {
-      const startOfMonth = new Date()
-      startOfMonth.setDate(1)
-      startOfMonth.setHours(0, 0, 0, 0)
-
-      const counts: Record<string, number> = {}
-      for (const u of profileCfg.usageLimits) {
-        const { count } = await (client as any)
-          .schema(schema)
-          .from(u.table)
-          .select('*', { count: 'exact', head: true })
-          .eq('user_id', userId)
-          .gte('created_at', startOfMonth.toISOString())
-        counts[u.table] = count || 0
-      }
-      setUsage(counts)
-    }
-
-    // Team
-    if (profileData?.team_id) {
-      const { data: teamData } = await client
-        .from('teams')
-        .select('team_name, manager_id, subscription_status')
-        .eq('id', profileData.team_id)
+      // Profile
+      const { data: profileData } = await client
+        .from('profiles')
+        .select('display_name, email, role, team_id')
+        .eq('id', userId)
         .single()
-      setTeam(teamData)
-    }
+      setProfile(profileData)
 
-    setLoading(false)
+      // Preferences (may fail if schema not exposed — graceful)
+      try {
+        const { data: prefsData } = await (client as any)
+          .schema(schema)
+          .from('user_preferences')
+          .select('*')
+          .eq('user_id', userId)
+          .single()
+        setPrefs(prefsData)
+      } catch { /* schema may not be exposed */ }
+
+      // Usage counts (this month) for free tier
+      if (!ent.active) {
+        const startOfMonth = new Date()
+        startOfMonth.setDate(1)
+        startOfMonth.setHours(0, 0, 0, 0)
+
+        const counts: Record<string, number> = {}
+        for (const u of profileCfg.usageLimits) {
+          try {
+            const { count } = await (client as any)
+              .schema(schema)
+              .from(u.table)
+              .select('*', { count: 'exact', head: true })
+              .eq('user_id', userId)
+              .gte('created_at', startOfMonth.toISOString())
+            counts[u.table] = count || 0
+          } catch { /* table may not exist */ }
+        }
+        setUsage(counts)
+      }
+
+      // Team
+      if (profileData?.team_id) {
+        try {
+          const { data: teamData } = await client
+            .from('teams')
+            .select('team_name, manager_id, subscription_status')
+            .eq('id', profileData.team_id)
+            .single()
+          setTeam(teamData)
+        } catch { /* team query failed */ }
+      }
+    } catch {
+      // Profile load failed entirely — still show the page
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (loading) return <p className="text-center py-16" style={{ color: 'var(--color-muted-fg)' }}>Loading profile&hellip;</p>
@@ -264,24 +281,65 @@ function ProfileView({ app, accent }: { app: AppKey; accent: string }) {
         {/* ── Upgrade to Pro (free tier only) ── */}
         {!isPro && (
           <div className="rounded-xl border p-5" style={{ borderColor: accent, backgroundColor: `${accent}08` }}>
-            <h3 className="font-bold mb-2">Upgrade to Pro</h3>
-            <p className="text-sm mb-3" style={{ color: 'var(--color-muted-fg)' }}>
+            <h3 className="font-bold text-center mb-1">Upgrade to Pro</h3>
+            <p className="text-sm text-center mb-4" style={{ color: 'var(--color-muted-fg)' }}>
               Unlimited analyses, troubleshooting, training exams, and spaced repetition.
             </p>
-            <ul className="text-sm mb-4 space-y-1" style={{ color: 'var(--color-muted-fg)' }}>
-              <li>&#10003; Unlimited AI analyses</li>
-              <li>&#10003; Unlimited troubleshoot sessions</li>
-              <li>&#10003; Full exam access with score tracking</li>
-              <li>&#10003; Spaced repetition review</li>
-              <li>&#10003; Priority support</li>
-            </ul>
-            <Link
-              to={`/${app}`}
-              className="block w-full h-11 rounded-lg font-semibold text-white text-center leading-[44px]"
+
+            <div className="flex gap-3 mb-4">
+              {/* Annual */}
+              <button
+                onClick={() => setSelectedPlan('annual')}
+                className="flex-1 rounded-xl p-4 text-center relative"
+                style={{
+                  border: selectedPlan === 'annual' ? `2px solid ${accent}` : '2px solid var(--color-border)',
+                  backgroundColor: selectedPlan === 'annual' ? `${accent}0a` : 'transparent',
+                  cursor: 'pointer',
+                }}
+              >
+                <span className="absolute -top-2.5 right-2 px-2 py-0.5 rounded-md text-[11px] font-bold"
+                  style={{ backgroundColor: accent, color: '#0D0D0F' }}>
+                  Save {savingsPercent}%
+                </span>
+                <p className="font-bold text-base">Annual</p>
+                <p className="text-xl font-bold my-1" style={{ color: accent }}>
+                  ${annualPrice}<span className="text-xs font-normal" style={{ color: 'var(--color-muted)' }}>/yr</span>
+                </p>
+                <p className="text-xs" style={{ color: 'var(--color-muted)' }}>${monthlyEquiv}/mo</p>
+              </button>
+
+              {/* Monthly */}
+              <button
+                onClick={() => setSelectedPlan('monthly')}
+                className="flex-1 rounded-xl p-4 text-center"
+                style={{
+                  border: selectedPlan === 'monthly' ? `2px solid ${accent}` : '2px solid var(--color-border)',
+                  backgroundColor: selectedPlan === 'monthly' ? `${accent}0a` : 'transparent',
+                  cursor: 'pointer',
+                }}
+              >
+                <p className="font-bold text-base">Monthly</p>
+                <p className="text-xl font-bold my-1">
+                  ${monthlyPrice}<span className="text-xs font-normal" style={{ color: 'var(--color-muted)' }}>/mo</span>
+                </p>
+                <p className="text-xs" style={{ color: 'var(--color-muted)' }}>Cancel anytime</p>
+              </button>
+            </div>
+
+            <button
+              className="w-full h-12 rounded-lg font-semibold text-white text-base"
               style={{ backgroundColor: accent }}
+              onClick={() => {
+                // RC purchase will be wired here
+                if (cfg.appUrl) window.open(cfg.appUrl, '_blank')
+              }}
             >
-              View Plans
-            </Link>
+              Subscribe &mdash; ${selectedPlan === 'annual' ? `${annualPrice}/yr` : `${monthlyPrice}/mo`}
+            </button>
+
+            <p className="text-center text-[11px] mt-3" style={{ color: 'var(--color-muted)' }}>
+              Secure checkout powered by Stripe. Cancel anytime from your profile.
+            </p>
           </div>
         )}
 

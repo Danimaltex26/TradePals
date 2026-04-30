@@ -43,7 +43,8 @@ export function useEntitlement(app: AppKey): EntitlementState {
       .then(({ data, error }) => {
         if (cancelled) return
         if (error) {
-          setState({ loading: false, active: false, tier: null, expiresAt: null, error: error.message })
+          // Table may not exist in this Supabase project — treat as free
+          setState({ loading: false, active: false, tier: 'free', expiresAt: null, error: null })
           return
         }
         const tier = (data?.tier ?? 'free') as string
@@ -57,6 +58,11 @@ export function useEntitlement(app: AppKey): EntitlementState {
           expiresAt,
           error: null,
         })
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setState({ loading: false, active: false, tier: 'free', expiresAt: null, error: null })
+        }
       })
 
     return () => {
