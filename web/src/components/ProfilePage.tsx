@@ -8,14 +8,6 @@ import TrainingGate from './TrainingGate'
 
 /* ── Per-app profile configuration ── */
 
-type ProfileFieldConfig = {
-  /** Column name in {schema}.user_preferences */
-  column: string
-  label: string
-  type: 'tags' | 'select'
-  options: string[]
-}
-
 type UsageLimitConfig = {
   label: string
   table: string
