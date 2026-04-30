@@ -10,6 +10,12 @@ type CertOption = { key: string; label: string }
 type CategoryOption = { key: string; label: string }
 
 const APP_CERTS: Partial<Record<AppKey, CertOption[]>> = {
+  splicepal: [
+    { key: 'FOT', label: 'FOT' },
+    { key: 'CFOT', label: 'CFOT' },
+    { key: 'CFOS_S', label: 'CFOS/S' },
+    { key: 'CFOS_T', label: 'CFOS/T' },
+  ],
   weldpal: [
     { key: 'CW', label: 'CW' },
     { key: 'CAWI', label: 'CAWI' },
@@ -17,9 +23,50 @@ const APP_CERTS: Partial<Record<AppKey, CertOption[]>> = {
     { key: 'CWS', label: 'CWS' },
     { key: 'CRAW', label: 'CRAW' },
   ],
+  poolpal: [
+    { key: 'CPO', label: 'CPO' },
+    { key: 'CST', label: 'CST' },
+    { key: 'RESIDENTIAL', label: 'Residential' },
+    { key: 'COMMERCIAL', label: 'Commercial' },
+  ],
+  voltpal: [
+    { key: 'APPRENTICE', label: 'Apprentice' },
+    { key: 'JOURNEYMAN', label: 'Journeyman' },
+    { key: 'MASTER', label: 'Master' },
+    { key: 'NFPA_70E', label: 'NFPA 70E' },
+  ],
+  pipepal: [
+    { key: 'APPRENTICE', label: 'Apprentice' },
+    { key: 'JOURNEYMAN', label: 'Journeyman' },
+    { key: 'MASTER', label: 'Master' },
+    { key: 'MEDICAL_GAS', label: 'Medical Gas' },
+  ],
+  windpal: [
+    { key: 'GWO_BST', label: 'GWO BST' },
+    { key: 'GWO_BTT', label: 'GWO BTT' },
+    { key: 'ACP_TECH', label: 'ACP Tech' },
+    { key: 'SENIOR_TECH', label: 'Senior Tech' },
+  ],
+  liftpal: [
+    { key: 'CET', label: 'CET' },
+    { key: 'QEI', label: 'QEI' },
+    { key: 'CAT', label: 'CAT' },
+    { key: 'SENIOR_TECH', label: 'Senior Tech' },
+  ],
 }
 
 const APP_CATEGORIES: Partial<Record<AppKey, CategoryOption[]>> = {
+  splicepal: [
+    { key: '', label: 'All' },
+    { key: 'fiber_fundamentals', label: 'Fiber Fundamentals' },
+    { key: 'splicing', label: 'Splicing' },
+    { key: 'otdr', label: 'OTDR' },
+    { key: 'testing', label: 'Testing' },
+    { key: 'osp', label: 'OSP' },
+    { key: 'isp', label: 'ISP' },
+    { key: 'standards', label: 'Standards' },
+    { key: 'safety', label: 'Safety' },
+  ],
   weldpal: [
     { key: '', label: 'All' },
     { key: 'visual_inspection', label: 'Visual Inspection' },
@@ -29,6 +76,55 @@ const APP_CATEGORIES: Partial<Record<AppKey, CategoryOption[]>> = {
     { key: 'processes', label: 'Processes' },
     { key: 'safety', label: 'Safety' },
     { key: 'ndt', label: 'NDT' },
+  ],
+  poolpal: [
+    { key: '', label: 'All' },
+    { key: 'water_chemistry', label: 'Water Chemistry' },
+    { key: 'filtration', label: 'Filtration' },
+    { key: 'pumps_motors', label: 'Pumps & Motors' },
+    { key: 'heating', label: 'Heating' },
+    { key: 'safety', label: 'Safety' },
+    { key: 'codes_standards', label: 'Codes & Standards' },
+    { key: 'maintenance', label: 'Maintenance' },
+  ],
+  voltpal: [
+    { key: '', label: 'All' },
+    { key: 'nec_code', label: 'NEC Code' },
+    { key: 'circuits', label: 'Circuits' },
+    { key: 'motors_drives', label: 'Motors & Drives' },
+    { key: 'grounding', label: 'Grounding' },
+    { key: 'safety', label: 'Safety' },
+    { key: 'transformers', label: 'Transformers' },
+    { key: 'controls', label: 'Controls' },
+  ],
+  pipepal: [
+    { key: '', label: 'All' },
+    { key: 'code_compliance', label: 'Code Compliance' },
+    { key: 'drainage', label: 'Drainage' },
+    { key: 'water_supply', label: 'Water Supply' },
+    { key: 'gas_piping', label: 'Gas Piping' },
+    { key: 'fixtures', label: 'Fixtures' },
+    { key: 'safety', label: 'Safety' },
+    { key: 'medical_gas', label: 'Medical Gas' },
+  ],
+  windpal: [
+    { key: '', label: 'All' },
+    { key: 'safety', label: 'Safety' },
+    { key: 'electrical', label: 'Electrical' },
+    { key: 'mechanical', label: 'Mechanical' },
+    { key: 'hydraulics', label: 'Hydraulics' },
+    { key: 'composites', label: 'Composites' },
+    { key: 'regulations', label: 'Regulations' },
+  ],
+  liftpal: [
+    { key: '', label: 'All' },
+    { key: 'codes_standards', label: 'Codes & Standards' },
+    { key: 'electrical', label: 'Electrical' },
+    { key: 'mechanical', label: 'Mechanical' },
+    { key: 'hydraulic', label: 'Hydraulic' },
+    { key: 'safety', label: 'Safety' },
+    { key: 'inspection', label: 'Inspection' },
+    { key: 'accessibility', label: 'Accessibility' },
   ],
 }
 
