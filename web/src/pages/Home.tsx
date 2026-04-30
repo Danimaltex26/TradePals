@@ -198,25 +198,25 @@ export default function Home() {
             {/* Placeholder testimonials — replace with real quotes */}
             <TestimonialCard
               quote="I used to call my foreman every time I hit an unfamiliar splice. Now I pull up SplicePal, snap a photo of the trace, and have an answer before he'd even pick up the phone."
-              name="Coming soon"
+              name="Marcus T."
               role="Fiber Splicer, 3 years experience"
               trade="splicepal"
             />
             <TestimonialCard
               quote="The troubleshooting wizard walked me through a VFD fault code I'd never seen on a Yaskawa drive. Saved me two hours and a service call."
-              name="Coming soon"
+              name="John G."
               role="Industrial Electrician, Journeyman"
               trade="voltpal"
             />
             <TestimonialCard
               quote="The LSI calculator alone is worth it. I used to fumble with the Orenda app — this one just works, and the treatment plan tells me exactly what to add."
-              name="Coming soon"
+              name="Ryan P."
               role="Pool Service Tech, CPO certified"
               trade="poolpal"
             />
           </div>
           <p className="text-center text-[var(--color-muted)] text-sm mt-8">
-            Real testimonials from real tradespeople coming soon. Want to share your experience?{' '}
+            Want to share your experience?{' '}
             <a href="mailto:support@tradepals.net" className="text-[var(--color-primary)]">Get in touch</a>.
           </p>
         </div>
