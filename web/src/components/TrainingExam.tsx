@@ -38,6 +38,10 @@ const EXAM_CONFIG: Record<string, { name: string; questions: number; minutes: nu
   GWO_BTT:     { name: 'GWO BTT',     questions: 60,  minutes: 90,  pass: 70 },
   ACP_TECH:    { name: 'ACP Tech',    questions: 80,  minutes: 120, pass: 72 },
   SENIOR_TECH: { name: 'Senior Tech', questions: 100, minutes: 150, pass: 75 },
+  // LiftPal
+  CET:         { name: 'CET',         questions: 50,  minutes: 75,  pass: 70 },
+  QEI:         { name: 'QEI',         questions: 80,  minutes: 120, pass: 72 },
+  CAT:         { name: 'CAT',         questions: 50,  minutes: 75,  pass: 70 },
 }
 
 type Question = {
