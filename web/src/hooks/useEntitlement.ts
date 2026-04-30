@@ -59,14 +59,14 @@ export function useEntitlement(app: AppKey): EntitlementState {
           error: null,
         })
       })
-      .catch(() => {
-        if (!cancelled) {
-          setState({ loading: false, active: false, tier: 'free', expiresAt: null, error: null })
-        }
-      })
+    // Safety net — if the promise chain somehow rejects, ensure loading ends
+    const timer = setTimeout(() => {
+      if (!cancelled) setState(s => s.loading ? { loading: false, active: false, tier: 'free', expiresAt: null, error: null } : s)
+    }, 5000)
 
     return () => {
       cancelled = true
+      clearTimeout(timer)
     }
   }, [app, appAuth.user, appAuth.loading])
 
