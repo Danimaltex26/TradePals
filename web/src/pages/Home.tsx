@@ -268,39 +268,28 @@ export default function Home() {
 
       {/* ── For Employers ─────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
-              Equip your <span className="text-[var(--color-primary)]">entire crew</span>.
-            </h2>
-            <p className="text-[var(--color-muted-fg)] text-lg mb-4">
-              Contractors and service companies use Pal apps to reduce callbacks, speed up onboarding, and give junior techs the confidence to handle more jobs independently.
-            </p>
-            <p className="text-[var(--color-muted-fg)] text-lg mb-4">
-              When your newest apprentice has a master-level reference tool in their pocket, your whole operation runs smoother. Fewer phone calls to the foreman, fewer repeat visits, faster time to billable independence.
-            </p>
-            <ul className="space-y-2 text-[var(--color-muted-fg)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Reduce callbacks</strong> — junior techs diagnose correctly the first time</li>
-              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Faster onboarding</strong> — new hires contribute sooner</li>
-              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Consistent quality</strong> — every tech has the same reference library</li>
-              <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Certification tracking</strong> — monitor your team's cert progress</li>
-            </ul>
-            <a
-              href="mailto:teams@tradepals.net"
-              className="inline-block px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
-            >
-              Contact Us for Team Pricing
-            </a>
-          </div>
-          <div className="mt-10 md:mt-0">
-            {/* Employer illustration placeholder */}
-            <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-card)] p-8 text-center" style={{ minHeight: 300, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div>
-                <p className="text-5xl mb-4">👷‍♂️👷‍♀️👷</p>
-                <p className="text-[var(--color-muted)] text-sm">Team dashboard illustration coming soon</p>
-              </div>
-            </div>
-          </div>
+        <div className="max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+            Equip your <span className="text-[var(--color-primary)]">entire crew</span>.
+          </h2>
+          <p className="text-[var(--color-muted-fg)] text-lg mb-4">
+            Contractors and service companies use Pal apps to reduce callbacks, speed up onboarding, and give junior techs the confidence to handle more jobs independently.
+          </p>
+          <p className="text-[var(--color-muted-fg)] text-lg mb-4">
+            When your newest apprentice has a master-level reference tool in their pocket, your whole operation runs smoother. Fewer phone calls to the foreman, fewer repeat visits, faster time to billable independence.
+          </p>
+          <ul className="space-y-2 text-[var(--color-muted-fg)] mb-6">
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Reduce callbacks</strong> — junior techs diagnose correctly the first time</li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Faster onboarding</strong> — new hires contribute sooner</li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Consistent quality</strong> — every tech has the same reference library</li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)]">&#10003;</span> <strong className="text-white">Certification tracking</strong> — monitor your team's cert progress</li>
+          </ul>
+          <a
+            href="mailto:teams@tradepals.net"
+            className="inline-block px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
+          >
+            Contact Us for Team Pricing
+          </a>
         </div>
       </section>
 
