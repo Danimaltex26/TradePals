@@ -30,6 +30,26 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Quick App Grid (compact) ────────────────────────────── */}
+      <section className="mx-auto max-w-5xl px-4 pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <QuickAppCard appKey="splicepal" bullet="OTDR & splice analysis" />
+          <QuickAppCard appKey="weldpal" bullet="Weld defect diagnosis" />
+          <QuickAppCard appKey="poolpal" bullet="Water chemistry & equipment" />
+          <QuickAppCard appKey="voltpal" bullet="Panel & motor diagnosis" />
+          <QuickAppCard appKey="pipepal" bullet="Leak & code diagnosis" />
+          <QuickAppCard appKey="windpal" bullet="Blade & turbine inspection" />
+          <QuickAppCard appKey="liftpal" bullet="Elevator & escalator inspection" />
+          <Link
+            to="/#apps"
+            className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 flex flex-col items-center justify-center text-center hover:border-[var(--color-primary)] transition"
+          >
+            <span className="text-2xl mb-1">+</span>
+            <span className="text-xs text-[var(--color-muted-fg)]">More coming</span>
+          </Link>
+        </div>
+      </section>
+
       {/* ── Pull Quote ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-4xl px-4 pb-16 text-center">
         <blockquote className="text-2xl md:text-3xl font-extrabold italic text-white leading-snug">
@@ -554,6 +574,22 @@ function ComingSoonCard({ name, logo, tagline, bullets, accent }: { name: string
       <ul className="space-y-1 text-sm">{bullets.map((b) => <li key={b}>• {b}</li>)}</ul>
       <div className="mt-5 text-sm font-semibold text-[var(--color-muted)]">In development</div>
     </div>
+  )
+}
+
+function QuickAppCard({ appKey, bullet }: { appKey: AppKey; bullet: string }) {
+  const app = APPS[appKey]
+  return (
+    <Link
+      to={`/${appKey}`}
+      className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-4 flex flex-col items-center text-center transition-colors hover:border-opacity-100"
+      style={{ borderColor: 'var(--color-border)' }}
+      onMouseEnter={(e) => (e.currentTarget.style.borderColor = app.primary)}
+      onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'var(--color-border)')}
+    >
+      <img src={app.logo} alt={app.name} style={{ height: 36, objectFit: 'contain' }} className="mb-2" />
+      <p className="text-xs text-[var(--color-muted-fg)] leading-tight">{bullet}</p>
+    </Link>
   )
 }
 
