@@ -50,6 +50,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Training & Cert Prep ────────────────────────────────── */}
+      <section className="bg-[#111114] border-y border-[var(--color-border)]">
+        <div className="mx-auto max-w-6xl px-4 py-16">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+              Training that meets you <span className="text-[var(--color-primary)]">where you are</span>.
+            </h2>
+            <p className="text-[var(--color-muted-fg)] max-w-3xl mx-auto text-lg">
+              Certification prep, code deep-dives, and practical guides — built for tradespeople, not students.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
+              <h3 className="font-bold text-white mb-2">Certification prep</h3>
+              <p className="text-sm text-[var(--color-muted-fg)]">
+                FOT, CFOT, AWS CWI, CPO, Journeyman, Master Plumber, NFPA 70E, QEI, GWO, and more. Each app covers the certs for that trade.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
+              <h3 className="font-bold text-white mb-2">Learn from every job</h3>
+              <p className="text-sm text-[var(--color-muted-fg)]">
+                Every analysis is saved to your history. Your Pal app becomes a personal field journal — and your study guide for the next cert.
+              </p>
+            </div>
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
+              <h3 className="font-bold text-white mb-2">Study anywhere</h3>
+              <p className="text-sm text-[var(--color-muted-fg)]">
+                Prep for your exam on the couch or look up a code reference between jobs. Training is always available on the web — no download required.
+              </p>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <Link
+              to="/signin"
+              className="inline-block px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
+            >
+              Browse Training Content
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ── Pull Quote ────────────────────────────────────────────── */}
       <section className="mx-auto max-w-4xl px-4 pb-16 text-center">
         <blockquote className="text-2xl md:text-3xl font-extrabold italic text-white leading-snug">
@@ -240,46 +282,6 @@ export default function Home() {
             Want to share your experience?{' '}
             <a href="mailto:support@tradepals.net" className="text-[var(--color-primary)]">Get in touch</a>.
           </p>
-        </div>
-      </section>
-
-      {/* ── Training Section ──────────────────────────────────────── */}
-      <section className="mx-auto max-w-6xl px-4 py-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-            Training that meets you <span className="text-[var(--color-primary)]">where you are</span>.
-          </h2>
-          <p className="text-[var(--color-muted-fg)] max-w-3xl mx-auto text-lg">
-            Certification prep, code deep-dives, and practical guides — built for tradespeople, not students.
-          </p>
-        </div>
-        <div className="grid gap-6 md:grid-cols-3">
-          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
-            <h3 className="font-bold text-white mb-2">Certification prep</h3>
-            <p className="text-sm text-[var(--color-muted-fg)]">
-              Structured content aligned to industry certs — FOT, CFOT, AWS CWI, CPO, Journeyman, Master Plumber, NFPA 70E, and more. Each Pal app covers the certs relevant to that trade.
-            </p>
-          </div>
-          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
-            <h3 className="font-bold text-white mb-2">Learn from every job</h3>
-            <p className="text-sm text-[var(--color-muted-fg)]">
-              Every analysis and troubleshoot session is saved to your history. Over time, your Pal app becomes a record of what you've seen, diagnosed, and fixed — a personal field journal powered by AI.
-            </p>
-          </div>
-          <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6">
-            <h3 className="font-bold text-white mb-2">Study anywhere</h3>
-            <p className="text-sm text-[var(--color-muted-fg)]">
-              Study for your journeyman exam on the couch, or look up a code reference in the truck between jobs. Training content is always available on the web — no app download required.
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 text-center">
-          <Link
-            to="/training"
-            className="inline-block px-6 py-3 rounded-lg bg-[var(--color-primary)] text-white font-semibold text-sm hover:opacity-90 transition"
-          >
-            Browse Training Content
-          </Link>
         </div>
       </section>
 
