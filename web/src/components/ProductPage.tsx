@@ -107,6 +107,15 @@ export default function ProductPage({ app, description, longDescription, feature
           >
             Training Log In
           </Link>
+          {cfg.appUrl && (
+            <a
+              href={`${cfg.appUrl}/signup`}
+              className="px-5 py-3 rounded-md font-semibold text-sm text-white"
+              style={{ backgroundColor: '#22C55E' }}
+            >
+              Try {cfg.name} Free Now
+            </a>
+          )}
         </div>
       </div>
 
