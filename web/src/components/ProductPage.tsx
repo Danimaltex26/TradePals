@@ -107,16 +107,19 @@ export default function ProductPage({ app, description, longDescription, feature
           >
             Training Log In
           </Link>
-          {cfg.appUrl && (
+        </div>
+        {cfg.appUrl && (
+          <div className="mt-4 text-center md:text-right">
+            <p className="text-sm mb-2" style={{ color: cfg.primary }}>Get started today for free</p>
             <a
               href={`${cfg.appUrl}/signup`}
-              className="px-5 py-3 rounded-md font-semibold text-sm text-white"
-              style={{ backgroundColor: '#22C55E' }}
+              className="inline-block w-full md:w-auto px-5 py-3 rounded-md font-semibold text-sm text-center"
+              style={{ border: `2px solid ${cfg.primary}`, color: cfg.primary, backgroundColor: 'transparent', minWidth: 280 }}
             >
-              Try {cfg.name} Free Now
+              Get {cfg.name}
             </a>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* ── Tagline + Description ────────────────────────────── */}
