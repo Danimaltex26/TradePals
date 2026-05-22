@@ -1,8 +1,14 @@
 import { Link } from 'react-router-dom'
+import PageMeta from '../components/PageMeta'
 
 export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
+      <PageMeta
+        title="About TradePals — Built by Tradespeople, for Tradespeople"
+        description="TradePals builds AI field companions for the skilled trades. Our mission: put expert knowledge in every tradesperson's pocket while addressing the generational labor shortage."
+        path="/about"
+      />
       <h1 className="text-4xl font-extrabold mb-8">About TradePals</h1>
 
       <div className="space-y-6 text-lg text-[var(--color-muted-fg)] leading-relaxed">

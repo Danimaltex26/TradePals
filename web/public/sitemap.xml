@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root -->
+  <url>
+    <loc>https://tradepals.net/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/training</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- SplicePal -->
+  <url><loc>https://tradepals.net/splicepal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/splicepal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/splicepal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/splicepal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- WeldPal -->
+  <url><loc>https://tradepals.net/weldpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/weldpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/weldpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/weldpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- PoolPal -->
+  <url><loc>https://tradepals.net/poolpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/poolpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/poolpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/poolpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- VoltPal -->
+  <url><loc>https://tradepals.net/voltpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/voltpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/voltpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/voltpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- PipePal -->
+  <url><loc>https://tradepals.net/pipepal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/pipepal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/pipepal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/pipepal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- WindPal -->
+  <url><loc>https://tradepals.net/windpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/windpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/windpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/windpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+
+  <!-- LiftPal -->
+  <url><loc>https://tradepals.net/liftpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://tradepals.net/liftpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/liftpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://tradepals.net/liftpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+</urlset>

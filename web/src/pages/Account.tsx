@@ -3,10 +3,17 @@ import { useAuth } from '../auth/AuthProvider'
 import { useEntitlement } from '../hooks/useEntitlement'
 import { APPS } from '../content/apps'
 import type { AppKey } from '../lib/supabase'
+import PageMeta from '../components/PageMeta'
 
 export default function Account() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16">
+      <PageMeta
+        title="My Account — TradePals"
+        description="Manage your TradePals subscriptions and account settings."
+        path="/account"
+        noindex
+      />
       <h1 className="text-3xl font-extrabold mb-8">My Account</h1>
       <div className="space-y-6">
         <AppSection app="splicepal" />

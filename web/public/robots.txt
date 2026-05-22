@@ -1,0 +1,20 @@
+# TradePals — robots.txt
+# Allow crawlers on all public marketing pages. Disallow auth-gated and private routes.
+
+User-agent: *
+Allow: /
+
+# Auth + private routes — no SEO value, waste of crawl budget
+Disallow: /admin
+Disallow: /account
+Disallow: /signin
+Disallow: /*/team
+Disallow: /*/join
+Disallow: /*/profile
+
+# Per-app training and exam routes are auth-gated; noindex them
+Disallow: /*/training/
+Disallow: /*/certprep
+
+# Sitemap location
+Sitemap: https://tradepals.net/sitemap.xml

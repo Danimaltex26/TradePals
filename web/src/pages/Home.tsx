@@ -2,10 +2,28 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { APPS } from '../content/apps'
 import type { AppKey } from '../lib/supabase'
+import PageMeta from '../components/PageMeta'
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'TradePals',
+  legalName: 'TradePals, LLC',
+  url: 'https://tradepals.net',
+  logo: 'https://tradepals.net/tradepals-logo.png',
+  description: 'AI field companions for skilled trades — fiber splicing, welding, electrical, plumbing, pool service, wind, and elevator.',
+  contactPoint: [{ '@type': 'ContactPoint', email: 'support@tradepals.net', contactType: 'customer support' }],
+}
 
 export default function Home() {
   return (
     <div>
+      <PageMeta
+        title="TradePals — AI Field Companions for Fiber, Welding, Electrical & More"
+        description="Purpose-built AI mobile apps for skilled tradespeople. SplicePal for fiber, WeldPal for welders, VoltPal for electricians, plus PipePal, PoolPal, WindPal & LiftPal. Diagnose, troubleshoot, and prep for certs from your phone."
+        path="/"
+        jsonLd={organizationJsonLd}
+      />
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pt-20 pb-16 text-center">
         <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">

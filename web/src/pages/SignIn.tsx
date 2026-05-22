@@ -4,6 +4,7 @@ import { track } from '@vercel/analytics'
 import { useAuth } from '../auth/AuthProvider'
 import type { AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
+import PageMeta from '../components/PageMeta'
 
 type LocationState = { app?: AppKey; redirect?: string } | null
 
@@ -49,6 +50,12 @@ export default function SignIn() {
 
   return (
     <div className="mx-auto max-w-lg px-4 py-16">
+      <PageMeta
+        title="Sign In — TradePals"
+        description="Sign in to your TradePals account to access training and account settings."
+        path="/signin"
+        noindex
+      />
       <h1 className="text-3xl font-extrabold text-center mb-2">Training Sign In</h1>
       <p className="text-center text-[var(--color-muted-fg)] mb-8">
         Access certification prep and training content on the web.

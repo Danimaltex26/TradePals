@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { track } from '@vercel/analytics'
 import type { AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
+import PageMeta from './PageMeta'
 
 type ScreenshotPair = {
   label: string
@@ -80,8 +81,31 @@ export default function ProductPage({ app, description, longDescription, feature
 
   const shots = screenshots || defaultScreenshots
 
+  // Build per-app schema.org SoftwareApplication structured data for rich snippets.
+  const softwareJsonLd: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: cfg.name,
+    applicationCategory: 'BusinessApplication',
+    operatingSystem: 'Web, iOS',
+    description: cfg.metaDescription,
+    url: cfg.appUrl,
+    image: `https://tradepals.net${cfg.logo}`,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', description: 'Free tier; Pro upgrade available.' },
+    publisher: { '@type': 'Organization', name: 'TradePals, LLC', url: 'https://tradepals.net' },
+    keywords: cfg.certs.join(', '),
+  }
+
   return (
     <div>
+      <PageMeta
+        title={cfg.metaTitle}
+        description={cfg.metaDescription}
+        path={`/${app}`}
+        ogImage={cfg.logo}
+        themeColor={cfg.primary}
+        jsonLd={softwareJsonLd}
+      />
       {/* ── Hero: Logo + tagline + CTA ────────────────────────── */}
       <div className="mx-auto max-w-5xl px-4 pt-16 pb-10">
         <div className="text-center mb-8">

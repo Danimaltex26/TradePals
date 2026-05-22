@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom'
 import { APPS } from '../content/apps'
 import type { AppKey } from '../lib/supabase'
+import PageMeta from '../components/PageMeta'
 
 export default function Training() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16">
+      <PageMeta
+        title="Certification Training — TradePals"
+        description="Cert prep training across SplicePal (CFOT), WeldPal (CWI), VoltPal (NEC/Journeyman), PipePal, PoolPal (CPO), WindPal (GWO), and LiftPal (NEIEP/CET)."
+        path="/training"
+      />
       <h1 className="text-4xl font-extrabold mb-3">Training</h1>
       <p className="text-[var(--color-muted-fg)] text-lg mb-10">
         Certification prep and training content for active subscribers.
