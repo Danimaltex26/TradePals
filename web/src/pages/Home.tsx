@@ -10,7 +10,7 @@ const organizationJsonLd = {
   name: 'TradePals',
   legalName: 'TradePals, LLC',
   url: 'https://tradepals.net',
-  logo: 'https://tradepals.net/tradepals-logo.png',
+  logo: 'https://tradepals.net/tradepals-logo.webp',
   description: 'AI field companions for skilled trades — fiber splicing, welding, electrical, plumbing, pool service, wind, and elevator.',
   contactPoint: [{ '@type': 'ContactPoint', email: 'support@tradepals.net', contactType: 'customer support' }],
 }
@@ -171,7 +171,7 @@ export default function Home() {
               Snap a pic of a weld, a panel, a pool, a pipe — or type in the symptom and equipment. Works offline too.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch1.png" alt="Take a photo" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch1.webp" alt="Take a photo" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
@@ -182,7 +182,7 @@ export default function Home() {
               Ranked probable causes, step-by-step fixes, parts to check, code references, and escalation criteria — structured like a senior tech would explain it.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch2.png" alt="AI diagnosis" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch2.webp" alt="AI diagnosis" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
@@ -193,7 +193,7 @@ export default function Home() {
               Every diagnosis is saved to your history. Over time, your Pal app becomes a personal field journal — and your training library for the next certification.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch3.png" alt="Save and learn" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch3.webp" alt="Save and learn" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
@@ -353,7 +353,7 @@ export default function Home() {
             <ProductCard appKey="pipepal" tagline="AI leak diagnosis and code reference for plumbers & pipefitters" bullets={['Leak & code violation photo diagnosis', 'Water heater, drain, gas troubleshooting', 'Pipe sizing, fixture units, IPC/UPC prep']} />
             <ProductCard appKey="liftpal" tagline="AI inspection and troubleshooting for elevator & lift techs" bullets={['Controller & door system diagnosis', 'Hoistway inspection checklists', 'CET / QEI cert prep']} />
             <ProductCard appKey="windpal" tagline="AI blade analysis and turbine troubleshooting for wind techs" bullets={['Blade damage photo analysis', 'Gearbox & generator troubleshooting', 'GWO / BZEE cert prep']} />
-            <ComingSoonCard name="MillPal" logo="/millpal-logo.png" tagline="AI field companion for millwrights & machinery mechanics" accent="#EF4444" bullets={['Vibration & alignment photo diagnosis', 'Bearing, gear & coupling troubleshooting', 'Millwright / IMM cert prep']} />
+            <ComingSoonCard name="MillPal" logo="/millpal-logo.webp" tagline="AI field companion for millwrights & machinery mechanics" accent="#EF4444" bullets={['Vibration & alignment photo diagnosis', 'Bearing, gear & coupling troubleshooting', 'Millwright / IMM cert prep']} />
           </div>
         </div>
       </section>

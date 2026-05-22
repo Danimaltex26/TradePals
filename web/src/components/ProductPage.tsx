@@ -266,7 +266,7 @@ export default function ProductPage({ app, description, longDescription, feature
             style={{ maxWidth: 360, maxHeight: 480, width: '100%' }}
             controls
             playsInline
-            preload="metadata"
+            preload="none"
           >
             <source src={demoVideo} type="video/mp4" />
           </video>

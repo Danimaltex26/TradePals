@@ -4,7 +4,7 @@ import { Helmet } from '@dr.pogodin/react-helmet'
 // whether the user landed on www.tradepals.net, http variants, or UTM-tagged URLs.
 const SITE_URL = 'https://tradepals.net'
 const SITE_NAME = 'TradePals'
-const DEFAULT_OG_IMAGE = '/tradepals-logo.png' // Stopgap — replace with 1200×630 social cards in Phase 3.
+const DEFAULT_OG_IMAGE = '/tradepals-logo.webp' // Stopgap — replace with 1200×630 social cards (future Phase 3.x).
 
 export type PageMetaProps = {
   /** <title> + og:title + twitter:title. Keep under ~60 chars to avoid SERP truncation. */

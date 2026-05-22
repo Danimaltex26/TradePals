@@ -36,10 +36,10 @@ SplicePal puts that expertise in your pocket. Photograph your OTDR screen and ge
         'Loss budget calculator — SMF/MMF at 1310/1550/850/1300 nm',
         'Offline photo queue — capture in the field, process when connected',
       ]}
-      trainingImages={['/cert1.png', '/cert2.png', '/cert4.png']}
+      trainingImages={['/cert1.webp', '/cert2.webp', '/cert4.webp']}
       screenshots={[
-        { label: 'OTDR Trace Analysis', beforeTitle: 'Photo your OTDR screen', afterTitle: 'Get splice-by-splice diagnosis', beforeImage: '/in.png', afterImage: '/out.png' },
-        { label: 'Splice Troubleshooting', beforeTitle: 'Enter loss & error code', afterTitle: 'Ranked causes + step-by-step fix', beforeImage: '/in2.png', afterImage: '/out2.png' },
+        { label: 'OTDR Trace Analysis', beforeTitle: 'Photo your OTDR screen', afterTitle: 'Get splice-by-splice diagnosis', beforeImage: '/in.webp', afterImage: '/out.webp' },
+        { label: 'Splice Troubleshooting', beforeTitle: 'Enter loss & error code', afterTitle: 'Ranked causes + step-by-step fix', beforeImage: '/in2.webp', afterImage: '/out2.webp' },
       ]}
     />
   )

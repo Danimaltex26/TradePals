@@ -16,7 +16,7 @@ export default function Layout() {
         <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-3">
           <Link to="/" className="flex items-center">
             <img
-              src="/tradepals-logo.png"
+              src="/tradepals-logo.webp"
               alt="TradePals"
               style={{ height: 43, width: 'auto', objectFit: 'contain' }}
             />
