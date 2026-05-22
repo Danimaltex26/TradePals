@@ -15,7 +15,12 @@ import { spawn } from 'node:child_process'
 import { mkdir, writeFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
-import puppeteer from 'puppeteer'
+
+// Vercel's build environment is missing system libs (libnspr4 etc.) required
+// by standard Chromium. Detect Vercel and use the @sparticuz/chromium binary
+// which is statically linked for serverless Linux. Locally (Windows/macOS dev),
+// use the full puppeteer package with its bundled Chromium.
+const IS_VERCEL = !!process.env.VERCEL
 
 const PORT = process.env.PRERENDER_PORT ? Number(process.env.PRERENDER_PORT) : 4173
 const PREVIEW_HOST = `http://localhost:${PORT}`
@@ -115,11 +120,23 @@ async function main() {
 
   try {
     await waitForPreviewReady()
-    log('preview ready, launching browser')
-    browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-    })
+    log(`preview ready, launching browser (${IS_VERCEL ? 'serverless chromium' : 'local puppeteer'})`)
+
+    if (IS_VERCEL) {
+      const chromium = (await import('@sparticuz/chromium')).default
+      const puppeteerCore = (await import('puppeteer-core')).default
+      browser = await puppeteerCore.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
+        headless: chromium.headless,
+      })
+    } else {
+      const puppeteer = (await import('puppeteer')).default
+      browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      })
+    }
     const page = await browser.newPage()
     await page.setViewport({ width: 1280, height: 800 })
 
