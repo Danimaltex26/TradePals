@@ -118,7 +118,7 @@ export default function ProductPage({ app, description, longDescription, feature
             {cfg.appUrl && (
               <a
                 href={`${cfg.appUrl}/signup`}
-                className="inline-block px-8 py-4 rounded-lg font-bold text-base text-white hover:opacity-90 transition"
+                className="inline-block w-72 px-8 py-4 rounded-lg font-bold text-base text-center text-white hover:opacity-90 transition"
                 style={{ backgroundColor: cfg.primary }}
               >
                 Get {cfg.name} Free
@@ -127,7 +127,7 @@ export default function ProductPage({ app, description, longDescription, feature
             {quizUrl && (
               <a
                 href={quizUrl}
-                className="inline-block px-8 py-4 rounded-lg font-bold text-base hover:opacity-90 transition"
+                className="inline-block w-72 px-8 py-4 rounded-lg font-bold text-base text-center hover:opacity-90 transition"
                 style={{ border: `2px solid ${cfg.primary}`, color: cfg.primary }}
               >
                 Try the Free Practice Quiz →
