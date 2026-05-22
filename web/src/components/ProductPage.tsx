@@ -11,6 +11,19 @@ type ScreenshotPair = {
   afterImage?: string
 }
 
+type StatItem = {
+  value: string
+  label: string
+  source?: string
+}
+
+type SalaryBlock = {
+  uncertifiedRange: string  // e.g. "$45K–$55K"
+  certifiedRange: string    // e.g. "$65K–$85K"
+  sourceLabel?: string      // e.g. "BLS Occupational Outlook Handbook, 2024"
+  note?: string             // e.g. "Median pay for telecom equipment installers..."
+}
+
 type ProductPageProps = {
   app: AppKey
   description: string
@@ -20,6 +33,13 @@ type ProductPageProps = {
   screenshots?: ScreenshotPair[]
   trainingImages?: string[]
   demoVideo?: string
+  // Cert-first additions — all optional; render only when provided
+  certHook?: string         // Primary hero statement leading with the cert outcome
+  certSubhook?: string      // Short ROI / proof line shown in accent color below the H1
+  quizUrl?: string          // Public practice quiz URL — renders a secondary hero CTA
+  stats?: StatItem[]        // Stats strip band below hero (recommended: 3–4 items)
+  salaryBlock?: SalaryBlock // "What [cert] is worth" comparison block
+  certTrustLine?: string    // One-line cert badge text in the Training section
 }
 
 function PhoneMockup({ title, accent, children }: { title: string; accent: string; children: React.ReactNode }) {
@@ -50,7 +70,7 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine }: ProductPageProps) {
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -72,21 +92,48 @@ export default function ProductPage({ app, description, longDescription, feature
               style={{ maxHeight: '100%', objectFit: 'contain' }}
             />
           </div>
-          <p className="text-xl font-semibold mb-3" style={{ color: cfg.primary }}>
-            {cfg.tagline}
-          </p>
-          <p className="text-[var(--color-muted-fg)] text-lg max-w-2xl mx-auto mb-6">{description}</p>
-
-          {/* Primary CTA */}
-          {cfg.appUrl && (
-            <a
-              href={`${cfg.appUrl}/signup`}
-              className="inline-block px-8 py-4 rounded-lg font-bold text-base text-white hover:opacity-90 transition"
-              style={{ backgroundColor: cfg.primary }}
-            >
-              Get {cfg.name} Free
-            </a>
+          {certHook ? (
+            <>
+              <h1 className="text-3xl md:text-4xl font-bold mb-3 text-white max-w-3xl mx-auto leading-tight">
+                {certHook}
+              </h1>
+              {certSubhook && (
+                <p className="text-lg md:text-xl font-semibold mb-4 max-w-2xl mx-auto" style={{ color: cfg.primary }}>
+                  {certSubhook}
+                </p>
+              )}
+              <p className="text-[var(--color-muted-fg)] text-base max-w-2xl mx-auto mb-6">{description}</p>
+            </>
+          ) : (
+            <>
+              <p className="text-xl font-semibold mb-3" style={{ color: cfg.primary }}>
+                {cfg.tagline}
+              </p>
+              <p className="text-[var(--color-muted-fg)] text-lg max-w-2xl mx-auto mb-6">{description}</p>
+            </>
           )}
+
+          {/* Primary CTA (+ optional quiz CTA) */}
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+            {cfg.appUrl && (
+              <a
+                href={`${cfg.appUrl}/signup`}
+                className="inline-block px-8 py-4 rounded-lg font-bold text-base text-white hover:opacity-90 transition"
+                style={{ backgroundColor: cfg.primary }}
+              >
+                Get {cfg.name} Free
+              </a>
+            )}
+            {quizUrl && (
+              <a
+                href={quizUrl}
+                className="inline-block px-8 py-4 rounded-lg font-bold text-base hover:opacity-90 transition"
+                style={{ border: `2px solid ${cfg.primary}`, color: cfg.primary }}
+              >
+                Try the Free Practice Quiz →
+              </a>
+            )}
+          </div>
 
           {/* Secondary links */}
           <div className="flex flex-wrap justify-center gap-4 mt-4">
@@ -118,6 +165,25 @@ export default function ProductPage({ app, description, longDescription, feature
           </div>
         </div>
       </div>
+
+      {/* ── Stats strip (cert-first economic context) ─────────── */}
+      {stats && stats.length > 0 && (
+        <div className="border-y border-[var(--color-border)]" style={{ backgroundColor: `${cfg.primary}06` }}>
+          <div className="mx-auto max-w-5xl px-4 py-8">
+            <div className={`grid gap-6 ${stats.length === 4 ? 'grid-cols-2 md:grid-cols-4' : stats.length === 3 ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'}`}>
+              {stats.map((s, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: cfg.primary }}>{s.value}</div>
+                  <div className="text-sm text-white font-semibold mb-0.5">{s.label}</div>
+                  {s.source && (
+                    <div className="text-xs text-[var(--color-muted-fg)]">{s.source}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Screenshots: Before → After (visual proof first) ── */}
       <div className="bg-[#111114] border-y border-[var(--color-border)]">
@@ -183,6 +249,29 @@ export default function ProductPage({ app, description, longDescription, feature
         </div>
       )}
 
+      {/* ── What [cert] is worth (salary comparison) ──────────── */}
+      {salaryBlock && (
+        <div className="mx-auto max-w-5xl px-4 py-12">
+          <h2 className="text-2xl font-bold mb-2 text-center">What the cert is worth</h2>
+          {salaryBlock.note && (
+            <p className="text-[var(--color-muted-fg)] text-sm text-center mb-8 max-w-2xl mx-auto">{salaryBlock.note}</p>
+          )}
+          <div className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto">
+            <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center">
+              <p className="text-xs uppercase tracking-wider text-[var(--color-muted-fg)] mb-2">Uncertified</p>
+              <p className="text-2xl font-bold text-white">{salaryBlock.uncertifiedRange}</p>
+            </div>
+            <div className="rounded-xl p-6 text-center" style={{ border: `2px solid ${cfg.primary}`, backgroundColor: `${cfg.primary}10` }}>
+              <p className="text-xs uppercase tracking-wider mb-2" style={{ color: cfg.primary }}>Certified</p>
+              <p className="text-2xl font-bold" style={{ color: cfg.primary }}>{salaryBlock.certifiedRange}</p>
+            </div>
+          </div>
+          {salaryBlock.sourceLabel && (
+            <p className="text-xs text-[var(--color-muted-fg)] text-center mt-4">Source: {salaryBlock.sourceLabel}</p>
+          )}
+        </div>
+      )}
+
       {/* ── Mid-page CTA ──────────────────────────────────────── */}
       {cfg.appUrl && (
         <div className="border-y border-[var(--color-border)] py-10 text-center" style={{ backgroundColor: `${cfg.primary}08` }}>
@@ -213,7 +302,11 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Training ──────────────────────────────────────────── */}
       <div className="bg-[#111114] border-y border-[var(--color-border)]">
         <div className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="text-2xl font-bold mb-6 text-center">Certification Training</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center">Certification Training</h2>
+          {certTrustLine && (
+            <p className="text-sm text-center mb-6" style={{ color: cfg.primary }}>{certTrustLine}</p>
+          )}
+          {!certTrustLine && <div className="mb-6" />}
           <div className="grid gap-6 grid-cols-3 mb-10">
             {[
               { label: 'Cert path', placeholder: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></> },
