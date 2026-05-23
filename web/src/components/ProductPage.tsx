@@ -3,6 +3,7 @@ import { track } from '@vercel/analytics'
 import type { AppKey } from '../lib/supabase'
 import { APPS } from '../content/apps'
 import PageMeta from './PageMeta'
+import LanguageToggle from './LanguageToggle'
 
 type ScreenshotPair = {
   label: string
@@ -46,6 +47,9 @@ type ProductPageProps = {
   metaTitle?: string
   metaDescription?: string
   pathOverride?: string     // For localized routes — pass '/voltpal/es' so canonical is correct
+  // Language toggle (optional). Renders the EN | Español pill above the hero
+  // when set. Only pages with a Spanish (or other-language) variant should pass this.
+  languageToggle?: { enPath: string; esPath: string; currentLang: 'en' | 'es' }
 }
 
 function PhoneMockup({ title, accent, children }: { title: string; accent: string; children: React.ReactNode }) {
@@ -76,7 +80,7 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle }: ProductPageProps) {
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -111,6 +115,16 @@ export default function ProductPage({ app, description, longDescription, feature
         themeColor={cfg.primary}
         jsonLd={softwareJsonLd}
       />
+      {languageToggle && (
+        <LanguageToggle
+          enPath={languageToggle.enPath}
+          esPath={languageToggle.esPath}
+          currentLang={languageToggle.currentLang}
+          accentColor={cfg.primary}
+          // Yellow (#FACC15) needs dark text per WCAG; other accents work with white.
+          accentTextColor={app === 'voltpal' ? '#0f0f10' : '#ffffff'}
+        />
+      )}
       {/* ── Hero: Logo + tagline + CTA ────────────────────────── */}
       <div className="mx-auto max-w-5xl px-4 pt-16 pb-10">
         <div className="text-center mb-8">

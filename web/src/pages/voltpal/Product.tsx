@@ -4,6 +4,7 @@ export default function VoltPalProduct() {
   return (
     <ProductPage
       app="voltpal"
+      languageToggle={{ enPath: '/voltpal', esPath: '/voltpal/es', currentLang: 'en' }}
       // Cert-first hero — Option A style
       certHook="Pass journeyman on the first try. Win the data-center boom."
       certSubhook="Journeyman pays $25K+ more than apprentice. VoltPal gets you there."
