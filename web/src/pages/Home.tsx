@@ -15,14 +15,35 @@ const organizationJsonLd = {
   contactPoint: [{ '@type': 'ContactPoint', email: 'support@tradepals.net', contactType: 'customer support' }],
 }
 
+// FAQPage schema — mirrors the FAQ section below. Eligible for rich-result snippets in SERPs.
+// Keep questions + answers in sync with the rendered <FAQ> components.
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: 'Does it work without cell signal?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Yes. You can take photos and queue them for analysis offline. When your phone reconnects — back at the truck, at lunch, wherever — the queue processes automatically and you get a notification when results are ready. Calculators and reference charts work fully offline too.' } },
+    { '@type': 'Question', name: 'Is the AI accurate enough to trust on the job?',
+      acceptedAnswer: { '@type': 'Answer', text: "The AI provides a ranked diagnosis with confidence levels and always recommends verification — test with a meter, check with a code book, inspect the part. It's a field assistant, not a replacement for your judgment. Think of it as a second opinion from a senior tech who's seen a lot of jobs." } },
+    { '@type': 'Question', name: 'Who built this? Are you actually from the trades?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Every troubleshooting prompt, reference table, and code citation was built and verified with input from working tradespeople — not scraped from the internet. The AI prompts are written by people who know the difference between a gainer and a bad splice, between an RPZ and a PVB.' } },
+    { '@type': 'Question', name: 'What does the free tier include?',
+      acceptedAnswer: { '@type': 'Answer', text: '2 photo analyses, 2 troubleshoot sessions, and 5 AI reference lookups per month. All calculators, charts, and reference tables are always free with no limits. The free tier is enough to try it on a few jobs and see if it is useful for you.' } },
+    { '@type': 'Question', name: 'Can I use it for multiple trades?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Each Pal app is a separate subscription, purpose-built for that trade. If you do both electrical and plumbing, you would use VoltPal and PipePal separately. We offer bundle pricing for multi-trade users and teams.' } },
+    { '@type': 'Question', name: 'Is my data private?',
+      acceptedAnswer: { '@type': 'Answer', text: "Your photos and analysis data are yours. We don't share them with other users, sell them to third parties, or use them to train AI models. Each app has a full privacy policy linked from its product page." } },
+  ],
+}
+
 export default function Home() {
   return (
     <div>
       <PageMeta
-        title="TradePals — AI Field Companions for Fiber, Welding, Electrical & More"
-        description="Purpose-built AI mobile apps for skilled tradespeople. SplicePal for fiber, WeldPal for welders, VoltPal for electricians, plus PipePal, PoolPal, WindPal & LiftPal. Diagnose, troubleshoot, and prep for certs from your phone."
+        title="TradePals — AI Field Companions for Skilled Trades"
+        description="AI field companions for fiber splicers, welders, electricians, plumbers, pool techs, wind techs & elevator techs. Diagnose, troubleshoot, prep for certs."
         path="/"
-        jsonLd={organizationJsonLd}
+        jsonLd={[organizationJsonLd, faqJsonLd]}
       />
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pt-20 pb-16 text-center">
@@ -171,7 +192,7 @@ export default function Home() {
               Snap a pic of a weld, a panel, a pool, a pipe — or type in the symptom and equipment. Works offline too.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch1.webp" alt="Take a photo" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch1.webp" alt="SplicePal step 1: tradesperson photographing an OTDR screen on a jobsite for AI analysis" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
@@ -182,7 +203,7 @@ export default function Home() {
               Ranked probable causes, step-by-step fixes, parts to check, code references, and escalation criteria — structured like a senior tech would explain it.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch2.webp" alt="AI diagnosis" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch2.webp" alt="SplicePal step 2: AI diagnosis screen showing ranked probable causes and step-by-step fixes" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>
@@ -193,7 +214,7 @@ export default function Home() {
               Every diagnosis is saved to your history. Over time, your Pal app becomes a personal field journal — and your training library for the next certification.
             </p>
             <div className="mx-auto" style={{ width: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
-              <img src="/watch3.webp" alt="Save and learn" style={{ width: '100%', display: 'block' }} />
+              <img src="/watch3.webp" alt="SplicePal step 3: saved job history view used as a personal field journal and certification study guide" style={{ width: '100%', display: 'block' }} />
             </div>
             <p className="text-[var(--color-muted)] text-xs mt-2">Shown in SplicePal</p>
           </div>

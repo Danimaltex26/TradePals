@@ -1,74 +1,218 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Root -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Root marketing pages -->
   <url>
     <loc>https://tradepals.net/</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://tradepals.net/about</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://tradepals.net/training</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- SplicePal -->
-  <url><loc>https://tradepals.net/splicepal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/splicepal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/splicepal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/splicepal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── SplicePal ─────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/splicepal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/splicepal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/splicepal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/splicepal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- WeldPal -->
-  <url><loc>https://tradepals.net/weldpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/weldpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/weldpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/weldpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── WeldPal ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/weldpal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/weldpal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/weldpal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/weldpal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- PoolPal -->
-  <url><loc>https://tradepals.net/poolpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/poolpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/poolpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/poolpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── PoolPal ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/poolpal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/poolpal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/poolpal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/poolpal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- VoltPal -->
-  <url xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- ── VoltPal (bilingual EN + ES) ───────────────────────────── -->
+  <url>
     <loc>https://tradepals.net/voltpal</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tradepals.net/voltpal" />
     <xhtml:link rel="alternate" hreflang="es" href="https://tradepals.net/voltpal/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tradepals.net/voltpal" />
   </url>
-  <url xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
     <loc>https://tradepals.net/voltpal/es</loc>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://tradepals.net/voltpal" />
     <xhtml:link rel="alternate" hreflang="es" href="https://tradepals.net/voltpal/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://tradepals.net/voltpal" />
   </url>
-  <url><loc>https://tradepals.net/voltpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/voltpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/voltpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url>
+    <loc>https://tradepals.net/voltpal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/voltpal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/voltpal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- PipePal -->
-  <url><loc>https://tradepals.net/pipepal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/pipepal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/pipepal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/pipepal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── PipePal ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/pipepal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/pipepal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/pipepal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/pipepal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- WindPal -->
-  <url><loc>https://tradepals.net/windpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/windpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/windpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/windpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── WindPal ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/windpal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/windpal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/windpal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/windpal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 
-  <!-- LiftPal -->
-  <url><loc>https://tradepals.net/liftpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://tradepals.net/liftpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/liftpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://tradepals.net/liftpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <!-- ── LiftPal ───────────────────────────────────────────────── -->
+  <url>
+    <loc>https://tradepals.net/liftpal</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/liftpal/privacy</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/liftpal/terms</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://tradepals.net/liftpal/support</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
 </urlset>

@@ -221,9 +221,9 @@ export default function ProductPage({ app, description, longDescription, feature
             </>
           ) : (
             <>
-              <p className="text-xl font-semibold mb-3" style={{ color: cfg.primary }}>
-                {cfg.tagline}
-              </p>
+              <h1 className="text-2xl md:text-3xl font-bold mb-3 text-white max-w-3xl mx-auto leading-tight">
+                {cfg.name}: <span style={{ color: cfg.primary }}>{cfg.tagline}</span>
+              </h1>
               <p className="text-[var(--color-muted-fg)] text-lg max-w-2xl mx-auto mb-6">{description}</p>
             </>
           )}
