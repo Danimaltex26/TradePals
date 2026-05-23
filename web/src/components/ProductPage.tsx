@@ -41,6 +41,11 @@ type ProductPageProps = {
   stats?: StatItem[]        // Stats strip band below hero (recommended: 3–4 items)
   salaryBlock?: SalaryBlock // "What [cert] is worth" comparison block
   certTrustLine?: string    // One-line cert badge text in the Training section
+  // SEO overrides — default to APPS[app].metaTitle / metaDescription if omitted.
+  // Use for localized routes (e.g. /voltpal/es) that need a non-default page title.
+  metaTitle?: string
+  metaDescription?: string
+  pathOverride?: string     // For localized routes — pass '/voltpal/es' so canonical is correct
 }
 
 function PhoneMockup({ title, accent, children }: { title: string; accent: string; children: React.ReactNode }) {
@@ -71,7 +76,7 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride }: ProductPageProps) {
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -99,9 +104,9 @@ export default function ProductPage({ app, description, longDescription, feature
   return (
     <div>
       <PageMeta
-        title={cfg.metaTitle}
-        description={cfg.metaDescription}
-        path={`/${app}`}
+        title={metaTitle || cfg.metaTitle}
+        description={metaDescription || cfg.metaDescription}
+        path={pathOverride || `/${app}`}
         ogImage={cfg.logo}
         themeColor={cfg.primary}
         jsonLd={softwareJsonLd}

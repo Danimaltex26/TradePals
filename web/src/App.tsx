@@ -54,6 +54,7 @@ import PoolPalTeam from './pages/poolpal/Team'
 import PoolPalJoin from './pages/poolpal/Join'
 import PoolPalProfile from './pages/poolpal/Profile'
 import VoltPalProduct from './pages/voltpal/Product'
+import VoltPalProductEs from './pages/voltpal/es/Product'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
 import VoltPalSupport from './pages/voltpal/Support'
@@ -188,6 +189,7 @@ export default function App() {
         <Route path="poolpal/profile" element={<PoolPalProfile />} />
 
         <Route path="voltpal" element={<VoltPalProduct />} />
+        <Route path="voltpal/es" element={<VoltPalProductEs />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
         <Route path="voltpal/terms" element={<VoltPalTerms />} />
         <Route path="voltpal/support" element={<VoltPalSupport />} />

@@ -36,7 +36,20 @@
   <url><loc>https://tradepals.net/poolpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
 
   <!-- VoltPal -->
-  <url><loc>https://tradepals.net/voltpal</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <loc>https://tradepals.net/voltpal</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tradepals.net/voltpal" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tradepals.net/voltpal/es" />
+  </url>
+  <url xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <loc>https://tradepals.net/voltpal/es</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://tradepals.net/voltpal" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tradepals.net/voltpal/es" />
+  </url>
   <url><loc>https://tradepals.net/voltpal/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://tradepals.net/voltpal/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://tradepals.net/voltpal/support</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
