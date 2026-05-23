@@ -111,6 +111,13 @@ const LABELS = {
     support: 'Support',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
+    whatCertIsWorth: 'What the cert is worth',
+    uncertified: 'Uncertified',
+    certified: 'Certified',
+    source: 'Source',
+    trainingSlotCertPath: 'Cert path',
+    trainingSlotPracticeExam: 'Practice exam',
+    trainingSlotReadiness: 'Readiness score',
   },
   es: {
     getAppFree: (name: string) => `Obtén ${name} Gratis`,
@@ -134,6 +141,13 @@ const LABELS = {
     support: 'Soporte',
     privacy: 'Política de Privacidad',
     terms: 'Términos del Servicio',
+    whatCertIsWorth: 'Cuánto vale la certificación',
+    uncertified: 'Sin certificar',
+    certified: 'Certificado',
+    source: 'Fuente',
+    trainingSlotCertPath: 'Ruta de certificación',
+    trainingSlotPracticeExam: 'Examen de práctica',
+    trainingSlotReadiness: 'Puntaje de preparación',
   },
 } as const
 
@@ -353,22 +367,22 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── What [cert] is worth (salary comparison) ──────────── */}
       {salaryBlock && (
         <div className="mx-auto max-w-5xl px-4 py-12">
-          <h2 className="text-2xl font-bold mb-2 text-center">What the cert is worth</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center">{L.whatCertIsWorth}</h2>
           {salaryBlock.note && (
             <p className="text-[var(--color-muted-fg)] text-sm text-center mb-8 max-w-2xl mx-auto">{salaryBlock.note}</p>
           )}
           <div className="grid gap-4 md:grid-cols-2 max-w-3xl mx-auto">
             <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-card)] p-6 text-center">
-              <p className="text-xs uppercase tracking-wider text-[var(--color-muted-fg)] mb-2">Uncertified</p>
+              <p className="text-xs uppercase tracking-wider text-[var(--color-muted-fg)] mb-2">{L.uncertified}</p>
               <p className="text-2xl font-bold text-white">{salaryBlock.uncertifiedRange}</p>
             </div>
             <div className="rounded-xl p-6 text-center" style={{ border: `2px solid ${cfg.primary}`, backgroundColor: `${cfg.primary}10` }}>
-              <p className="text-xs uppercase tracking-wider mb-2" style={{ color: cfg.primary }}>Certified</p>
+              <p className="text-xs uppercase tracking-wider mb-2" style={{ color: cfg.primary }}>{L.certified}</p>
               <p className="text-2xl font-bold" style={{ color: cfg.primary }}>{salaryBlock.certifiedRange}</p>
             </div>
           </div>
           {salaryBlock.sourceLabel && (
-            <p className="text-xs text-[var(--color-muted-fg)] text-center mt-4">Source: {salaryBlock.sourceLabel}</p>
+            <p className="text-xs text-[var(--color-muted-fg)] text-center mt-4">{L.source}: {salaryBlock.sourceLabel}</p>
           )}
         </div>
       )}
@@ -410,9 +424,9 @@ export default function ProductPage({ app, description, longDescription, feature
           {!certTrustLine && <div className="mb-6" />}
           <div className="grid gap-6 grid-cols-3 mb-10">
             {[
-              { label: 'Cert path', placeholder: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></> },
-              { label: 'Practice exam', placeholder: <><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></> },
-              { label: 'Readiness score', placeholder: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
+              { label: L.trainingSlotCertPath, placeholder: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></> },
+              { label: L.trainingSlotPracticeExam, placeholder: <><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></> },
+              { label: L.trainingSlotReadiness, placeholder: <><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></> },
             ].map((slot, idx) => (
               <div key={idx} className="text-center">
                 <div className="mx-auto" style={{ width: '100%', maxWidth: 200, borderRadius: 24, border: '3px solid #2A2A2E', background: '#111114', overflow: 'hidden' }}>
