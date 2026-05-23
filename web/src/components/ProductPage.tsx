@@ -50,6 +50,10 @@ type ProductPageProps = {
   // Language toggle (optional). Renders the EN | Español pill above the hero
   // when set. Only pages with a Spanish (or other-language) variant should pass this.
   languageToggle?: { enPath: string; esPath: string; currentLang: 'en' | 'es' }
+  /** Display language for built-in labels (CTAs, section headings, footer).
+   * Defaults to 'en'. Spanish hub pages pass 'es' to switch the shared chrome to Mexican Spanish.
+   * TODO[native-speaker review]: all 'es' strings in LABELS below are Claude-drafted. */
+  lang?: 'en' | 'es'
 }
 
 function PhoneMockup({ title, accent, children }: { title: string; accent: string; children: React.ReactNode }) {
@@ -80,7 +84,61 @@ function ArrowIcon({ accent }: { accent: string }) {
   )
 }
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle }: ProductPageProps) {
+// Built-in label set for the shared ProductPage chrome — CTAs, section headings,
+// footer links, training bullets. Per-page content (hero, stats, salary block,
+// features, longDescription, screenshots) is still passed in via props.
+// TODO[native-speaker review]: confirm 'es' tone (semi-formal "tú") and dialect.
+const LABELS = {
+  en: {
+    getAppFree: (name: string) => `Get ${name} Free`,
+    quizCta: 'Try the Free Practice Quiz →',
+    launchApp: 'Launch App →',
+    appStore: 'App Store →',
+    trainingLogIn: 'Training Log In →',
+    seeItInAction: 'See it in action',
+    watchDiagnosis: 'Watch a real diagnosis',
+    photoToFix: 'From photo to fix — under 90 seconds.',
+    midCtaTitle: 'Start diagnosing in the field today',
+    midCtaSub: 'Free to try. No credit card required.',
+    whyApp: (name: string) => `Why ${name}?`,
+    certTrainingTitle: 'Certification Training',
+    trainingBullet1: 'Study content built from current industry standards — not outdated textbooks.',
+    trainingBullet2: 'Timed exams, untimed practice, and targeted weak-area drills that mirror the real test.',
+    trainingBullet3: 'Track your readiness score across every domain — know when you\'re ready to sit for the exam.',
+    featuresTitle: 'Features',
+    bottomCtaTitle: (name: string) => `Ready to try ${name}?`,
+    bottomCtaSub: 'Free to use. Upgrade when you\'re ready.',
+    support: 'Support',
+    privacy: 'Privacy Policy',
+    terms: 'Terms of Service',
+  },
+  es: {
+    getAppFree: (name: string) => `Obtén ${name} Gratis`,
+    quizCta: 'Prueba el Examen de Práctica Gratis →',
+    launchApp: 'Abrir App →',
+    appStore: 'App Store →',
+    trainingLogIn: 'Acceso a Entrenamiento →',
+    seeItInAction: 'Míralo en acción',
+    watchDiagnosis: 'Mira un diagnóstico real',
+    photoToFix: 'De la foto a la solución — en menos de 90 segundos.',
+    midCtaTitle: 'Comienza a diagnosticar en campo hoy',
+    midCtaSub: 'Prueba gratis. Sin tarjeta de crédito.',
+    whyApp: (name: string) => `¿Por qué ${name}?`,
+    certTrainingTitle: 'Entrenamiento para Certificaciones',
+    trainingBullet1: 'Contenido de estudio basado en los estándares actuales de la industria — no libros desactualizados.',
+    trainingBullet2: 'Exámenes cronometrados, práctica sin tiempo, y ejercicios enfocados en áreas débiles que reflejan el examen real.',
+    trainingBullet3: 'Monitorea tu puntaje de preparación en cada dominio — sabe cuándo estás listo para presentar el examen.',
+    featuresTitle: 'Características',
+    bottomCtaTitle: (name: string) => `¿Listo para probar ${name}?`,
+    bottomCtaSub: 'Gratis para usar. Actualiza cuando estés listo.',
+    support: 'Soporte',
+    privacy: 'Política de Privacidad',
+    terms: 'Términos del Servicio',
+  },
+} as const
+
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle, lang = 'en' }: ProductPageProps) {
+  const L = LABELS[lang]
   const cfg = APPS[app]
 
   const defaultScreenshots: ScreenshotPair[] = [
@@ -164,7 +222,7 @@ export default function ProductPage({ app, description, longDescription, feature
                 className="inline-block w-72 px-8 py-4 rounded-lg font-bold text-base text-center text-white hover:opacity-90 transition"
                 style={{ backgroundColor: cfg.primary }}
               >
-                Get {cfg.name} Free
+                {L.getAppFree(cfg.name)}
               </a>
             )}
             {quizUrl && (
@@ -173,7 +231,7 @@ export default function ProductPage({ app, description, longDescription, feature
                 className="inline-block w-72 px-8 py-4 rounded-lg font-bold text-base text-center hover:opacity-90 transition"
                 style={{ border: `2px solid ${cfg.primary}`, color: cfg.primary }}
               >
-                Try the Free Practice Quiz →
+                {L.quizCta}
               </a>
             )}
           </div>
@@ -186,7 +244,7 @@ export default function ProductPage({ app, description, longDescription, feature
                 className="text-sm font-semibold"
                 style={{ color: cfg.primary }}
               >
-                Launch App →
+                {L.launchApp}
               </a>
             )}
             {appStoreUrl && (
@@ -196,14 +254,14 @@ export default function ProductPage({ app, description, longDescription, feature
                 style={{ color: cfg.primary }}
                 onClick={() => track('app_store_click', { app })}
               >
-                App Store →
+                {L.appStore}
               </a>
             )}
             <Link
               to="/signin"
               className="text-sm font-semibold text-[var(--color-muted-fg)] hover:text-white"
             >
-              Training Log In →
+              {L.trainingLogIn}
             </Link>
           </div>
         </div>
@@ -231,7 +289,7 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Screenshots: Before → After (visual proof first) ── */}
       <div className="bg-[#111114] border-y border-[var(--color-border)]">
         <div className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="text-2xl font-bold mb-8 text-center">See it in action</h2>
+          <h2 className="text-2xl font-bold mb-8 text-center">{L.seeItInAction}</h2>
           <div className="space-y-12">
             {shots.map((shot, i) => (
               <div key={i}>
@@ -278,8 +336,8 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Demo Video ─────────────────────────────────────────── */}
       {demoVideo && (
         <div className="mx-auto max-w-5xl px-4 py-16 text-center">
-          <h2 className="text-2xl font-bold mb-2">Watch a real diagnosis</h2>
-          <p className="text-[var(--color-muted-fg)] mb-6">From photo to fix — under 90 seconds.</p>
+          <h2 className="text-2xl font-bold mb-2">{L.watchDiagnosis}</h2>
+          <p className="text-[var(--color-muted-fg)] mb-6">{L.photoToFix}</p>
           <video
             className="mx-auto rounded-2xl border border-[var(--color-border)]"
             style={{ maxWidth: 360, maxHeight: 480, width: '100%' }}
@@ -318,14 +376,14 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Mid-page CTA ──────────────────────────────────────── */}
       {cfg.appUrl && (
         <div className="border-y border-[var(--color-border)] py-10 text-center" style={{ backgroundColor: `${cfg.primary}08` }}>
-          <p className="text-lg font-bold text-white mb-1">Start diagnosing in the field today</p>
-          <p className="text-sm text-[var(--color-muted-fg)] mb-4">Free to try. No credit card required.</p>
+          <p className="text-lg font-bold text-white mb-1">{L.midCtaTitle}</p>
+          <p className="text-sm text-[var(--color-muted-fg)] mb-4">{L.midCtaSub}</p>
           <a
             href={`${cfg.appUrl}/signup`}
             className="inline-block px-8 py-4 rounded-lg font-bold text-base text-white hover:opacity-90 transition"
             style={{ backgroundColor: cfg.primary }}
           >
-            Get {cfg.name} Free
+            {L.getAppFree(cfg.name)}
           </a>
         </div>
       )}
@@ -333,7 +391,7 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── About ─────────────────────────────────────────────── */}
       {longDescription && (
         <div className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="text-2xl font-bold mb-4">Why {cfg.name}?</h2>
+          <h2 className="text-2xl font-bold mb-4">{L.whyApp(cfg.name)}</h2>
           <div className="text-[var(--color-muted-fg)] text-base leading-relaxed max-w-3xl space-y-4">
             {longDescription.split('\n\n').slice(0, 2).map((para, i) => (
               <p key={i}>{para}</p>
@@ -345,7 +403,7 @@ export default function ProductPage({ app, description, longDescription, feature
       {/* ── Training ──────────────────────────────────────────── */}
       <div className="bg-[#111114] border-y border-[var(--color-border)]">
         <div className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="text-2xl font-bold mb-2 text-center">Certification Training</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center">{L.certTrainingTitle}</h2>
           {certTrustLine && (
             <p className="text-sm text-center mb-6" style={{ color: cfg.primary }}>{certTrustLine}</p>
           )}
@@ -376,15 +434,15 @@ export default function ProductPage({ app, description, longDescription, feature
           <div className="text-[var(--color-muted-fg)] text-base leading-relaxed max-w-3xl mx-auto space-y-4">
             <div className="flex gap-3 items-start">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <p>Study content built from current industry standards — not outdated textbooks.</p>
+              <p>{L.trainingBullet1}</p>
             </div>
             <div className="flex gap-3 items-start">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <p>Timed exams, untimed practice, and targeted weak-area drills that mirror the real test.</p>
+              <p>{L.trainingBullet2}</p>
             </div>
             <div className="flex gap-3 items-start">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12" /></svg>
-              <p>Track your readiness score across every domain — know when you're ready to sit for the exam.</p>
+              <p>{L.trainingBullet3}</p>
             </div>
           </div>
         </div>
@@ -392,7 +450,7 @@ export default function ProductPage({ app, description, longDescription, feature
 
       {/* ── Features ──────────────────────────────────────────── */}
       <div className="mx-auto max-w-5xl px-4 py-16">
-        <h2 className="text-2xl font-bold mb-4">Features</h2>
+        <h2 className="text-2xl font-bold mb-4">{L.featuresTitle}</h2>
         <ul className="grid gap-3 md:grid-cols-2 mb-12">
           {features.map((f) => (
             <li key={f} className="rounded-lg border border-[var(--color-border)] bg-[var(--color-card)] p-4 text-sm">
@@ -404,22 +462,22 @@ export default function ProductPage({ app, description, longDescription, feature
         {/* ── Bottom CTA ────────────────────────────────────────── */}
         {cfg.appUrl && (
           <div className="rounded-xl p-8 text-center mb-12" style={{ border: `2px solid ${cfg.primary}`, backgroundColor: `${cfg.primary}08` }}>
-            <p className="text-lg font-bold text-white mb-1">Ready to try {cfg.name}?</p>
-            <p className="text-sm text-[var(--color-muted-fg)] mb-4">Free to use. Upgrade when you're ready.</p>
+            <p className="text-lg font-bold text-white mb-1">{L.bottomCtaTitle(cfg.name)}</p>
+            <p className="text-sm text-[var(--color-muted-fg)] mb-4">{L.bottomCtaSub}</p>
             <a
               href={`${cfg.appUrl}/signup`}
               className="inline-block px-8 py-4 rounded-lg font-bold text-base text-white hover:opacity-90 transition"
               style={{ backgroundColor: cfg.primary }}
             >
-              Get {cfg.name} Free
+              {L.getAppFree(cfg.name)}
             </a>
           </div>
         )}
 
         <div className="flex justify-center md:justify-start gap-6 text-sm">
-          <Link to={`/${app}/support`} style={{ color: cfg.primary }}>Support</Link>
-          <Link to={`/${app}/privacy`} style={{ color: cfg.primary }}>Privacy Policy</Link>
-          <Link to={`/${app}/terms`} style={{ color: cfg.primary }}>Terms of Service</Link>
+          <Link to={`/${app}/support`} style={{ color: cfg.primary }}>{L.support}</Link>
+          <Link to={`/${app}/privacy`} style={{ color: cfg.primary }}>{L.privacy}</Link>
+          <Link to={`/${app}/terms`} style={{ color: cfg.primary }}>{L.terms}</Link>
         </div>
       </div>
     </div>

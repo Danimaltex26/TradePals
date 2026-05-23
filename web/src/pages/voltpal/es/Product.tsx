@@ -11,6 +11,7 @@ export default function VoltPalProductEs() {
   return (
     <ProductPage
       app="voltpal"
+      lang="es"
       languageToggle={{ enPath: '/voltpal', esPath: '/voltpal/es', currentLang: 'es' }}
       metaTitle="VoltPal — Asistente AI para Electricistas + NEC 2026 + Preparación Journeyman"
       metaDescription="Pasa Journeyman a la primera. Gana el boom de los data centers. VoltPal es el asistente AI de campo para electricistas — diagnóstico de tableros, troubleshooting de motores y preparación para el examen de licencia, todo en una sola app."
