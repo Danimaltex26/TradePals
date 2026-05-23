@@ -9,6 +9,7 @@ import SignIn from './pages/SignIn'
 import Account from './pages/Account'
 import NotFound from './pages/NotFound'
 import SplicePalProduct from './pages/splicepal/Product'
+import SplicePalCfot from './pages/splicepal/Cfot'
 import SplicePalPrivacy from './pages/splicepal/Privacy'
 import SplicePalTerms from './pages/splicepal/Terms'
 import SplicePalSupport from './pages/splicepal/Support'
@@ -55,6 +56,7 @@ import PoolPalJoin from './pages/poolpal/Join'
 import PoolPalProfile from './pages/poolpal/Profile'
 import VoltPalProduct from './pages/voltpal/Product'
 import VoltPalProductEs from './pages/voltpal/es/Product'
+import VoltPalJourneyman from './pages/voltpal/Journeyman'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
 import VoltPalSupport from './pages/voltpal/Support'
@@ -141,6 +143,7 @@ export default function App() {
         <Route path="account" element={<Account />} />
 
         <Route path="splicepal" element={<SplicePalProduct />} />
+        <Route path="splicepal/cfot" element={<SplicePalCfot />} />
         <Route path="splicepal/privacy" element={<SplicePalPrivacy />} />
         <Route path="splicepal/terms" element={<SplicePalTerms />} />
         <Route path="splicepal/support" element={<SplicePalSupport />} />
@@ -190,6 +193,7 @@ export default function App() {
 
         <Route path="voltpal" element={<VoltPalProduct />} />
         <Route path="voltpal/es" element={<VoltPalProductEs />} />
+        <Route path="voltpal/journeyman" element={<VoltPalJourneyman />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
         <Route path="voltpal/terms" element={<VoltPalTerms />} />
         <Route path="voltpal/support" element={<VoltPalSupport />} />

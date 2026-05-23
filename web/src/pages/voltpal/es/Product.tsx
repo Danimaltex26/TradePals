@@ -17,6 +17,7 @@ export default function VoltPalProductEs() {
       metaDescription="Pasa Journeyman a la primera. Gana el boom de los data centers. VoltPal es el asistente AI de campo para electricistas — diagnóstico de tableros, troubleshooting de motores y preparación para el examen de licencia, todo en una sola app."
       pathOverride="/voltpal/es"
       // Cert-first hero — Mexican Spanish translation of the English Option-A hook
+      certPrepLink={{ path: '/voltpal/journeyman', label: 'Ver la página completa de preparación Journeyman' }}
       certHook="Pasa Journeyman a la primera. Gana el boom de los data centers."
       certSubhook="Journeyman paga $25K+ más al año que aprendiz. VoltPal te lleva ahí."
       description="Asistente AI para electricistas + NEC 2026 + preparación para el examen Journeyman. Hecho para aprendices, journeymen y master electricians. Diagnostica tableros, soluciona motores y VFDs, consulta código, y estudia para el examen — todo desde tu teléfono."

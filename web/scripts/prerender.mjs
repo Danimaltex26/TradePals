@@ -40,6 +40,9 @@ const STATIC_ROUTES = [
   ...APPS.flatMap((a) => [`/${a}`, `/${a}/privacy`, `/${a}/terms`, `/${a}/support`]),
   // Spanish landing pages (Phase 1: VoltPal only)
   '/voltpal/es',
+  // Cert-prep landing pages (first wave: SplicePal CFOT + VoltPal Journeyman)
+  '/splicepal/cfot',
+  '/voltpal/journeyman',
 ]
 
 // ── Helpers ────────────────────────────────────────────────────────────────

@@ -50,6 +50,9 @@ type ProductPageProps = {
   // Language toggle (optional). Renders the EN | Español pill above the hero
   // when set. Only pages with a Spanish (or other-language) variant should pass this.
   languageToggle?: { enPath: string; esPath: string; currentLang: 'en' | 'es' }
+  // Optional link to a dedicated cert-prep landing page (e.g. /splicepal/cfot).
+  // Renders below the salary block when set, with anchor text the search engines pick up.
+  certPrepLink?: { path: string; label: string }
   /** Display language for built-in labels (CTAs, section headings, footer).
    * Defaults to 'en'. Spanish hub pages pass 'es' to switch the shared chrome to Mexican Spanish.
    * TODO[native-speaker review]: all 'es' strings in LABELS below are Claude-drafted. */
@@ -151,7 +154,7 @@ const LABELS = {
   },
 } as const
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle, lang = 'en' }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle, lang = 'en', certPrepLink }: ProductPageProps) {
   const L = LABELS[lang]
   const cfg = APPS[app]
 
@@ -383,6 +386,13 @@ export default function ProductPage({ app, description, longDescription, feature
           </div>
           {salaryBlock.sourceLabel && (
             <p className="text-xs text-[var(--color-muted-fg)] text-center mt-4">{L.source}: {salaryBlock.sourceLabel}</p>
+          )}
+          {certPrepLink && (
+            <p className="text-center mt-6">
+              <Link to={certPrepLink.path} className="text-sm font-semibold" style={{ color: cfg.primary }}>
+                {certPrepLink.label} →
+              </Link>
+            </p>
           )}
         </div>
       )}

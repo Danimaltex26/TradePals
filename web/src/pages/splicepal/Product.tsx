@@ -5,6 +5,7 @@ export default function SplicePalProduct() {
     <ProductPage
       app="splicepal"
       // Cert-first hero — Option A
+      certPrepLink={{ path: '/splicepal/cfot', label: 'See the full CFOT exam prep page' }}
       certHook="Pass CFOT on the first try. Get on a BEAD project."
       certSubhook="CFOT pays for itself in ~6 months. SplicePal gets you there."
       description="AI fiber companion + CFOT exam prep, built for splicers and OSP technicians. Photograph your OTDR, troubleshoot bad splices, and study for the exam — all from your phone."

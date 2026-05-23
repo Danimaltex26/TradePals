@@ -6,6 +6,7 @@ export default function VoltPalProduct() {
       app="voltpal"
       languageToggle={{ enPath: '/voltpal', esPath: '/voltpal/es', currentLang: 'en' }}
       // Cert-first hero — Option A style
+      certPrepLink={{ path: '/voltpal/journeyman', label: 'See the full Journeyman exam prep page' }}
       certHook="Pass journeyman on the first try. Win the data-center boom."
       certSubhook="Journeyman pays $25K+ more than apprentice. VoltPal gets you there."
       description="AI electrical companion + NEC 2026 + journeyman exam prep, built for apprentices, journeymen, and master electricians. Diagnose panels, troubleshoot motors and VFDs, look up code, and study for the exam — all from your phone."
