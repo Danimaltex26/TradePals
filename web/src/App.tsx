@@ -57,6 +57,9 @@ import PoolPalProfile from './pages/poolpal/Profile'
 import VoltPalProduct from './pages/voltpal/Product'
 import VoltPalProductEs from './pages/voltpal/es/Product'
 import VoltPalJourneyman from './pages/voltpal/Journeyman'
+import VoltPalApprentice from './pages/voltpal/Apprentice'
+import VoltPalMaster from './pages/voltpal/Master'
+import VoltPalNfpa70e from './pages/voltpal/Nfpa70e'
 import VoltPalPrivacy from './pages/voltpal/Privacy'
 import VoltPalTerms from './pages/voltpal/Terms'
 import VoltPalSupport from './pages/voltpal/Support'
@@ -193,7 +196,10 @@ export default function App() {
 
         <Route path="voltpal" element={<VoltPalProduct />} />
         <Route path="voltpal/es" element={<VoltPalProductEs />} />
+        <Route path="voltpal/apprentice" element={<VoltPalApprentice />} />
         <Route path="voltpal/journeyman" element={<VoltPalJourneyman />} />
+        <Route path="voltpal/master" element={<VoltPalMaster />} />
+        <Route path="voltpal/nfpa-70e" element={<VoltPalNfpa70e />} />
         <Route path="voltpal/privacy" element={<VoltPalPrivacy />} />
         <Route path="voltpal/terms" element={<VoltPalTerms />} />
         <Route path="voltpal/support" element={<VoltPalSupport />} />
