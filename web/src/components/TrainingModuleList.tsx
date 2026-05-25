@@ -81,11 +81,12 @@ export default function TrainingModuleList({ app }: { app: AppKey }) {
 
         if (modErr) throw modErr
 
-        // Fetch content section counts per module
+        // Fetch content section counts per module. VoltPal uses the new
+        // training_module_content table; others still use legacy training_content.
         const moduleIds = (mods || []).map((m: any) => m.id)
         const { data: contentCounts, error: cntErr } = await (client as any)
           .schema(getTrainingSchema(app))
-          .from('training_content')
+          .from(app === 'voltpal' ? 'training_module_content' : 'training_content')
           .select('module_id')
           .in('module_id', moduleIds)
 

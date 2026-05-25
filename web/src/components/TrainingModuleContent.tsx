@@ -418,11 +418,18 @@ export default function TrainingModuleContent({ app }: { app: AppKey }) {
       if (modErr) throw modErr
       setTitle(mod.title)
 
-      // Fetch content sections
+      // Fetch content sections. VoltPal uses the new platform-standard
+      // training_module_content table with content_markdown/section_type;
+      // the other 6 apps still use the legacy training_content table.
+      const isNewContent = app === 'voltpal'
       const { data: content, error: cntErr } = await (client as any)
         .schema(getTrainingSchema(app))
-        .from('training_content')
-        .select('id, section_number, section_title, content_type, content_text, standard_reference')
+        .from(isNewContent ? 'training_module_content' : 'training_content')
+        .select(
+          isNewContent
+            ? 'id, section_number, section_title, content_type:section_type, content_text:content_markdown'
+            : 'id, section_number, section_title, content_type, content_text, standard_reference',
+        )
         .eq('module_id', moduleId)
         .order('section_number')
 
