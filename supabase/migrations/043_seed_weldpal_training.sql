@@ -1,3 +1,23 @@
+-- ============================================================
+-- ⚠️  OBSOLETE — DO NOT RUN.  Superseded; intentionally never re-applied.
+-- ------------------------------------------------------------
+-- Verified against the live DB on 2026-06-05: weldpal.training_questions
+-- already exists and is fully populated by a DIFFERENT, more complete WeldPal
+-- content set (580 questions across CW/CAWI/CWI/CRAW/CWS, ~30 Q per module —
+-- titles like "Welding Processes Overview", "Base Metals and Filler Metals",
+-- "Weld Symbols and Blueprint Reading", plus CRAW & CWS cert levels).
+--
+-- This file's 12 module rows DID get inserted at some point but carry ZERO
+-- questions and collide on (cert_level, module_number) with the live set.
+-- Its 120 question INSERTs were never successfully loaded. Re-running this would
+-- only add redundant/conflicting questions onto those empty duplicate modules.
+--
+-- 043 is already marked applied in the migration ledger, so `supabase db push`
+-- skips it. The planned companion migration 055_create_weldpal_training_questions
+-- was NOT created — the table already exists, making it a no-op.
+-- Leave this file as a historical record only. Do not apply it.
+-- ============================================================
+
 -- 043_seed_weldpal_training.sql
 -- Seed training modules and questions for WeldPal (welding certifications).
 -- Cert levels: CW, CAWI, CWI
