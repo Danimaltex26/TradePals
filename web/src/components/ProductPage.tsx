@@ -42,6 +42,7 @@ type ProductPageProps = {
   stats?: StatItem[]        // Stats strip band below hero (recommended: 3–4 items)
   salaryBlock?: SalaryBlock // "What [cert] is worth" comparison block
   certTrustLine?: string    // One-line cert badge text in the Training section
+  validationNote?: string   // Trust line in the Training section, e.g. "validated against the current NEC". Renders with a shield-check icon only when provided.
   // SEO overrides — default to APPS[app].metaTitle / metaDescription if omitted.
   // Use for localized routes (e.g. /voltpal/es) that need a non-default page title.
   metaTitle?: string
@@ -154,7 +155,7 @@ const LABELS = {
   },
 } as const
 
-export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, metaTitle, metaDescription, pathOverride, languageToggle, lang = 'en', certPrepLink }: ProductPageProps) {
+export default function ProductPage({ app, description, longDescription, features, appStoreUrl, screenshots, trainingImages, demoVideo, certHook, certSubhook, quizUrl, stats, salaryBlock, certTrustLine, validationNote, metaTitle, metaDescription, pathOverride, languageToggle, lang = 'en', certPrepLink }: ProductPageProps) {
   const L = LABELS[lang]
   const cfg = APPS[app]
 
@@ -429,9 +430,18 @@ export default function ProductPage({ app, description, longDescription, feature
         <div className="mx-auto max-w-5xl px-4 py-16">
           <h2 className="text-2xl font-bold mb-2 text-center">{L.certTrainingTitle}</h2>
           {certTrustLine && (
-            <p className="text-sm text-center mb-6" style={{ color: cfg.primary }}>{certTrustLine}</p>
+            <p className={`text-sm text-center ${validationNote ? 'mb-3' : 'mb-6'}`} style={{ color: cfg.primary }}>{certTrustLine}</p>
           )}
-          {!certTrustLine && <div className="mb-6" />}
+          {validationNote && (
+            <div className="flex items-center justify-center gap-2 mb-6 max-w-xl mx-auto px-4">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={cfg.primary} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+              <p className="text-xs text-[var(--color-muted-fg)] text-center">{validationNote}</p>
+            </div>
+          )}
+          {!certTrustLine && !validationNote && <div className="mb-6" />}
           <div className="grid gap-6 grid-cols-3 mb-10">
             {[
               { label: L.trainingSlotCertPath, placeholder: <><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c0 1.657 2.686 3 6 3s6-1.343 6-3v-5" /></> },
